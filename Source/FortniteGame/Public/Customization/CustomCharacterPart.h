@@ -19,10 +19,16 @@ class FORTNITEGAME_API UCustomCharacterPart : public UPrimaryDataAsset
 public:
 
 	UPROPERTY(EditAnywhere)
+	TEnumAsByte<EFortCustomBodyType> BodyTypesPermitted;
+
+	UPROPERTY(EditAnywhere)
 	TEnumAsByte<EFortCustomPartType>                   CharacterPartType;
 
 	UPROPERTY(EditAnywhere)
 	TSoftObjectPtr<class USkeletalMesh>                SkeletalMesh;
+
+	UPROPERTY(EditAnywhere)
+	TArray<TSoftObjectPtr<class USkeletalMesh>>                MasterSkeletalMeshes;
 
 	UPROPERTY(EditAnywhere, Instanced)
 	class UCustomCharacterPartData*                    AdditionalData;
