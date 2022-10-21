@@ -10,7 +10,7 @@ For every custom asset to work correctly on Season 7 Chapter 1, you will need to
 
 Credits
 ----------------
+Zylox
 
-Although i've wrote this source by my self, i would like to mainly thank Tector and Taj for putting effort to this project which was meant to be a Large Custom Fortnite event.
+Sizzy
 
-Special thanks: boredcrow24, BIGD, mix, AllyJax, AveryMadness!
