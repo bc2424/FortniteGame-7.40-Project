@@ -11,6 +11,8 @@ With the code in this repository, you can make your custom modifications for For
 Credits
 ----------------
 Zylox - adding some classes
+
 Sizzy - Adding Base stuff
+
 Special Thanks: Taj, Tector, boredcrow24, BIGD, mix, AllyJax, AveryMadness!
 
