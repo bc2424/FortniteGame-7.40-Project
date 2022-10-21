@@ -3,114 +3,107 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "FortniteGame.h"
 #include "FortAccountItemDefinition.h"
+#include "GameplayTags.h"
+#include "FortniteGame/FortniteGame.h"
+#include "Items/FortWorldItemDefinition.h"
+#include "Items/FortItemDefinition.h"
+#include "Items/FortGiftBoxItemDefinition.h"
 #include "AthenaSeasonItemDefinition.generated.h"
 
-class UMaterialInterace;
-class UFortItemDefinition;
-//class UFortGiftBoxItemDefinition;
-
-// ----------
-// Structures
-// ----------
-
+/**
+ * 
+ */
 USTRUCT(BlueprintType)
-struct FAthenaSeasonBannerLevel
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	class UTexture2D*                   SurroundImage;                                 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	class UMaterialInterface*           BannerMaterial;                                
-};
-
-USTRUCT(BlueprintType)
-struct FAthenaSeasonBannerLevelSchedule
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere)
-	TArray<struct FAthenaSeasonBannerLevel>            Levels; 
-};
-
-USTRUCT(BlueprintType)
-struct FFortGiftBoxFortmatData
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString                                     StringAssetType;             
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString                                     StringData;                  
-};
-
-USTRUCT(BlueprintType)
-struct FChallengeGiftBoxData
-{
-	GENERATED_BODY()
-
-	//UPROPERTY(EditAnywhere)
-//	class UFortGiftBoxItemDefinition   GiftBoxToUse;      
-	UPROPERTY(EditAnywhere)
-	TArray<struct FFortGiftBoxFortmatData>             GiftBoxFormatData;    
-};
-
-USTRUCT(BlueprintType)
-struct FAthenaRewardItemReference
+struct FORTNITEGAME_API FFortGiftBoxFortmatData 
 {
 	GENERATED_BODY()
 
 public:
 	UPROPERTY(EditAnywhere)
-	class UFortItemDefinition*          ItemDefinition;                       
-	
+	FString StringAssetType; 
+
 	UPROPERTY(EditAnywhere)
-	FString                                     TemplateId;                  
-	
-	UPROPERTY(EditAnywhere)
-	int                                                Quantity;             
-	
-	/* Missed property offset. */
-	//uint8                                               Missed0[0x4];      
-	
-	UPROPERTY(EditAnywhere)
-	struct FChallengeGiftBoxData                       RewardGiftBox;        
-	
-	UPROPERTY(EditAnywhere)
-	bool                                               IsChaseReward;        
-	
-	UPROPERTY(EditAnywhere)
-	EAthenaRewardItemType                              RewardType;           
-	
-	/* Missed property offset. */
-	//uint8                                              Missed1[0x6];       
+	FString StringData;
 };
 
-USTRUCT(BlueprintType)
-struct FAthenaRewardScheduleLevel
+USTRUCT()
+struct FTrackDynamicBackground
 {
 	GENERATED_BODY()
 
+public:
 	UPROPERTY(EditAnywhere)
-	TArray<struct FAthenaRewardItemReference>          Rewards; 
+		TSoftObjectPtr<UTexture2D> BackgroundSubstance;
+
+	UPROPERTY(EditAnywhere)
+		FLinearColor PrimaryColor;
+
+	UPROPERTY(EditAnywhere)
+		FLinearColor SecondaryColor;
+
+	UPROPERTY(EditAnywhere)
+		FLinearColor TertiaryColor;
+
+	UPROPERTY(EditAnywhere)
+		bool bIsSpecial;
+
+	UPROPERTY(EditAnywhere)
+		bool bIsFoil;
+
+	UPROPERTY(EditAnywhere)
+		int MinimalDiscoveryLevel;
 };
 
 USTRUCT(BlueprintType)
-struct FAthenaSeasonalXPCurveEntry : public FTableRowBase
+struct FORTNITEGAME_API FChallengeGiftBoxData 
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int                                                Level;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int                                                XpToNextLevel;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int                                                XpTotal;
+public:
+	//UPROPERTY(EditAnywhere)
+//	 TSoftObjectPtr<UFortGiftBoxItemDefinition> GiftBoxToUse; 
 
-	/* Missed offset */
-	//uint8                                              UnknownData00[0x4];                              
+	UPROPERTY(EditAnywhere)
+	 TArray<FFortGiftBoxFortmatData> GiftBoxFormatData;
+};
+USTRUCT(BlueprintType)
+struct FORTNITEGAME_API FAthenaRewardItemReference 
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere)
+	TSoftObjectPtr<UFortItemDefinition> ItemDefinition;
+
+	UPROPERTY(EditAnywhere)
+	FString TemplateId;
+
+	UPROPERTY(EditAnywhere)
+	int Quantity; 
+
+	UPROPERTY(EditAnywhere)
+	FChallengeGiftBoxData RewardGiftBox; 
+
+	UPROPERTY(EditAnywhere)
+	bool IsChaseReward;
+
+	UPROPERTY(EditAnywhere)
+	EAthenaRewardItemType RewardType; 
+
+	UPROPERTY(EditAnywhere)
+	EAthenaRewardVisualImportanceType RewardVisualImportanceType; 
+};
+
+USTRUCT(BlueprintType)
+struct FORTNITEGAME_API FAthenaRewardScheduleLevel
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere)
+	TArray<FAthenaRewardItemReference> Rewards;
+
 };
 
 USTRUCT(BlueprintType)
@@ -118,107 +111,199 @@ struct FAthenaRewardSchedule
 {
 	GENERATED_BODY()
 
+public:
 	UPROPERTY(EditAnywhere)
-		TArray<struct FAthenaRewardScheduleLevel>          Levels;
+	TArray<FAthenaRewardScheduleLevel> Levels;
 };
 
-/**
- * 
- */
-UCLASS()
+USTRUCT()
+struct  FTrackCategory
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere)
+		TSoftObjectPtr<UObject> CategoryIcon;
+
+	UPROPERTY(EditAnywhere)
+		FText CategoryName;
+
+	UPROPERTY(EditAnywhere)
+		int CategoryStartingLevel;
+};
+
+UCLASS(BlueprintType)
 class FORTNITEGAME_API UAthenaSeasonItemDefinition : public UFortAccountItemDefinition
 {
 	GENERATED_BODY()
-	
+
 public:
 
 	UPROPERTY(EditAnywhere)
-	int                                                SeasonNumber;  
+		bool bXpOnlySeason;
 
 	UPROPERTY(EditAnywhere)
-	int                                                NumSeasonLevels;  
+		bool bUseAccoladePunchCard;
+
+	//Missed Offset
 
 	UPROPERTY(EditAnywhere)
-	int                                                NumBookLevels;    
+		UDataTable* SeasonXpOnlyExtendedCurve;
+	/*
+	UPROPERTY(EditAnywhere)
+		UFortMedalsPunchCardItemDefinition* DailyPunchCard;
 
 	UPROPERTY(EditAnywhere)
-	EAthenaSeasonShopVisibility                        SeasonShopVisibility;    
+		UFortRepeatableDailiesCardItemDefinition* RepeatableDailiesCard;
+*/
+	UPROPERTY(EditAnywhere)
+		int RestedXpDailyGrant;
 
 	UPROPERTY(EditAnywhere)
-	EAthenaChallengeTabVisibility                      ChallengesVisibility;               
+		int RestedXpMaxAccrue;
 
-	// Missed Property
-//	uint8                                              UnknownData00[0x2];       
-
-	// Seasson XP Curve
 	UPROPERTY(EditAnywhere)
-	class UDataTable*                                  SeasonXpCurve;                                        
-	UPROPERTY(EditAnywhere)
-	class UDataTable*                                  BookXpCurve;                                          
+		float RestedXpMultiplier;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString                                     SeasonStorefront;                                     
+	UPROPERTY(EditAnywhere)
+		int SeasonStartCalendarOffsetDays;
+
+	UPROPERTY(EditAnywhere)
+		int SeasonNumber;
+
+	UPROPERTY(EditAnywhere)
+		int NumSeasonLevels;
+
+	UPROPERTY(EditAnywhere)
+		int NumBookLevels;
+
+	UPROPERTY(EditAnywhere)
+		int NumAdditionalBookLevels;
+
+	UPROPERTY(EditAnywhere)
+		EAthenaSeasonShopVisibility SeasonShopVisibility;
+
+	UPROPERTY(EditAnywhere)
+		EAthenaChallengeTabVisibility ChallengesVisibility;
+
+	//Missed Offset
+
+	UPROPERTY(EditAnywhere)
+		UDataTable* SeasonXpCurve;
+
+	UPROPERTY(EditAnywhere)
+		UDataTable* BookXpCurve;
+
+	UPROPERTY(EditAnywhere)
+		FString SeasonStorefront;
+
+	UPROPERTY(EditAnywhere)
+		FString BattlePassOfferId;
+
+	UPROPERTY(EditAnywhere)
+		TArray<FString> BattlePassOfferIds;
+
+	UPROPERTY(EditAnywhere)
+		FString BattlePassLevelOfferID;
+
+	UPROPERTY(EditAnywhere)
+		TArray<FString> BattlePassLevelOfferIDs;
+
+	UPROPERTY(EditAnywhere)
+		TArray<FPrimaryAssetId> FreeTokenItemPrimaryAssetIds;
+
+	UPROPERTY(EditAnywhere)
+		TArray<int> FreeLevelsThatNavigateToBattlePass;
+
+	UPROPERTY(EditAnywhere)
+		TArray<int> FreeLevelsThatAutoOpenTheAboutScreen;
+
+	UPROPERTY(EditAnywhere)
+		TArray<FTrackCategory> TrackCategories;
+
+	UPROPERTY(EditAnywhere)
+		TArray<FTrackDynamicBackground> TrackPageBackgrounds;
+
+
+
+	UPROPERTY(EditAnywhere)
+		FAthenaRewardSchedule SeasonXpScheduleFree;
+
+	UPROPERTY(EditAnywhere)
+		FGameplayTag FreeSeasonItemContentTag;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString                                     BattlePassLevelOfferID;                               
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	struct FPrimaryAssetId                             FreeTokenItemPrimaryAssetId;                          
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TArray<int>                                        FreeLevelsThatNavigateToBattlePass;                   
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TArray<int>                                        FreeLevelsThatAutoOpenTheAboutScreen;                 
+   UPROPERTY(EditAnywhere)
+	FAthenaRewardSchedule BookXpScheduleFree;
 	
 	UPROPERTY(EditAnywhere)
-	struct FAthenaRewardSchedule                       SeasonXpScheduleFree;                                 
-		
+		FGameplayTag BattlePassFreeItemContentTag;
+	
+   UPROPERTY(EditAnywhere)
+	FAthenaRewardSchedule BookXpSchedulePaid;
+	
 	UPROPERTY(EditAnywhere)
-	struct FGameplayTag                                FreeSeasonItemContentTag;                             
-		
+		FGameplayTag BattlePassPaidItemContentTag;
+	
+   UPROPERTY(EditAnywhere)
+	FAthenaRewardSchedule AdditionalBookSchedule;
+	
 	UPROPERTY(EditAnywhere)
-	struct FAthenaRewardSchedule                       BookXpScheduleFree;                                   
-		
+		FGameplayTag BattlePassAdditionalItemContentTag;
+	/*
+   UPROPERTY(EditAnywhere)
+	FAthenaSeasonBannerLevelSchedule SeasonBannerSchedule;
+   UPROPERTY(EditAnywhere)
+   class UFortChallengeBundleItemDefinition* SeasonalGlyphChallengeBundle;
+   */
 	UPROPERTY(EditAnywhere)
-	struct FGameplayTag                                BattlePassFreeItemContentTag;                         
-		
+		FString GlyphTokenTemplateId;
+
 	UPROPERTY(EditAnywhere)
-	struct FAthenaRewardSchedule                       BookXpSchedulePaid;                                   
-		
+		class UDataTable* SeasonalGlyphRewards;
+
+
+	/*
 	UPROPERTY(EditAnywhere)
-	struct FGameplayTag                                BattlePassPaidItemContentTag;                         
-		
+	class UFortChallengeBundleScheduleDefinition* ChallengeSchedulePaid;
 	UPROPERTY(EditAnywhere)
-	struct FAthenaSeasonBannerLevelSchedule            SeasonBannerSchedule;                                 
-		
-	//UPROPERTY(EditAnywhere)
-	//class UFortChallengeBundleScheduleDefinition*      ChallengeSchedulePaid;                                
-		
-	//UPROPERTY(EditAnywhere)
-//	TArray<class UFortChallengeBundleScheduleDefinition*> ChallengeSchedulesAlwaysShown;                     
-		
+	TArray<UFortChallengeBundleScheduleDefinition*> ChallengeSchedulesAlwaysShown;
 	UPROPERTY(EditAnywhere)
-	struct FAthenaRewardScheduleLevel                  SeasonGrantsToEveryone;                               
-		
+	 FAthenaRewardScheduleLevel SeasonGrantsToEveryone;
+	 */
 	UPROPERTY(EditAnywhere)
-	struct FGameplayTag                                SeasonGrantsToEveryoneItemContentTag;                 
-		
+		FGameplayTag SeasonGrantsToEveryoneItemContentTag;
+
+	/*
+   UPROPERTY(EditAnywhere)
+	FAthenaRewardScheduleLevel SeasonFirstWinRewards;
+	*/
 	UPROPERTY(EditAnywhere)
-	struct FAthenaRewardScheduleLevel                  SeasonFirstWinRewards;                                
-		
+		FGameplayTag SeasonFirstWinItemContentTag;
+
+	/*
 	UPROPERTY(EditAnywhere)
-	struct FGameplayTag                                SeasonFirstWinItemContentTag;                         
-		
+	FAthenaRewardScheduleLevel BattleStarSubstitutionReward;
 	UPROPERTY(EditAnywhere)
-	struct FAthenaRewardScheduleLevel                  BattleStarSubstitutionReward;                         
-		
+	TArray<FXpDisplayConversion> XpDisplayOverride;
+	*/
 	UPROPERTY(EditAnywhere)
-	TArray<class UFortItemDefinition*>  ExpiringRewardTypes;                                  
-		
+		TSoftObjectPtr<UFortItemDefinition> XpItemDef;
+
 	UPROPERTY(EditAnywhere)
-	TArray<class UFortItemDefinition*>  TokensToRemoveAtSeasonEnd;                            
-		
-	// Missed property offset.
-	//uint8                                              MissedProperty[0x8];          
+		TArray<TSoftObjectPtr< UFortItemDefinition>> ExpiringRewardTypes;
+
+	UPROPERTY(EditAnywhere)
+		TArray<TSoftObjectPtr<UFortItemDefinition>> TokensToRemoveAtSeasonEnd;
+	/*
+	UPROPERTY(EditAnywhere)
+	TArray<FAthenaMidSeasonUpdate> MidSeasonUpdates;
+	*/
+	UPROPERTY(EditAnywhere)
+		bool bRemoveAllDailyQuestsAtSeasonEnd;
+
+	//Missed Offset
+
+	UPROPERTY(EditAnywhere)
+		TArray<FGameplayTag> FirstTimeTrackedBitFlags;
+
 };

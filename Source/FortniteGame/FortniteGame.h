@@ -1,15 +1,12 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
 
-// Pre-included headers
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogFortWorld, Log, All);
-
-/* Global Enumerations */
 
 UENUM(BlueprintType)
 enum class EAthenaRewardItemType : uint8
@@ -25,6 +22,7 @@ enum class EAthenaChallengeTabVisibility : uint8
 	Hide = 0,
 	ShowAlways = 1
 };
+
 
 UENUM(BlueprintType)
 enum class EAthenaSeasonShopVisibility : uint8
@@ -643,15 +641,159 @@ enum class EFortCustomPartType : uint8
 	NumTypes UMETA(Hidden)
 };
 
-UENUM()
-enum class EFortCustomBodyType : uint8
+UENUM(BlueprintType)
+enum class EFortTemplateAccess : uint8
 {
-	Small = 1,
-	Medium = 2,
-	MediumAndSmall = 3,
-	Large = 4,
-	LargeAndSmall = 5,
-	LargeAndMedium = 6,
-	All = 7,
-	Deprecated = 8
+	Normal = 0,
+	Trusted = 1,
+	Private = 2,
+	EFortTemplateAccess_MAX = 3,
+};
+
+UENUM(BlueprintType)
+enum class EFortCustomGender : uint8
+{
+	Male,
+	Female,
+	Both,
+	EFortCustomGender_MAX,
+};
+
+UENUM()
+enum class EFortAlteration : uint8
+{
+	GameplaySlot,
+	ComplexCosmeticSlot,
+	UserPickedCosmeticSlot,
+	ColorSlot,
+	HeroSpecializationTier1Slot,
+	HeroSpecializationTier2Slot,
+	HeroSpecializationTier3Slot,
+	HeroSpecializationTier4Slot,
+	HeroSpecializationTier5Slot,
+	EFortAlteration_MAX,
+};
+
+UENUM()
+enum class EFortCustomBodyType : uint8 {
+	NONE,
+	Small,
+	Medium,
+	MediumAndSmall,
+	Large,
+	LargeAndSmall,
+	LargeAndMedium,
+	All,
+	Deprecated,
+	EFortCustomBodyType_MAX,
+};
+
+UENUM()
+enum class ESubGame : uint8
+{
+	Campaign,
+	Athena,
+	Invalid,
+	Count,
+	Creative,
+	ESubGame_MAX,
+};
+
+UENUM()
+enum class EFortGiftWrapType : uint8
+{
+	System,
+	UserFree,
+	UserUnlock,
+	UserConsumable,
+	Message,
+	Ungift,
+	EFortGiftWrapType_MAX,
+};
+
+UENUM()
+enum class EAthenaRewardVisualImportanceType : uint8
+{
+	Normal,
+	Hot,
+	CrazyHot,
+	Crazy,
+	EAthenaRewardVisualImportanceType_MAX,
+};
+UENUM()
+enum class EItemProfileType : uint8
+{
+	Common,
+	Campaign,
+	Athena,
+	EItemProfileType_MAX,
+};
+UENUM()
+enum class EMontageVisibilityRule : uint8
+{
+	RequiredItem,
+	ForbiddenItem,
+	EMontageVisibilityRule_MAX,
+};
+
+UENUM()
+enum class EFXType : uint8
+{
+	GenericAnimNotify,
+	TrailAnimNotify,
+	WeaponImpactEffect,
+	WeaponMeleeImpactEffect,
+	Contrail,
+	Emote,
+	Trap,
+	Skin,
+	Glider,
+	Vehicle,
+	BackpackBling,
+	Water,
+	LootChest,
+	EnvironmentalAmbient,
+	WeaponRangedBeam,
+	WeaponBulletShells,
+	WeaponMuzzleFlashes,
+	PickAxe,
+	Curie,
+	Projectile,
+	EFXType_MAX,
+};
+
+UENUM()
+enum class EVariantUnlockType : uint8
+{
+	UnlockAll,
+	ExclusiveChoice,
+	EVariantUnlockType_MAX,
+};
+
+UENUM()
+enum class EAthenaPetAttachRule : uint8
+{
+	AttachToBackpack,
+	AttachToBody,
+	EAthenaPetAttachRule_MAX,
+};
+
+UENUM()
+enum class EFortHandIKOverrideType : uint8
+{
+	UseDefault,
+	ForceFK,
+	ForceIK,
+	ForceFKSnap,
+	EFortHandIKOverrideType_MAX,
+};
+
+UENUM()
+enum class EFortPlayerAnimBodyType : uint8
+{
+	Small,
+	Medium,
+	Large,
+	All,
+	EFortPlayerAnimBodyType_MAX,
 };
