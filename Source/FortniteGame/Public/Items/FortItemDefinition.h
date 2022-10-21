@@ -10,6 +10,7 @@
 #include "GameplayTagContainer.h"
 #include "Engine/DataTable.h"
 #include "FortniteGame.h"
+#include "Engine/CurveTable.h"
 #include "FortItemDefinition.generated.h"
 
 /* Weapon statistics structures */
@@ -500,53 +501,112 @@ class FORTNITEGAME_API UFortItemDefinition : public UMcpItemDefinitionBase
 
 public:
 
+	UPROPERTY(EditAnywhere)
+		EFortRarity Rarity;
 
+	UPROPERTY(EditAnywhere, AssetRegistrySearchable)
+		EFortItemType ItemType;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		EFortItemType                                      ItemType;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		EFortInventoryFilter                               FilterOverride;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TEnumAsByte<EFortQuality>                          Quality;                                        
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TEnumAsByte<EFortItemTier>                         Tier;                                           
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TEnumAsByte<EFortItemTier>                         MaxTier;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UDataTable*                         StatList;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		bool                                      bNeverPersisted;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       ItemTypeNameOverride;                                  
+	UPROPERTY(EditAnywhere)
+		EFortItemType PrimaryAssetIdItemTypeOverride;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int                                                MinLevel;                                       
+	UPROPERTY(EditAnywhere)
+		EFortInventoryFilter FilterOverride;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int                                                MaxLevel;                                       
+	UPROPERTY(EditAnywhere)
+		EFortItemTier Tier;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       DisplayName;                                           
+	UPROPERTY(EditAnywhere)
+		EFortItemTier MaxTier;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       ShortDescription;                                      
+	UPROPERTY(EditAnywhere)
+		EFortTemplateAccess Access;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       Description;                                           
+	UPROPERTY(EditAnywhere)
+		bool bIsAccountItem;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       DisplayNamePrefix;                                     
+	UPROPERTY(EditAnywhere, AssetRegistrySearchable)
+		bool bNeverPersisted;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       SearchTags;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		struct FGameplayTagContainer                       GameplayTags;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		EFortRarity                                        Rarity;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UTexture2D*                                  SmallPreviewImage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UTexture2D*                                  LargePreviewImage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int                                                MaxStackSize;
+	UPROPERTY(EditAnywhere)
+		bool bAllowMultipleStacks;
+
+	UPROPERTY(EditAnywhere)
+		bool bAutoBalanceStacks;
+
+	UPROPERTY(EditAnywhere)
+		bool bForceAutoPickup;
+
+	UPROPERTY(EditAnywhere)
+		bool bInventorySizeLimited;
+
+	UPROPERTY(EditAnywhere)
+		FText ItemTypeNameOverride;
+
+	UPROPERTY(EditAnywhere, AssetRegistrySearchable)
+		FText DisplayName;
+
+	UPROPERTY(EditAnywhere)
+		FText ShortDescription;
+
+	UPROPERTY(EditAnywhere)
+		FText Description;
+
+	UPROPERTY(EditAnywhere)
+		FText DisplayNamePrefix;
+
+	UPROPERTY(EditAnywhere)
+		FText SearchTags;
+
+	UPROPERTY(EditAnywhere)
+		FGameplayTagContainer GameplayTags;
+
+	UPROPERTY(EditAnywhere)
+		FGameplayTagContainer AutomationTags;
+
+	UPROPERTY(EditAnywhere)
+		FGameplayTagContainer SecondaryCategoryOverrideTags;
+
+	UPROPERTY(EditAnywhere)
+		FGameplayTagContainer TertiaryCategoryOverrideTags;
+
+	//UPROPERTY(EditAnywhere)
+		//FScalableFloat MaxStackSize;
+
+	//UPROPERTY(EditAnywhere)
+		//FScalableFloat PurchaseItemLimit;
+
+	UPROPERTY(EditAnywhere)
+		float FrontendPreviewScale;
+
+	UPROPERTY(EditAnywhere)
+		FCurveTableRowHandle RatingLookup;
+
+	UPROPERTY(EditAnywhere)
+		class UTexture2D* WidePreviewImage;
+
+	UPROPERTY(EditAnywhere)
+		class UTexture2D* SmallPreviewImage;
+
+	UPROPERTY(EditAnywhere)
+		class UTexture2D* LargePreviewImage;
+
+	UPROPERTY(EditAnywhere)
+		FSoftObjectPath DisplayAssetPath;
+
+	//UPROPERTY(EditAnywhere)
+		//UFortItemSeriesDefinition* Series;
+
+	UPROPERTY(EditAnywhere)
+		FVector FrontendPreviewPivotOffset;
+
+	UPROPERTY(EditAnywhere)
+		FRotator FrontendPreviewInitialRotation;
+
+	UPROPERTY(EditAnywhere)
+		TSoftObjectPtr<UStaticMesh> FrontendPreviewMeshOverride;
+
+	UPROPERTY(EditAnywhere)
+		TSoftObjectPtr<USkeletalMesh> FrontendPreviewSkeletalMeshOverride;
+
 };

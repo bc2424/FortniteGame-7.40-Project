@@ -9,9 +9,33 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class FORTNITEGAME_API UFortWorkerType : public UFortCharacterType
 {
 	GENERATED_BODY()
-	
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		EFortCustomGender Gender;
+
+	//UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	//TSoftObjectPtr<UFortItemIconDefinition> FixedPortrait;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool bIsManager;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FGameplayTagContainer ManagerSynergyTag;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FGameplayTagContainer FixedPersonalityTag;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FGameplayTagContainer FixedSetBonusTag;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int MatchingPersonalityBonus;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int MismatchingPersonalityPenalty;
 };

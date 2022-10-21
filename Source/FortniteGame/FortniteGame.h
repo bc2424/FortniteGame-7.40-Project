@@ -797,3 +797,13 @@ enum class EFortPlayerAnimBodyType : uint8
 	All,
 	EFortPlayerAnimBodyType_MAX,
 };
+
+UENUM()
+enum class EFortFacialAnimTypes : uint8 
+{
+	Default,
+	FaceOnly,
+	FullHead,
+	FromAmplitude,
+	Max,
+};
