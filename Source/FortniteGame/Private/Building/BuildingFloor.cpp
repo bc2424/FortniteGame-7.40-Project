@@ -1,4 +1,9 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+﻿#include "BuildingFloor.h"
 
-#include "BuildingFloor.h"
+bool ABuildingFloor::IsBalcony() const {
+	return false;
+}
 
+ABuildingFloor::ABuildingFloor() {
+	this->bShouldIgnoreForHorizontalHotspotSearch = true;
+}

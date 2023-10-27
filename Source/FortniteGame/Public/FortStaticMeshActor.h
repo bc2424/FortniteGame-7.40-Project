@@ -14,7 +14,16 @@
  * 
  */
 UCLASS()
-class FORTNITEGAME_API AFortStaticMeshActor : public AStaticMeshActor
+class AFortStaticMeshActor : public AStaticMeshActor
 {
 	GENERATED_BODY()
+
+public:
+	
+	UPROPERTY(VisibleAnywhere, Transient)
+	TArray<UNavRelevantComponent*> LinkComps;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bUseAutoNavmeshFlags;
+	
 };

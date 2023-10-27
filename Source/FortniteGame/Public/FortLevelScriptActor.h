@@ -13,5 +13,8 @@ UCLASS()
 class FORTNITEGAME_API AFortLevelScriptActor : public ALevelScriptActor
 {
 	GENERATED_BODY()
+public:
 	
+	UPROPERTY(EditAnywhere)
+	uint8 bWorldReadyCalled;
 };

@@ -10,8 +10,15 @@
 
 DECLARE_LOG_CATEGORY_EXTERN(LogFortEditor, All, All)
 
-class FortniteEditor : public IModuleInterface
+class FFortniteEditor : public IModuleInterface
 {
 public:
 	virtual void StartupModule() override;
+};
+
+class FFortEditorToolInterface : public IModuleInterface
+{
+public:
+	virtual void StartupModule() override;
+	virtual void ShutdownModule() override;
 };

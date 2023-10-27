@@ -1,0 +1,10 @@
+﻿#pragma once
+#include "CoreMinimal.h"
+#include "BuildingFoundation.h"
+#include "BuildingFoundation3x3.generated.h"
+
+UCLASS(Blueprintable, MinimalAPI)
+class ABuildingFoundation3x3 : public ABuildingFoundation {
+	GENERATED_BODY()
+};
+

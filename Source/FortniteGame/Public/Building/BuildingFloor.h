@@ -1,17 +1,19 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #pragma once
-
 #include "CoreMinimal.h"
-#include "Building/BuildingSMActor.h"
+#include "BuildingSMActor.h"
 #include "BuildingFloor.generated.h"
 
-/**
- * 
- */
-UCLASS()
-class FORTNITEGAME_API ABuildingFloor : public ABuildingSMActor
-{
+UCLASS(Blueprintable, MinimalAPI)
+class ABuildingFloor : public ABuildingSMActor {
 	GENERATED_BODY()
-	
+public:
+protected:
+	UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	uint8 bShouldIgnoreForHorizontalHotspotSearch: 1;
+    
+public:
+	ABuildingFloor();
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	bool IsBalcony() const;
+    
 };

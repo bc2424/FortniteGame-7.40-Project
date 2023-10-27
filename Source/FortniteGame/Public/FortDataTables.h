@@ -1,21 +1,13 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "GameplayTags.h"
+#include "Quests/FortQuestItemDefinition.h"
+#include "ChallengeBundles/FortChallengeBundleItemDefinition.h"
 #include "FortDataTables.generated.h"
-
-/**
- * 
- */
-UCLASS()
-class FORTNITEGAME_API UFortDataTables : public UDataTable
-{
-	GENERATED_BODY()
-	
-};
 
 USTRUCT()
 struct FORTNITEGAME_API FTransmogSacrifice : public FTableRowBase
@@ -27,6 +19,55 @@ public:
 	UPROPERTY(EditAnywhere)
 		int TransmogSacrificePoints;
 };
+
+USTRUCT()
+struct FORTNITEGAME_API FFortLootLevelData : public FTableRowBase
+{
+	GENERATED_BODY()
+	
+public:
+	UPROPERTY(EditAnywhere)
+	 FName Category;
+	
+	UPROPERTY(EditAnywhere)
+	int LootLevel;
+
+	UPROPERTY(EditAnywhere)
+	int MinItemLevel;
+
+	UPROPERTY(EditAnywhere)
+	int MaxItemLevel;                                     
+};
+
+USTRUCT()
+struct FGlyphRewardInfo : public FTableRowBase
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere)
+	 UFortChallengeBundleItemDefinition* BundleDef;
+
+	UPROPERTY(EditAnywhere)
+	 UFortQuestItemDefinition* QuestDef; 
+};
+
+USTRUCT()
+struct FORTNITEGAME_API FAthenaSeasonalXPCurveEntry : public FTableRowBase
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere)
+	int Level;
+	
+	UPROPERTY(EditAnywhere)
+	int XpToNextLevel;
+
+	UPROPERTY(EditAnywhere)
+	int XpTotal;                                           
+};
+
 
 USTRUCT()
 struct FCosmeticSetDataRow : public FTableRowBase

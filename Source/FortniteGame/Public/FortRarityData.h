@@ -8,60 +8,58 @@
 #include "FortRarityData.generated.h"
 
 USTRUCT(BlueprintType)
-struct FFortRarityItemData
-{
+struct FORTNITEGAME_API FFortRarityItemData {
 	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FText                                       Name;               
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FLinearColor                                Color1;                                              
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FLinearColor                                Color2;                                        
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FLinearColor                                Color3;                                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FLinearColor                                Color4;                                    
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FLinearColor                                Color5;                         
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Radius;                                
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Falloff;                              
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Brightness;                          
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Roughness;                           
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Glow;         
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	FText Name;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	FLinearColor Color1;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	FLinearColor Color2;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	FLinearColor Color3;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	FLinearColor Color4;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	FLinearColor Color5;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	float Radius;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	float Falloff;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	float Brightness;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	float Roughness;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	float Glow;
 };
 
-/**
- * 
- */
 UCLASS()
 class FORTNITEGAME_API UFortRarityData : public UDataAsset
 {
 	GENERATED_BODY()
 
 public:
+	
+	UPROPERTY(EditAnywhere)
+		FFortRarityItemData RarityCollection[8];
 
-	UFUNCTION(BlueprintPure)
-		static struct FFortRarityItemData BPGetRarityData(EFortRarity Rarity)
-	{
-		return FFortRarityItemData();
-	};
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<FFortRarityItemData> RarityCollection;
+	UFortRarityData();
+	UFUNCTION(BlueprintCallable)
+    static FFortRarityItemData BPGetRarityData(EFortRarity Rarity);
+    
+	UFUNCTION(BlueprintCallable)
+	static FFortColorPalette BPGetRarityColorPalette(EFortRarity Rarity);
+    
 };

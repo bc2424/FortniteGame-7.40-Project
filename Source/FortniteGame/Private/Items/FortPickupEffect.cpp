@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #include "FortPickupEffect.h"
 #include "Engine/StaticMesh.h"
@@ -29,7 +29,7 @@ AFortPickupEffect::AFortPickupEffect()
 	StaticMeshComponent->AttachTo(RootComponent);
 	SkeletalMeshComponent->AttachTo(RootComponent);
 
-	bDoNotTickSkeletalMeshComponents ? SkeletalMeshComponent->bTickInEditor = false : SkeletalMeshComponent->bTickInEditor = true;
+	//bDoNotTickSkeletalMeshComponents ? SkeletalMeshComponent->bTickInEditor = false : SkeletalMeshComponent->bTickInEditor = true;
 }
 
 // Called when the game starts or when spawned
@@ -39,18 +39,16 @@ void AFortPickupEffect::BeginPlay()
 }
 
 void AFortPickupEffect::OnConstruction(const FTransform & Transform)
-{
-	/* ---- Item definition support ----*/
-    /* @ Setting the skeletal mesh      */
+{/*
 	if (ItemDefinition)
 	{
-		if (USkeletalMesh* PickupSkeletalMesh = ItemDefinition->PickupSkeletalMesh)
+		if (TSoftObjectPtr<USkeletalMesh>* PickupSkeletalMesh = ItemDefinition->PickupSkeletalMesh)
 		{
 			SkeletalMesh = PickupSkeletalMesh;
 		}
-	}
+	}*/
 
-	/* @ Making sure one of them is valid, we are using 'else if' because we don't want both, skeletal mesh and static mesh to show up */
+	// @ Making sure one of them is valid, we are using 'else if' because we don't want both, skeletal mesh and static mesh to show up
 	if (StaticMesh)
 	{
 		StaticMeshComponent->SetStaticMesh(StaticMesh);

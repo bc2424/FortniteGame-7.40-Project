@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -6,36 +6,12 @@
 #include "Engine/DataAsset.h"
 #include "Styling/SlateBrush.h"
 #include "GameplayTagContainer.h"
+#include "FortniteGame.h"
+#include "FortMission_Structs.h"
 #include "FortMissionGenerator.generated.h"
 
 USTRUCT(BlueprintType)
-struct FFortMultiSizeBrush
-{
-	GENERATED_BODY()
-public:
-
-		
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FSlateBrush                                 Brush_XXS;                                  
-		
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FSlateBrush                                 Brush_XS;                                   
-		
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FSlateBrush                                 Brush_S;                                    
-		
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FSlateBrush                                 Brush_M;                                    
-		
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FSlateBrush                                 Brush_L;                                    
-		
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FSlateBrush                                 Brush_XL;                                   
-};
-
-USTRUCT(BlueprintType)
-struct FFortPlayerSpawnPadPlacementData
+struct FORTNITEGAME_API FFortPlayerSpawnPadPlacementData
 {
 	GENERATED_BODY()
 public:
@@ -44,7 +20,7 @@ public:
 	class UDataAsset*                                   PlacementQuery;                             
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftClassPtr<class UClass>                       ActorToPlace;                                
+	TSoftClassPtr<UClass>                       ActorToPlace;                                
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bSnapToGrid;                                
@@ -57,7 +33,7 @@ public:
 };
 
 USTRUCT(BlueprintType)
-struct FZoneLoadingScreenConfig
+struct FORTNITEGAME_API FZoneLoadingScreenConfig
 {
 	GENERATED_BODY()
 public:
@@ -77,7 +53,7 @@ public:
 };
 
 USTRUCT(BlueprintType)
-struct FFortAthenaLTMConfig
+struct FORTNITEGAME_API FFortAthenaLTMConfig
 {
 	GENERATED_BODY()
 public:
@@ -88,25 +64,6 @@ public:
 	FText                                       FrontEndDescription;                               
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText                                       DisabledMessage;                                   
-};
-
-USTRUCT(BlueprintType)
-struct FFortPossibleMission
-{
-	GENERATED_BODY()
-public:
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<class UFortMissionInfo>             MissionInfo;                                
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Weight;                                     
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MinAlwaysGenerated;                         
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsPrototype;                               
 };
 
 

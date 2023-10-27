@@ -1,4 +1,8 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+﻿#include "BuildingProp.h"
 
-#include "BuildingProp.h"
+float ABuildingProp::BlueprintModifyIncomingDamage_Implementation(float Damage, const FGameplayTagContainer& InTags, const FGameplayEffectContextHandle& EffectContext, AController* EventInstigator, AActor* DamageCauser) {
+	return 0.0f;
+}
 
+ABuildingProp::ABuildingProp() {
+}

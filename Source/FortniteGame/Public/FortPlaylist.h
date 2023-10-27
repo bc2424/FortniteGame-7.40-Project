@@ -5,140 +5,178 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "FortniteGame.h"
+#include "PlaylistUserOptions.h"
+#include "FortWorldItemDefinition.h"
 #include "GameplayTagContainer.h"
+#include "FortGameplayModifierItemDefinition.h"
+#include "FortTimeOfDayManager.h"
 #include "FortPlaylist.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
-class FORTNITEGAME_API UFortPlaylist : public UPrimaryDataAsset
+class UFortSharedAssetList : public UDataAsset
 {
-	GENERATED_BODY()
-	
+    GENERATED_BODY()
 public:
+    UPROPERTY(EditAnywhere)
+    TArray<UFortWorldItemDefinition*> SharedItemsToFullyLoad;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                PlaylistId;                             
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName                                       PlaylistName;                                  
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MinPlayers;                             
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MaxPlayers;                             
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MaxTeamCount;                           
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MaxTeamSize;                            
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MaxSocialPartySize;                     
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MaxSquadSize;                           
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                MaxSquads;                              
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               EnforceSquadFill;                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bAllowSquadFillOption = 1;                  
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bAllowJoinInProgress;                               
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FText                                       JoinInProgressMatchType;                
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bAllowBroadcasting;                           
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UPlaylistUserOptions*                        UserOptions;                            
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<TSoftObjectPtr<class UWorld>>               AdditionalLevels;                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8                                              DefaultFirstTeam;                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8                                              DefaultLastTeam;                                 
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FGameplayTagContainer                       GameplayTagContainer;                   
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EFriendlyFireType                                  FriendlyFireType;                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bUseFriendlyFireAimAssist;                         
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                LootLevel;                              
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FGameplayTagQuery                           LootTagQuery;                           
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                BuildingLevelOverride;                  
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EDBNOType                                          DBNOType;                                                   
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SpawnImmunityTime;                                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<TSoftObjectPtr<class UFortGameplayModifierItemDefinition>> ModifierList;            
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftClassPtr<class UClass>                       TimeOfDayManager;                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<class UFortWorldItemDefinition*>            ItemsToFullyLoad;                       
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsDefaultPlaylist;                     
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FText                                       UIDisplayName;                                 
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FText                                       UIDescription;                                 
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FGameplayTagContainer                       HUDElementsToHide;                      
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<class UDataTable>                   LootTierData;                           
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<class UDataTable>                   LootPackages;                           
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<class UDataTable>                   RangedWeapons;                          
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<class UCurveTable>                  GameData;                               
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<class UCurveTable>                  ResourceRates;                          
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              GarbageCollectionFrequency;             
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ServerPerformanceEventFrequency;        
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ServerMetricsEventFrequency;           
+    UPROPERTY(EditAnywhere)
+    TArray<TSoftObjectPtr<UWorld>> SharedAdditionalLevels;                            
+};
+UCLASS()
+class UFortSharedAssetGroup : public UDataAsset
+{
+    GENERATED_BODY()
+public:
+    UPROPERTY(EditAnywhere)
+    TArray<UFortSharedAssetList*> SharedAssetsToLoad;
+};
 
+UCLASS()
+class UFortConditionalAssetGroup : public UDataAsset
+{
+    GENERATED_BODY()
+public:
+    UPROPERTY(EditAnywhere)
+    TMap<FString, UFortSharedAssetList*> ConditionalAssetsToLoad; 
+
+};
+
+UCLASS()
+class UFortPlaylist : public UPrimaryDataAsset
+{
+    GENERATED_BODY()
+public:
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 PlaylistId;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FName PlaylistName;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 MinPlayers;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 MaxPlayers;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 MaxTeamCount;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 MaxTeamSize;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 MaxSocialPartySize;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 MaxSquadSize;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 MaxSquads;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    bool EnforceSquadFill;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    bool bAllowSquadFillOption;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    bool bAllowJoinInProgress;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FText JoinInProgressMatchType;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    bool bAllowBroadcasting;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    UPlaylistUserOptions* UserOptions;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TArray<TSoftObjectPtr<UWorld>> AdditionalLevels;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    uint8 DefaultFirstTeam;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    uint8 DefaultLastTeam;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FGameplayTagContainer GameplayTagContainer;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    EFriendlyFireType FriendlyFireType;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    bool bUseFriendlyFireAimAssist;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 LootLevel;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FGameplayTagQuery LootTagQuery;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    int32 BuildingLevelOverride;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    EDBNOType DBNOType;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    float SpawnImmunityTime;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TArray<EAthenaGamePhaseStep> SkippedGamePhaseNotification;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TArray<TSoftObjectPtr<UFortGameplayModifierItemDefinition>> ModifierList;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TSoftClassPtr<AFortTimeOfDayManager> TimeOfDayManager;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TArray<UFortWorldItemDefinition*> ItemsToFullyLoad;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    UFortSharedAssetGroup* SharedAssetGroup;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    UFortConditionalAssetGroup* ConditionalAssetGroup;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    bool bIsDefaultPlaylist;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FText UIDisplayName;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FText UIDescription;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FGameplayTagContainer HUDElementsToHide;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TSoftObjectPtr<UDataTable> LootTierData;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TSoftObjectPtr<UDataTable> LootPackages;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TSoftObjectPtr<UDataTable> RangedWeapons;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TSoftObjectPtr<UCurveTable> GameData;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    TSoftObjectPtr<UCurveTable> ResourceRates;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    float GarbageCollectionFrequency;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    float ServerPerformanceEventFrequency;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    float ServerMetricsEventFrequency;
 };

@@ -9,6 +9,10 @@ public class FortniteGameTarget : TargetRules
 	{
 		Type = TargetType.Game;
 
-		ExtraModuleNames.AddRange( new string[] { "FortniteGame", "FortniteEditor", "FortniteUI" } );
+		ExtraModuleNames.AddRange( new string[] { 
+			"FortniteGame", 
+			"FortniteUI",
+            "FortniteEngineLoadingScreen"
+        } );
     }
 }

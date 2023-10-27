@@ -1,4 +1,8 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+﻿#include "BuildingTimeOfDayLights.h"
 
-#include "BuildingTimeOfDayLights.h"
+void ABuildingTimeOfDayLights::GetTimeOfDayBlueprintDefaultVariables_Implementation(FTimeOfDayBlueprintDefaultVariables& OutVariables) {
+}
+
+ABuildingTimeOfDayLights::ABuildingTimeOfDayLights() {
+}
 

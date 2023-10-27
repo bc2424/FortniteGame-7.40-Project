@@ -1,17 +1,16 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #pragma once
-
 #include "CoreMinimal.h"
-#include "Building/BuildingFloor.h"
+#include "BuildingFloor.h"
+#include "FortniteGame.h"
 #include "BuildingStairs.generated.h"
 
-/**
- * 
- */
-UCLASS()
-class FORTNITEGAME_API ABuildingStairs : public ABuildingFloor
-{
+UCLASS(Blueprintable, MinimalAPI)
+class ABuildingStairs : public ABuildingFloor {
 	GENERATED_BODY()
-	
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	TEnumAsByte<EBuildingStairsRailing::Type> RailingType;
+    
+	ABuildingStairs();
 };
+

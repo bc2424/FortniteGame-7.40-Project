@@ -1,4 +1,6 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+﻿#include "BuildingStairs.h"
 
-#include "BuildingStairs.h"
+ABuildingStairs::ABuildingStairs() {
+	this->RailingType = EBuildingStairsRailing::Partial;
+}
 

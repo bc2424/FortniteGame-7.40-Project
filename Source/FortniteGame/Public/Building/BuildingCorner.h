@@ -1,17 +1,19 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #pragma once
-
 #include "CoreMinimal.h"
-#include "Building/BuildingAutoNav.h"
+#include "BuildingAutoNav.h"
 #include "BuildingCorner.generated.h"
 
-/**
- * 
- */
-UCLASS()
-class FORTNITEGAME_API ABuildingCorner : public ABuildingAutoNav
-{
+class ABuildingSMActor;
+
+UCLASS(Blueprintable, MinimalAPI)
+class ABuildingCorner : public ABuildingAutoNav {
 	GENERATED_BODY()
-	
+public:
+protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+	ABuildingSMActor* PrimaryWall;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+	ABuildingSMActor* SecondaryWall;
 };
+

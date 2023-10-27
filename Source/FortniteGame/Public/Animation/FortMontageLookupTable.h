@@ -1,10 +1,11 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTags.h"
+#include "Animation/AnimMontage.h"
 #include "FortMontageLookupTable.generated.h"
 
 
@@ -14,20 +15,18 @@ struct FMontageLookupData
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere)
-		FGameplayTagContainer GameplayTags;
+	//UPROPERTY(EditAnywhere, meta = (IgnoreForMemberInitializationTest))
+		//FGameplayTagContainer GameplayTags;
 
-	UPROPERTY(EditAnywhere)
-		TSoftObjectPtr<UAnimMontage> AnimMontage;
-
+	UPROPERTY(EditAnywhere, meta = (IgnoreForMemberInitializationTest))
+		TSoftObjectPtr<UAnimMontage> AnimMontage = nullptr;
 };
 
 UCLASS()
-class FORTNITEGAME_API UFortMontageLookupTable : public UDataAsset
+class UFortMontageLookupTable : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
-
 public:
-	UPROPERTY(EditAnywhere)
-		TArray<FMontageLookupData> MontageLookupDataArray;
+	UPROPERTY(EditAnywhere, Category = "Montage Lookup Data", meta = (IgnoreForMemberInitializationTest))
+	TArray<FMontageLookupData> MontageLookupDataArray;
 };

@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -6,9 +6,6 @@
 #include "NavigationData.h"
 #include "FortNavigationGraph.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class FORTNITEGAME_API AFortNavigationGraph : public ANavigationData
 {

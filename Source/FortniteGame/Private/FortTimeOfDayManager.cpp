@@ -8,9 +8,9 @@ AFortTimeOfDayManager::AFortTimeOfDayManager()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	RootComponent = CreateDefaultSubobject<USceneComponent>(L"DefaultSceneRoot");
+	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
 
 	/* Creating the default weapon mesh */
-	SkyDomeMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(L"SkyDomeMeshComp");
-	SkyDomeMeshComp->AttachTo(RootComponent);
+	SkyDomeMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SkyDomeMeshComp"));
+	SkyDomeMeshComp->SetupAttachment(RootComponent);
 }

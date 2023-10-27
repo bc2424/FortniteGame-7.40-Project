@@ -2,3 +2,8 @@
 
 #include "FortWeaponItemDefinition.h"
 
+UFortWeaponItemDefinition::UFortWeaponItemDefinition()
+{
+	ItemType = EFortItemType::Weapon;
+	
+}

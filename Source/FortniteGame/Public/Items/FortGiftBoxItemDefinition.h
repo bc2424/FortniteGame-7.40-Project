@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -16,6 +16,7 @@ class UFortGiftBoxItemDefinition : public UFortAccountItemDefinition
 	GENERATED_BODY()
 
 public:
+	UFortGiftBoxItemDefinition();
 	UPROPERTY(EditAnywhere)
 		ESubGame RestrictToSubgame;
 
@@ -57,4 +58,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 		FSoftClassPath CustomLeftsideContent;
+
+	virtual FPrimaryAssetId GetPrimaryAssetId() const override
+	{
+		return FPrimaryAssetId("GiftBox", GetFName());
+	}
 };

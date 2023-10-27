@@ -29,9 +29,6 @@ struct FFortMtxGradient
 	struct FLinearColor                                Stop;                                               
 };
 
-/**
- * 
- */
 UCLASS()
 class FORTNITEUI_API UFortMtxOfferData : public UPrimaryDataAsset
 {

@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 #include "CoreMinimal.h"
@@ -10,19 +10,19 @@ class AFortInventory;
 UCLASS()
 class FORTNITEGAME_API AFortPlayerController : public APlayerController
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
-	UFUNCTION(BlueprintCallable)
-		void ServerAttemptInteract(class AActor* ReceivingActor);
+    UFUNCTION(BlueprintCallable)
+        void ServerAttemptInteract(class AActor* ReceivingActor);
 
-	UFUNCTION()
-		void HandleWorldInventoryLocalUpdate();
+    UFUNCTION()
+        void HandleWorldInventoryLocalUpdate();
 
 public:
 
-	/** @ Returns World Inventory object */
-	AFortInventory* GetWorldInventory() const { return WorldInventory; }
+    /** @ Returns World Inventory object */
+    AFortInventory* GetWorldInventory() const { return WorldInventory; }
 
-	UPROPERTY(EditAnywhere, ReplicatedUsing=HandleWorldInventoryLocalUpdate)
-	class AFortInventory*                              WorldInventory;
+    UPROPERTY(EditAnywhere, ReplicatedUsing=HandleWorldInventoryLocalUpdate)
+    class AFortInventory*                              WorldInventory;
 };

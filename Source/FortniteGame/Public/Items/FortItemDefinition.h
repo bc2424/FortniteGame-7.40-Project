@@ -1,612 +1,257 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 /* FortItemDefinition */
 /* * Base Definition class for items in Fortnite */
+#include "Styling/SlateBrush.h"
 #include "CoreMinimal.h"
-#include "McpItemDefinitionBase.h"
-#include "FortniteGame/Public/Items/FortItem.h"
+#include "McpProfileSys/Public/McpItemDefinitionBase.h"
+#include "Items/FortItem.h"
 #include "Engine/Texture2D.h"
 #include "GameplayTagContainer.h"
 #include "Engine/DataTable.h"
+#include "UI/FortTooltipDisplayStatsList.h"
 #include "FortniteGame.h"
+#include "Engine/SkeletalMesh.h"
+#include "Engine/StaticMesh.h"
 #include "Engine/CurveTable.h"
+#include "FortItemSeriesDefinition.h"
 #include "FortItemDefinition.generated.h"
 
-/* Weapon statistics structures */
-USTRUCT(BlueprintType)
-struct FFortBaseWeaponStats : public FTableRowBase
-{
-	GENERATED_BODY()
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFortOnItemDefinitionCountChangedDelegate, UFortItemDefinition*, Definition, int32, Delta);
 
-		UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                BaseLevel;                                
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		FName                                       NamedWeightRow;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DmgPB;                                    
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DmgMid;                                   
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DmgLong;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DmgMaxRange;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              EnvDmgPB;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              EnvDmgMid;                                
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              EnvDmgLong;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              EnvDmgMaxRange;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ImpactDmgPB;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ImpactDmgMid;                             
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ImpactDmgLong;                            
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ImpactDmgMaxRange;                        
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		bool                                               bForceControl;                            
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RngPB;                                    
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RngMid;                                   
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RngLong;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RngMax;                                   
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UCurveTable*                                 DmgScaleTable;                            
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		FName                                       DmgScaleTableRow;                                
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DmgScale;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UCurveTable*                                 EnvDmgScaleTable;                         
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		FName                                       EnvDmgScaleTableRow;                             
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              EnvDmgScale;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UCurveTable*                                 ImpactDmgScaleTable;                      
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		FName                                       ImpactDmgScaleTableRow;                          
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ImpactDmgScale;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		FName                                       SurfaceRatioRowName;                             
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DamageZone_Light;                         
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DamageZone_Normal;                        
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DamageZone_Critical;                      
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DamageZone_Vulnerability;                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              KnockbackMagnitude;                       
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MidRangeKnockbackMagnitude;               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              LongRangeKnockbackMagnitude;              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              KnockbackZAngle;                          
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              StunTime;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              StunScale;                                
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UDataTable*                                  Durability;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		FName                                       DurabilityRowName;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DurabilityScale;                          
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DurabilityPerUse;                         
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DiceCritChance;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              DiceCritDamageMultiplier;                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ReloadTime;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ReloadScale;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		EFortWeaponReloadType                              ReloadType;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		bool                                               bReloadInterruptIsImmediate;              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                ClipSize;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ClipScale;                                
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                InitialClips;                             
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                CartridgePerFire;                         
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                AmmoCostPerFire;                          
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                MaxAmmoCostPerFire;                       
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MinChargeTime;                            
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MaxChargeTime;                            
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ChargeDownTime;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MinChargeDamageMultiplier;                
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MaxChargeDamageMultiplier;                
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              EquipAnimRate;                            
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              QuickBarSlotCooldownDuration;             
-};
-
-USTRUCT(BlueprintType)
-struct FFortMeleeWeaponStats : public FFortBaseWeaponStats
-{
-	GENERATED_BODY()
-
-		UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RangeVSEnemies;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ConeYawAngle;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ConePitchAngle;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              SwingPlaySpeed;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              SwingTime;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              BuildingConeAngle;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              BuildingConeAnglePitch;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RangeVSBuildings2D;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RangeVSBuildingsZ;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RangeVSWeakSpots;
-};
-
-USTRUCT(BlueprintType)
-struct FFortRangedWeaponStats : public FFortBaseWeaponStats
-{
-	GENERATED_BODY()
-
-		UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              Spread;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              SpreadDownsights;                                     
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              StandingStillSpreadMultiplier;                        
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaCrouchingSpreadMultiplier;                      
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaJumpingFallingSpreadMultiplier;                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaSprintingSpreadMultiplier;                      
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MinSpeedForSpreadMultiplier;                          
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MaxSpeedForSpreadMultiplier;                          
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              SpreadDownsightsAdditionalCooldownTime;               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatX1;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatY1;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatX2;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatY2;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatX3;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatY3;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatXScale;                                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              HeatYScale;                                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolX1;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolY1;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolX2;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolY2;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolX3;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolY3;                                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolXScale;                                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              CoolYScale;                                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                BulletsPerCartridge;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              FiringRate;                                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ROFScale;                                             
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              BurstFiringRate;                                      
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilVert;                                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilVertScale;                                      
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilVertScaleGamepad;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              VertRecoilDownChance;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilHoriz;                                          
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilHorizScale;                                     
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilHorizScaleGamepad;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilInterpSpeed;                                    
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilRecoveryInterpSpeed;                            
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilRecoveryDelay;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilRecoveryFraction;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              RecoilDownsightsMultiplier;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilMagnitudeMin;                             
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilMagnitudeMax;                             
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilMagnitudeScale;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilAngleMin;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilAngleMax;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilRollMagnitudeMin;                         
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilRollMagnitudeMax;                         
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilInterpSpeed;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilRecoveryInterpSpeed;                      
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilDownsightsMultiplier;                     
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaRecoilHipFireMultiplier;                        
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AthenaAimAssistRange;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ADSTransitionInTime;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              ADSTransitionOutTime;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                MaxSpareAmmo;                                         
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		int                                                BulletsPerTracer;                                     
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIDelayBeforeFiringMin;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIDelayBeforeFiringMax;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIFireDurationMin;                                    
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIFireDurationMax;                                    
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIMinSpreadDuration;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIMaxSpreadDuration;                                  
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIDurationSpreadMultiplier;                     
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AIAdditionalSpreadForTargetMovingLaterally;     
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              EQSDensity;                                     
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MinApproachRange;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MinActualRange;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MinPreferredRange;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MinPreferredRangeEQS;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MaxPreferredRangeEQS;                           
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MaxPreferredRange;                              
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MaxActualRange;                                 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              MaxApproachRange;                               
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              SweepRadius;                                    
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float                                              AutoReloadDelayOverride;                        
-};
-
-USTRUCT(BlueprintType)
-struct FFortLootLevelData : public FTableRowBase
-{
-	GENERATED_BODY()
-
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FName                                       Category;                                              
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int                                                LootLevel;                                      
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int                                                MinItemLevel;                                   
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int                                                MaxItemLevel;                                   
-};
-
-UCLASS()
+UCLASS(Abstract, Blueprintable)
 class FORTNITEGAME_API UFortItemDefinition : public UMcpItemDefinitionBase
 {
-	UFUNCTION(BlueprintCallable)
-		class UFortItem* CreateTemporaryItemInstanceBP(int Count, int Level);
-
 	GENERATED_BODY()
-
 public:
+	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+	FFortOnItemDefinitionCountChangedDelegate OnItemCountChanged;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+	EFortRarity Rarity = EFortRarity::Uncommon;
 
-	UPROPERTY(EditAnywhere)
-		EFortRarity Rarity;
-
-	UPROPERTY(EditAnywhere, AssetRegistrySearchable)
-		EFortItemType ItemType;
-
-	UPROPERTY(EditAnywhere)
-		EFortItemType PrimaryAssetIdItemTypeOverride;
-
-	UPROPERTY(EditAnywhere)
-		EFortInventoryFilter FilterOverride;
-
-	UPROPERTY(EditAnywhere)
-		EFortItemTier Tier;
-
-	UPROPERTY(EditAnywhere)
-		EFortItemTier MaxTier;
-
-	UPROPERTY(EditAnywhere)
-		EFortTemplateAccess Access;
-
-	UPROPERTY(EditAnywhere)
-		bool bIsAccountItem;
-
-	UPROPERTY(EditAnywhere, AssetRegistrySearchable)
-		bool bNeverPersisted;
-
-	UPROPERTY(EditAnywhere)
-		bool bAllowMultipleStacks;
-
-	UPROPERTY(EditAnywhere)
-		bool bAutoBalanceStacks;
-
-	UPROPERTY(EditAnywhere)
-		bool bForceAutoPickup;
-
-	UPROPERTY(EditAnywhere)
-		bool bInventorySizeLimited;
-
-	UPROPERTY(EditAnywhere)
-		FText ItemTypeNameOverride;
-
-	UPROPERTY(EditAnywhere, AssetRegistrySearchable)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, AssetRegistrySearchable, Category = "Display")
 		FText DisplayName;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
 		FText ShortDescription;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
 		FText Description;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
 		FText DisplayNamePrefix;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
 		FText SearchTags;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display|Owned Tags")
 		FGameplayTagContainer GameplayTags;
 
-	UPROPERTY(EditAnywhere)
-		FGameplayTagContainer AutomationTags;
-
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Functionality")
 		FGameplayTagContainer SecondaryCategoryOverrideTags;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Functionality")
 		FGameplayTagContainer TertiaryCategoryOverrideTags;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, AssetRegistrySearchable, Category = "Basic Item Info")
+		EFortItemType ItemType;
 
-	//UPROPERTY(EditAnywhere)
-		//FScalableFloat MaxStackSize;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Basic Item Info")
+		EFortItemType PrimaryAssetIdItemTypeOverride;
 
-	//UPROPERTY(EditAnywhere)
-		//FScalableFloat PurchaseItemLimit;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Basic Item Info")
+		TEnumAsByte<EFortQuality> Quality;         
 
-	UPROPERTY(EditAnywhere)
-		float FrontendPreviewScale;
+	// Number of stars that an item has on its item card
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+		TEnumAsByte<EFortItemTier> Tier;            
 
-	UPROPERTY(EditAnywhere)
+	// "Maximum" number of stars that are shown on an item's card (only shown in save the world)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+		TEnumAsByte<EFortItemTier> MaxTier;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Functionality")
+		EFortTemplateAccess	Access;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Basic Item Info")
+		bool bIsAccountItem;
+
+	// Determines which stats are displayed when viewing a weapon in the inventory
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Tooltips")
+		UFortTooltipDisplayStatsList* StatList;
+
+	// Determines what power level an item is
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Rating")
 		FCurveTableRowHandle RatingLookup;
 
-	UPROPERTY(EditAnywhere)
-		class UTexture2D* WidePreviewImage;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, AssetRegistrySearchable, Category = "Release Version")
+		bool bNeverPersisted = false;
 
-	UPROPERTY(EditAnywhere)
-		class UTexture2D* SmallPreviewImage;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Functionality")
+		bool bAllowMultipleStacks = true;
 
-	UPROPERTY(EditAnywhere)
-		class UTexture2D* LargePreviewImage;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Functionality")
+		bool bAutoBalanceStacks = true;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Functionality")
+		bool bForceAutoPickup = false;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Inventory Limit")
+		bool bInventorySizeLimited = true;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Basic Item Info")
+		bool bCalculateRarityFromQualityAndTier = false;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+		FText ItemTypeNameOverride;                                  
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+		EFortInventoryFilter FilterOverride;
+
+	// Determines the maximum amount of a specific item that you can carry in a single inventory slot
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Functionality")
+		int32 MaxStackSize = 1;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+		TSoftObjectPtr<UTexture2D> SmallPreviewImage;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+		TSoftObjectPtr<UTexture2D> LargePreviewImage;
+
+	// Used by multi-slot items (items that take up more than 1 inventory slot) in Chapter 2 and onwards.
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
+		TSoftObjectPtr<UTexture2D> WidePreviewImage;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Display")
 		FSoftObjectPath DisplayAssetPath;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Frontend Preview")
+		float FrontendPreviewScale = 1.0f;
 
-	//UPROPERTY(EditAnywhere)
-		//UFortItemSeriesDefinition* Series;
-
-	UPROPERTY(EditAnywhere)
+	// Allows an item to have a specific "series" (kind of like a custom rarity)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Display")
+		UFortItemSeriesDefinition* Series;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Frontend Preview")
 		FVector FrontendPreviewPivotOffset;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Frontend Preview")
 		FRotator FrontendPreviewInitialRotation;
 
-	UPROPERTY(EditAnywhere)
-		TSoftObjectPtr<UStaticMesh> FrontendPreviewMeshOverride;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Frontend Preview")
+		FTransform FrontendPreviewMeshOffset;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Frontend Preview")
+		FTransform AthenaFrontendPreviewMeshOffset;
+	
+	// Overrides the Frontend Preview mesh with a SkeletalMesh, an example of this being used is with the shuffle item definitions in Athena (CID_Random) where it shows a shuffle icon mesh.
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Frontend Preview")
+		TSoftObjectPtr<UStaticMesh> FrontendPreviewMeshOverride;
+	
+	// Overrides the Frontend Preview mesh with a SkeletalMesh
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Frontend Preview")
 		TSoftObjectPtr<USkeletalMesh> FrontendPreviewSkeletalMeshOverride;
 
+	  
+public:
+    UFortItemDefinition();
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool ShouldShowPreviewOnCurrentHero() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsStackable() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInventorySizeLimited() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TSubclassOf<UFortTooltip> GetTooltip(bool bSummaryTooltip) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FSlateBrush GetSmallPreviewImageBrush() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TSoftObjectPtr<UTexture2D> GetSmallPreviewImage() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText GetSingleLineDescription() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText GetShortDescription() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText GetRichDescription() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FFortColorPalette GetRarityOrSeriesColors() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EFortRarity GetRarity() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetPreviewStaticMeshAsset(TSoftObjectPtr<UStaticMesh>& Asset) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetPreviewSkeletalMeshAsset(TSoftObjectPtr<USkeletalMesh>& Asset) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetPreviewPrefabAsset(TSoftClassPtr<AActor>& Asset) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FTransform GetPreviewMeshOffset() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetPreviewAssets(TArray<TSoftObjectPtr<UObject>>& Assets) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetPersistentName() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TSoftObjectPtr<UTexture2D> GetLargePreviewImage() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText GetItemTypeName(bool bUsePlural) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EFortItemType GetItemType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFortTooltipDisplayStatsList* GetDisplayStats() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText GetDisplayName(bool bBaseName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FSoftObjectPath GetDisplayAssetPath() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<FText> GetDescription() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void CustomizePreviewPrefab(AActor* PrefabInstance);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    void CustomizePreviewMesh(UMeshComponent* Mesh) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFortItem* CreateTemporaryItemInstanceBP(int32 Count, int32 Level) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFortItem* CreateTemporaryInstanceFromExistingItemBP(UFortItem* ExistingItem, int32 Count, int32 Level) const;
+	
+    // Fix for true pure virtual functions not being implemented
+    UFUNCTION(BlueprintCallable)
+    bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const PURE_VIRTUAL(HasMatchingGameplayTag, return false;);
+    
+    UFUNCTION(BlueprintCallable)
+    bool HasAnyMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const PURE_VIRTUAL(HasAnyMatchingGameplayTags, return false;);
+    
+    UFUNCTION(BlueprintCallable)
+    bool HasAllMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const PURE_VIRTUAL(HasAllMatchingGameplayTags, return false;);
+    
+    UFUNCTION(BlueprintCallable)
+    void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const PURE_VIRTUAL(GetOwnedGameplayTags,);
+    
 };

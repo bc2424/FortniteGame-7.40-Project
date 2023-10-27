@@ -8,9 +8,39 @@ public class FortniteGame : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "FortniteEditor", "FortniteUI" });
+		PublicDependencyModuleNames.AddRange(new string[]
+		{
+			"Core", 
+			"CoreUObject", 
+			"Engine", 
+			"InputCore",
+			"GameplayAbilities", 
+			"AnimationBudgetAllocator", 
+			"Niagara", 
+			"FortniteUI",
+			"McpProfileSys",
+			"Account",
+			"AIModule",
+			"CinematicCamera",
+			"EpicGameplayStatsRuntime",
+			"GameplayTags",
+			"GameplayTasks",
+			"Gauntlet",
+			"NiagaraCore",
+			"NiagaraShader",
+			"OnlineSubsystem",
+			"OnlineSubsystemUtils",
+			"UMG",
+			"Slate",
+			"SlateCore",
+			"ReplicationGraph",
+			"GameSubCatalog",
+			"Lobby",
+			"MediaAssets",
+			"MeshNetwork"
+		});
 
-        PrivateDependencyModuleNames.AddRange(new string[] { "GameplayAbilities", "GameplayTags", "GameplayTasks" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "GameplayAbilities", "GameplayTags", "GameplayTasks", "AnimationBudgetAllocator", "McpProfileSys" });
 
         // Uncomment if you are using Slate UI
          PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "UMG" });

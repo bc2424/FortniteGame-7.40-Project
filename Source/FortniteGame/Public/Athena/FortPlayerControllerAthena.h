@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2023 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -15,16 +15,17 @@ struct FSettingsHUDVisibilityAndText
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FGameplayTag HUDVisibilityGameplayTag;
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		struct FGameplayTag                                HUDVisibilityGameplayTag;                                 // 0x0000(0x0008) (Edit, DisableEditOnInstance)
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		ESlateVisibility                                 DefaultHUDVisibility;                                     // 0x0008(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       DisplayText;                                              // 0x0010(0x0018) (Edit, DisableEditOnInstance)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	ESlateVisibility DefaultHUDVisibility;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FText DisplayText;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FText                                       ToolTipText;                                              // 0x0028(0x0018) (Edit, DisableEditOnInstance)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FText ToolTipText;
 };
 
 

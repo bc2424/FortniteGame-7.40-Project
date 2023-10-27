@@ -1,17 +1,19 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #pragma once
-
 #include "CoreMinimal.h"
-#include "Building/BuildingTimeOfDayLights.h"
+#include "GameplayEffectTypes.h"
+#include "GameplayTagContainer.h"
+#include "BuildingTimeOfDayLights.h"
 #include "BuildingProp.generated.h"
 
-/**
- * 
- */
-UCLASS()
-class FORTNITEGAME_API ABuildingProp : public ABuildingTimeOfDayLights
-{
+class AActor;
+class AController;
+
+UCLASS(Blueprintable, MinimalAPI)
+class ABuildingProp : public ABuildingTimeOfDayLights {
 	GENERATED_BODY()
-	
+public:
+	ABuildingProp();
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	float BlueprintModifyIncomingDamage(float Damage, const FGameplayTagContainer& InTags, const FGameplayEffectContextHandle& EffectContext, AController* EventInstigator, AActor* DamageCauser);
+    
 };

@@ -1,5 +1,6 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+﻿#include "FortGiftBoxItemDefinition.h"
 
-
-#include "FortniteGame/Public/Items/FortGiftBoxItemDefinition.h"
-
+UFortGiftBoxItemDefinition::UFortGiftBoxItemDefinition()
+{
+	ItemType = EFortItemType::GiftBox;
+}

@@ -13,5 +13,4 @@ UCLASS()
 class FORTNITEEDITOR_API UFortUnrealEdEngine : public UUnrealEdEngine
 {
 	GENERATED_BODY()
-	
 };

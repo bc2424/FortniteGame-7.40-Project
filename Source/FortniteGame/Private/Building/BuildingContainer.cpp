@@ -1,26 +1,64 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #include "BuildingContainer.h"
+#include "Net/UnrealNetwork.h"
 
-// Sets default values
-ABuildingContainer::ABuildingContainer()
-{
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
+void ABuildingContainer::RaiseTreasure() {
 }
 
-// Called when the game starts or when spawned
-void ABuildingContainer::BeginPlay()
-{
-	Super::BeginPlay();
-	
+
+
+void ABuildingContainer::OnRep_bAlreadySearched() {
 }
 
-// Called every frame
-void ABuildingContainer::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
+int32 ABuildingContainer::GetLootTier() {
+    return 0;
+}
 
+void ABuildingContainer::BounceContainer() {
+}
+
+void ABuildingContainer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(ABuildingContainer, SearchedMesh);
+    DOREPLIFETIME(ABuildingContainer, ReplicatedLootTier);
+    DOREPLIFETIME(ABuildingContainer, bAlreadySearched);
+    DOREPLIFETIME(ABuildingContainer, bBuriedTreasure);
+    DOREPLIFETIME(ABuildingContainer, bHasRaisedTreasure);
+    DOREPLIFETIME(ABuildingContainer, bRegenerateLoot);
+    DOREPLIFETIME(ABuildingContainer, SearchBounceData);
+    DOREPLIFETIME(ABuildingContainer, TimeUntilLootRegenerates);
+}
+
+ABuildingContainer::ABuildingContainer() {
+    this->SearchingSoundCueLoop = NULL;
+    this->LootRepeatSoundCue = NULL;
+    this->OnDamageSoundCue = NULL;
+    this->OnDeathSoundCue = NULL;
+    this->SearchedMesh = NULL;
+    this->bSpawnedActor = false;
+    this->ReplicatedLootTier = -1;
+    this->SearchBounceRadiusOverride = -1.00f;
+    this->LootTestingData = NULL;
+    this->LootNoiseRange = 512.00f;
+    this->InstancedLoot_TossSpeed = 650.00f;
+    this->InstancedLoot_TossConeHalfAngle = 15.00f;
+    this->LootTossSpeed_Athena = 550.00f;
+    this->LootTossConeHalfAngle_Athena = 60.00f;
+    this->HighestRarity = EFortRarity::NumRarityValues;
+    this->bAlwaysShowContainer = false;
+    this->bAlwaysMaintainLoot = false;
+    this->bDestroyContainerOnSearch = false;
+    this->bAlreadySearched = false;
+    this->bBuriedTreasure = false;
+    this->bHasRaisedTreasure = false;
+    this->bStartAlreadySearched_Athena = false;
+    this->bRegenerateLoot = false;
+    this->bUseLocationForDrop = false;
+    this->LootedWeaponsDurabilityModifier = 0.25f;
+    this->SearchText = FText::FromString(TEXT("Search"));
+    this->CurrentInteractBounceCurve = NULL;
+    this->CurrentInteractBounceNormalCurve = NULL;
+    this->SavedReservedRandomValueResult = 0.00f;
+    this->TimeUntilLootRegenerates = 0.00f;
 }
 
