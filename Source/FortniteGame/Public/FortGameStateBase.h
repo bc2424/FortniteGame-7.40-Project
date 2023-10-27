@@ -1,16 +1,39 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #pragma once
-
 #include "CoreMinimal.h"
 #include "GameFramework/GameState.h"
 #include "FortGameStateBase.generated.h"
 
-/**
- * 
- */
-UCLASS()
-class FORTNITEGAME_API AFortGameStateBase : public AGameStateBase
-{
-	GENERATED_BODY()
+class AFortMissionStormShield;
+class AFortTimeOfDayManager;
+
+UCLASS(Blueprintable)
+class FORTNITEGAME_API AFortGameStateBase : public AGameState {
+    GENERATED_BODY()
+public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_TimeOfDayManager, meta=(AllowPrivateAccess=true))
+    AFortTimeOfDayManager* FortTimeOfDayManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_StormShield, meta=(AllowPrivateAccess=true))
+    AFortMissionStormShield* StormShield;
+    
+public:
+    AFortGameStateBase();
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_TimeOfDayManager();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_StormShield();
+    
+public:
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    AFortTimeOfDayManager* GetTimeOfDayManager() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    AFortMissionStormShield* GetStormShield();
+    
 };
+

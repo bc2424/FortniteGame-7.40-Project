@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "CoreMinimal.h"
 #include "Engine/AssetManager.h"
 #include "FortAssetManager.generated.h"

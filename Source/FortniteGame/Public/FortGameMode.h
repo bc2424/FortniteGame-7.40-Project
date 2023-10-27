@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
+#include "CumulativeFrameTimeWithoutSleepLimits.h"
+#include "EFortGameplayState.h"
 #include "FortGameModeBase.h"
-#include "FortQuickBars.h"
-#include "FortniteGame.h"
+#include "QuickBarData.h"
 #include "Templates/SubclassOf.h"
 #include "FortGameMode.generated.h"
 
@@ -18,21 +19,7 @@ class UFortGameDeathPenalty;
 class UFortSharedMissionLists;
 class UMatchHeartbeatManager;
 
-USTRUCT(BlueprintType)
-struct FCumulativeFrameTimeWithoutSleepLimits {
-    GENERATED_BODY()
-public:
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    double FrameTimeWithoutSleep;
-    
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    double MaxCumulativeFrameTimeAboveThreshold;
-    
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    double MaxNumberOfFramesAboveThreshold;
-};
-
-UCLASS(Blueprintable, MinimalAPI, NonTransient)
+UCLASS(Blueprintable, MinimalAPI, NonTransient, Config=Game)
 class AFortGameMode : public AFortGameModeBase {
     GENERATED_BODY()
 public:
@@ -207,8 +194,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpReservations() const;
-
-    /** Convenience helper to return a cast version of the Game State. */
-    template<class T>
-    T* GetGameState() const { return Cast<T>(GameState); }
+    
 };
+

@@ -2,8 +2,12 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Styling/SlateBrush.h"
-#include "FortniteGame.h"
+#include "ESubGame.h"
 #include "FortGameMode.h"
+#include "ItemAndCount.h"
+#include "NotifyPlayerLoginDelegate.h"
+#include "OnHandleMatchHasStartedDelegate.h"
+#include "OnHandleZonePeriodicReportDelegate.h"
 #include "Templates/SubclassOf.h"
 #include "FortGameModeZone.generated.h"
 
@@ -18,24 +22,8 @@ class AFortVisibilityManager;
 class UFortPetManager;
 class UFortTaggedActorsManager;
 class UGameplayEffect;
-class UFortItemDefinition;
 
-USTRUCT(BlueprintType)
-struct FItemAndCount {
-    GENERATED_BODY()
-public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 Count;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UFortItemDefinition* Item;
-};
-
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNotifyPlayerLogin, APlayerController*, PlayerController);
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnHandleMatchHasStarted);
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHandleZonePeriodicReport, EFortReportDayPhase, ReportEventType);
-
-UCLASS(Blueprintable, MinimalAPI, NonTransient)
+UCLASS(Blueprintable, MinimalAPI, NonTransient, Config=Game)
 class AFortGameModeZone : public AFortGameMode {
     GENERATED_BODY()
 public:
@@ -73,11 +61,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 EndOfZoneRemainTime;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    UFortTaggedActorsManager* TaggedActorsManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UFortTaggedActorsManager* TaggedActorsManager;
     
-   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
- //   ABuildingConnectivityManager* ConnectivityManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ABuildingConnectivityManager* ConnectivityManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseAllSocketsInSpawnPad;
@@ -91,14 +79,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SpectateAfterDeath_DelayRepeating;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSubclassOf<AFortVisibilityManager> VisibilityManagerClass;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<AFortVisibilityManager> VisibilityManagerClass;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCriticalMissionEligible;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    UFortPetManager* PetManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UFortPetManager* PetManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FItemAndCount> StartingItems;
@@ -112,10 +100,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bAllowContainerItemCacheLootDrops: 1;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnHandleZonePeriodicReport OnHandleZonePeriodicReport;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnHandleMatchHasStarted OnHandleMatchHasStarted;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -186,11 +174,12 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     TSubclassOf<UGameplayEffect> GetTeammateReviveGameplayEffectOverride();
     
-  //  UFUNCTION(BlueprintCallable)
-//    AFortPlayerStartupController* GetPlayerStartupController();
+    UFUNCTION(BlueprintCallable)
+    AFortPlayerStartupController* GetPlayerStartupController();
     
 protected:
     UFUNCTION(BlueprintCallable)
     void ClearPlayerStartLocationOverrides();
+    
 };
 

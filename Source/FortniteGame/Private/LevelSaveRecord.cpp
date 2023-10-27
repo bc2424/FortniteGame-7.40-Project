@@ -1,4 +1,4 @@
-﻿#include "LevelSaveRecord.h"
+#include "LevelSaveRecord.h"
 
 void ULevelSaveRecord::RemoveInvalidInstanceRecordsHelper(const int32 StartRecordIndex) {
 }
@@ -22,11 +22,11 @@ void ULevelSaveRecord::BroadcastPostUpdateSpawnedCompleted() {
 }
 
 ULevelSaveRecord::ULevelSaveRecord() {
-	this->SaveVersion = 10;
-	this->bCompressed = false;
-	this->OverrideWorld = NULL;
-	this->LastRecordID = 0;
-	this->VolumeCurrentlySpawningWithin = NULL;
-	this->TaskQueue = NULL;
+    this->SaveVersion = 10;
+    this->bCompressed = false;
+    this->OverrideWorld = NULL;
+    this->LastRecordID = 0;
+    this->VolumeCurrentlySpawningWithin = NULL;
+    this->TaskQueue = NULL;
 }
 

@@ -1,4 +1,3 @@
-
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
@@ -6,5 +5,8 @@
 
 UCLASS(Blueprintable, MinimalAPI)
 class AFortClientOnlyActor : public AActor {
-	GENERATED_BODY()
+    GENERATED_BODY()
+public:
+    AFortClientOnlyActor();
 };
+

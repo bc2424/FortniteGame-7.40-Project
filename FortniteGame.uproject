@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{358072F3-4207-FA13-350C-078BA59AE6DC}",
+	"EngineAssociation": "{6BB0A938-4182-421E-23FD-F894C3FE6614}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -25,8 +25,8 @@
 		},
 		{
 			"Name": "FortniteEditor",
-			"Type": "Editor",
-			"LoadingPhase": "PostEngineInit",
+			"Type": "Developer",
+			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"UnrealEd",
 				"OnlineSubsystemMcp",
@@ -238,6 +238,10 @@
 		},
 		{
 			"Name": "BlueprintContext",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
 			"Enabled": true
 		},
 		{

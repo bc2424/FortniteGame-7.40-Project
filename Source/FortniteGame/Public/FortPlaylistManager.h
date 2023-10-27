@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "FortPlaylistManager.generated.h"
@@ -12,5 +12,8 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UFortPlaylistAthena*> AthenaPlaylists;
+    
+public:
+    UFortPlaylistManager();
 };
 

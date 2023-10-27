@@ -1,54 +1,20 @@
-﻿#pragma once
+#pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "ActorInstanceRecord.h"
+#include "ActorTemplateRecord.h"
+#include "AsyncTaskCallbackDelegateDelegate.h"
+#include "DeleteActorRecord.h"
+#include "RecordBucketMap.h"
 #include "Templates/SubclassOf.h"
-#include "FortAthenaCreativePortal.h"
 #include "LevelSaveRecord.generated.h"
 
 class AActor;
 class AFortVolume;
 class UAsyncTaskQueue;
 class UWorld;
-
-USTRUCT(BlueprintType)
-struct FActorTemplateRecord {
-    GENERATED_BODY()
-public:
-};
-
-USTRUCT(BlueprintType)
-struct FActorInstanceRecord {
-    GENERATED_BODY()
-};
-
-USTRUCT(BlueprintType)
-struct FDeleteActorRecord {
-    GENERATED_BODY()
-};
-USTRUCT(BlueprintType)
-struct FRecordBucket {
-    GENERATED_BODY()
-public:
-private:
-    UPROPERTY(EditAnywhere, Transient)
-    TArray<int32> RecordIndices;
-};
-
-USTRUCT(BlueprintType)
-struct FRecordBucketMap {
-    GENERATED_BODY()
-public:
-private:
-    UPROPERTY(EditAnywhere, Transient)
-    TMap<FIntPoint, FRecordBucket> PositionToRecord;
-    
-    UPROPERTY(EditAnywhere, Transient)
-    TArray<int32> DuplicateRecords;
-};
-
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAsyncTaskCallbackDelegate, const FAsyncTaskResult&, Result);
 
 UCLASS(Blueprintable)
 class ULevelSaveRecord : public UObject {
@@ -78,7 +44,7 @@ public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint64 LastRecordID;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<int32, FActorTemplateRecord> TemplateRecords;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -176,5 +142,6 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void BroadcastPostUpdateSpawnedCompleted();
+    
 };
 

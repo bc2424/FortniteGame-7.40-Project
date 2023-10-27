@@ -1,11 +1,11 @@
 #include "FortRarityData.h"
 
 FFortRarityItemData UFortRarityData::BPGetRarityData(EFortRarity Rarity) {
-	return FFortRarityItemData{};
+    return FFortRarityItemData{};
 }
 
 FFortColorPalette UFortRarityData::BPGetRarityColorPalette(EFortRarity Rarity) {
-	return FFortColorPalette{};
+    return FFortColorPalette{};
 }
 
 UFortRarityData::UFortRarityData() {

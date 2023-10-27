@@ -28,6 +28,7 @@ public class FortniteGame : ModuleRules
 			"Gauntlet",
 			"NiagaraCore",
 			"NiagaraShader",
+			"Party",
 			"OnlineSubsystem",
 			"OnlineSubsystemUtils",
 			"UMG",
@@ -37,6 +38,11 @@ public class FortniteGame : ModuleRules
 			"GameSubCatalog",
 			"Lobby",
 			"MediaAssets",
+			"WebBrowser",
+			"Hotfix",
+			"CommonUI",
+			"LoginFlow",
+			"FortniteEditor",
 			"MeshNetwork"
 		});
 

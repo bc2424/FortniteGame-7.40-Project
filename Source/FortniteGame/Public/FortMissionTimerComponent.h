@@ -1,16 +1,14 @@
-﻿#pragma once
+#pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "ETimerOverrideSetting.h"
 #include "MissionTimeDisplayData.h"
 #include "MissionTimerData.h"
-#include "FortniteGame.h"
+#include "OnMissionTimerComponentUpdatedDelegate.h"
+#include "OnMissionTimerTimeAddedOrRemovedDelegate.h"
 #include "FortMissionTimerComponent.generated.h"
 
 class AActor;
-class UFortMissionTimerComponent;
-
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMissionTimerComponentUpdated, UFortMissionTimerComponent*, TimerComponent);
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnMissionTimerTimeAddedOrRemoved, UFortMissionTimerComponent*, TimerComponent, float, TimeAdded);
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class FORTNITEGAME_API UFortMissionTimerComponent : public UActorComponent {
@@ -123,5 +121,6 @@ public:
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void AddOrRemoveTime(float TimeToAdd);
+    
 };
 

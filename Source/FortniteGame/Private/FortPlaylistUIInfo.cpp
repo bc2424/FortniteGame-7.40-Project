@@ -1,4 +1,9 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #include "FortPlaylistUIInfo.h"
+
+UFortPlaylistUIInfo::UFortPlaylistUIInfo() {
+    this->VictoryWidgetClass = NULL;
+    this->VictoryStinger = NULL;
+    this->bIsCinematicVictory = false;
+    this->bShouldPushEmoteInput = false;
+}
 

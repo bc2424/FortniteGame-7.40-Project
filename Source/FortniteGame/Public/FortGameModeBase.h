@@ -5,7 +5,8 @@
 
 UCLASS(Blueprintable, MinimalAPI, NonTransient)
 class AFortGameModeBase : public AGameMode {
-	GENERATED_BODY()
+    GENERATED_BODY()
 public:
+    AFortGameModeBase();
 };
 

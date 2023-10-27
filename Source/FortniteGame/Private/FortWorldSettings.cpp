@@ -1,46 +1,38 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #include "FortWorldSettings.h"
-#include "AI/NavigationSystemConfig.h"
-#include "FortniteGame.h"
-#include "FortNavSystem.h"
 
-#include <string>
-
-AFortWorldSettings::AFortWorldSettings()
-{
-	bShowTimeOfDayManager = true;
-	bSpawnTimeOfDayManager = true;
+AFortWorldSettings::AFortWorldSettings() {
+    this->WorldCellsFlags = 0;
+    this->bGenerateTestLevelSaves = false;
+    this->bDisableCullDistance = false;
+    this->bUseWorldSpecificCullDistanceOverride = false;
+    this->bPvPUseWidgetRotation = true;
+    this->bOverrideMainMapSettings = false;
+    this->bValidateNavGraphConnectivity = false;
+    this->bLimitNavGraphSkyCells = false;
+    this->bUseProceduralFoliage = true;
+    this->bUseConditionalBuildingFoundations = true;
+    this->bAllowBuildingStreamingData = false;
+    this->bShowTimeOfDayManager = true;
+    this->MinCullObjectSize = 0.00f;
+    this->MinCullDistance = 0.00f;
+    this->MaxCullObjectSize = 0.00f;
+    this->MaxCullDistance = 0.00f;
+    this->TeamOnePvPMiniMapImage = NULL;
+    this->TeamTwoPvPMiniMapImage = NULL;
+    this->PvPMapWorldWidth = 0.00f;
+    this->PvPMapWorldHeight = 0.00f;
+    this->MapZOffset = 37500.00f;
+    this->MapInitialMask = NULL;
+    this->bSpawnVehicleManager = true;
+    this->MapWorldScale = 160.00f;
+    this->MiniMapZoom = 2.50f;
+    this->SearchSpeedOverride = NULL;
+    this->ResourceRateOverride = NULL;
+    this->SoundBodyHeadshotRequired = NULL;
+    this->bSpawnTimeOfDayManager = true;
+    this->WorldMusicManagerBank = NULL;
+    this->ZoneThemeMusicManagerBank = NULL;
+    this->TimeOfDayManager = NULL;
+    this->VehicleManager = NULL;
 }
 
-/* Setting default property values for this class 
-void AFortWorldSettings::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
-{
-	Super::PostEditChangeProperty(PropertyChangedEvent);
-
-	if (WorldTimeOfDayManager != nullptr)
-	{
-		if (PropertyChangedEvent.GetPropertyName().Compare(WorldTimeOfDayManager->PropertyLink->GetFName()) > 0 && bSpawnTimeOfDayManager)
-		{
-			if (TimeOfDayManager != nullptr)
-			{
-				TimeOfDayManager->K2_DestroyActor();
-				UE_LOG(LogFortWorld, VeryVerbose, TEXT("AFortWorldSettings::PostEditChangeProperty: Destroying old Time Of Day Manager"));
-			}
-
-			static FActorSpawnParameters SpawnInfo;
-			static FRotator spawn_rot(0, 0, 0);
-			static FVector spawn_loc(0, 0, 0);
-
-			// Spawn the Time of Day Manager.
-			//TimeOfDayManager = static_cast<AFortTimeOfDayManager*>(GetWorld()->SpawnActor<AActor>(WorldTimeOfDayManager, spawn_loc, spawn_rot, SpawnInfo));
-
-			UE_LOG(LogFortWorld, VeryVerbose, TEXT("AFortWorldSettings::PostEditChangeProperty: Changed World Time Of Day Manager"));
-		}
-
-		if (TimeOfDayManager != nullptr)
-		{
-			TimeOfDayManager->bHidden = !bShowTimeOfDayManager;
-		}
-	}
-}*/

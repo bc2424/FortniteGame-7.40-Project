@@ -3,13 +3,13 @@
 #include "UObject/Interface.h"
 #include "FortDamageableActorInterface.generated.h"
 
-UINTERFACE(Blueprintable)
+UINTERFACE()
 class UFortDamageableActorInterface : public UInterface {
-	GENERATED_BODY()
+    GENERATED_BODY()
 };
 
 class IFortDamageableActorInterface : public IInterface {
-	GENERATED_BODY()
+    GENERATED_BODY()
 public:
 };
 

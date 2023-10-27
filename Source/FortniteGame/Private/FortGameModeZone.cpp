@@ -1,4 +1,5 @@
 #include "FortGameModeZone.h"
+#include "FortVisibilityManager.h"
 #include "Templates/SubclassOf.h"
 
 void AFortGameModeZone::SetSpawnWithinStormShield(bool bSpawnInStormShield) {
@@ -36,10 +37,10 @@ bool AFortGameModeZone::IsGameReadyToSelectLoot() const {
 TSubclassOf<UGameplayEffect> AFortGameModeZone::GetTeammateReviveGameplayEffectOverride_Implementation() {
     return NULL;
 }
-/*
+
 AFortPlayerStartupController* AFortGameModeZone::GetPlayerStartupController() {
     return NULL;
-}*/
+}
 
 void AFortGameModeZone::ClearPlayerStartLocationOverrides() {
 }
@@ -55,15 +56,15 @@ AFortGameModeZone::AFortGameModeZone() {
     this->AIDirector = NULL;
     this->AIGoalManager = NULL;
     this->EndOfZoneRemainTime = 150;
-    //this->TaggedActorsManager = NULL;
-   // this->ConnectivityManager = NULL;
+    this->TaggedActorsManager = NULL;
+    this->ConnectivityManager = NULL;
     this->bUseAllSocketsInSpawnPad = false;
     this->bAllowSpectateAfterDeath = false;
     this->SpectateAfterDeath_DelayFirst = 5.00f;
     this->SpectateAfterDeath_DelayRepeating = 2.00f;
-   // this->VisibilityManagerClass = AFortVisibilityManager::StaticClass();
+    this->VisibilityManagerClass = AFortVisibilityManager::StaticClass();
     this->bCriticalMissionEligible = true;
-   // this->PetManager = NULL;
+    this->PetManager = NULL;
     this->bAllowEnemyAIWorldItemLootDrops = true;
     this->bAllowEnemyAIItemCacheLootDrops = true;
     this->bAllowContainerItemCacheLootDrops = true;

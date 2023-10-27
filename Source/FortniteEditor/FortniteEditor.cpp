@@ -4,7 +4,7 @@
 #include "Modules/ModuleManager.h"
 #include "FortItemDefinitionThumbnailRenderer.h"
 #include "AssetTypeActions_Base.h"
-#include "FortniteGame/Public/Items/FortItemDefinition.h"
+#include "FortniteGame/Public/FortItemDefinition.h"
 #include "ThumbnailRendering/ThumbnailManager.h"
 #include "IAssetTools.h"
 #include "AssetToolsModule.h"
@@ -16,7 +16,7 @@
 #include "LevelEditor.h"
 #include "EditorStyleSet.h"
 #include "MultiBoxBuilder.h"
-#include "Conversation/FortConversation.h"
+#include "FortConversation.h"
 #include "IAssetTypeActions.h"
 
 

@@ -1,21 +1,20 @@
-﻿#pragma once
-
+#pragma once
+#include "CoreMinimal.h"
 #include "Engine/GameViewportClient.h"
 #include "FortGameViewportClient.generated.h"
 
-UCLASS()
-class UFortGameViewportClient : public UGameViewportClient
-{
-	GENERATED_BODY()
+UCLASS(Blueprintable, NonTransient)
+class FORTNITEGAME_API UFortGameViewportClient : public UGameViewportClient {
+    GENERATED_BODY()
 public:
-	UPROPERTY(Transient)
-	 FText NetworkFailureMessage;
-
-	UPROPERTY(Transient)
-	 FString NetworkFailureMessageAdditionalAnalyticsString;
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FText NetworkFailureMessage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FString NetworkFailureMessageAdditionalAnalyticsString;
+    
+public:
+    UFortGameViewportClient();
 };
-
-
-
-
 

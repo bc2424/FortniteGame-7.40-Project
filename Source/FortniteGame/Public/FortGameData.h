@@ -1,15 +1,30 @@
-﻿#pragma once
+#pragma once
 #include "CoreMinimal.h"
 #include "OnlineAccountTexts.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/CurveTable.h"
 #include "Engine/DataTable.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
-#include "FortniteGame.h"
-#include "FortMissionGenerator.h"
-#include "FortQuickBars.h"
-#include "FortPlayerControllerAthena.h"
+#include "GameplayTagContainer.h"
+#include "ConditionalFoundationQuota.h"
+#include "DamageDistanceTagEval.h"
+#include "DefaultCharacterPartsForPawnClass.h"
+#include "FortHighlightColorsContainer.h"
+#include "FortPlayerSpawnPadPlacementData.h"
+#include "FortQuestPackInfo.h"
+#include "FortReplicatedStatMapping.h"
+#include "IronCityDifficultyInfo.h"
+#include "IronCityMatchmakingBuckets.h"
+#include "IronCityRowToRating.h"
+#include "ItemDefinitionAndCount.h"
+#include "PartnerPcbInfo.h"
+#include "QuickBarData.h"
+#include "SettingsHUDVisibilityAndText.h"
+#include "SubGameInfo.h"
+#include "UISoundFeedback.h"
 #include "FortGameData.generated.h"
 
 class ABuildingWeakSpot;
@@ -17,22 +32,21 @@ class AFortAIDirector;
 class AFortAIGoalManager;
 class AFortAIPawn;
 class AFortBluGloManager;
-class UFortDeathCauseData;
-//class AFortClientAnnouncement_ZoneModifiers;
-//class AFortCombatManager;
+class AFortClientAnnouncement_ZoneModifiers;
+class AFortCombatManager;
 class AFortConstructorBASE;
-//class AFortDamageNumbersActor;
-//class AFortFeedbackManager;
+class AFortDamageNumbersActor;
+class AFortFeedbackManager;
 class AFortGameModeAthena;
 class AFortGlobalAbilityTargetingActor;
-//class AFortInGameMapManager;
+class AFortInGameMapManager;
 class AFortMusicManager;
 class AFortPawn;
 class AFortPickupEffect;
 class AFortPlayerPawn;
-//class AFortTheaterMapViewer;
-//class AFortThreatVisualsManager;
-//class AFortWindManager;
+class AFortTheaterMapViewer;
+class AFortThreatVisualsManager;
+class AFortWindManager;
 class APlayerCameraManager;
 class UAthenaGliderItemDefinition;
 class UAthenaPickaxeItemDefinition;
@@ -43,36 +57,36 @@ class UCustomCharacterPart;
 class UDataTable;
 class UFortAIEncounterInfo;
 class UFortAbilitySet;
-//class UFortAbilityTagRelationshipMapping;
+class UFortAbilityTagRelationshipMapping;
 class UFortAmmoItemDefinition;
-//class UFortAnalyticsData;
-//class UFortAnalyticsItemExclusions;
-//class UFortAppActivationSoundMixManager;
+class UFortAnalyticsData;
+class UFortAnalyticsItemExclusions;
+class UFortAppActivationSoundMixManager;
 class UFortAttributeCategory;
-//class UFortAttributeLookupTable;
-// class UFortBuildingAudioBank;
-// class UFortCollectionBookData;
-//class UFortDailyRewardScheduleDefinitions;
-// class UFortDeathCauseData;
-//class UFortDeathCauseFromTagMapping;
-//class UFortEditToolItemDefinition;
-//class UFortGamepadSettings;
+class UFortAttributeLookupTable;
+class UFortBuildingAudioBank;
+class UFortCollectionBookData;
+class UFortDailyRewardScheduleDefinitions;
+class UFortDeathCauseData;
+class UFortDeathCauseFromTagMapping;
+class UFortEditToolItemDefinition;
+class UFortGamepadSettings;
 class UFortGameplayAbility;
-//class UFortGameplayTagData;
+class UFortGameplayTagData;
 class UFortHeroData;
 class UFortHeroType;
 class UFortHomebaseBannerColorMap;
 class UFortHomebaseBannerIconItemDefinition;
-//class UFortHomebaseManager;
-//class UFortInputData;
-//class UFortItemCategory;
+class UFortHomebaseManager;
+class UFortInputData;
+class UFortItemCategory;
 class UFortItemDefinition;
-//class UFortItemGlobalData;
+class UFortItemGlobalData;
 class UFortLoadingConfig;
-//class UFortMissionCSVEventMap;
-//class UFortMissionGenerationData;
+class UFortMissionCSVEventMap;
+class UFortMissionGenerationData;
 class UFortMusicManagerBank;
-//class UFortNeverPersistItemDefinition;
+class UFortNeverPersistItemDefinition;
 class UFortNotificationHandler;
 class UFortOutpostData;
 class UFortPlaylistManager;
@@ -109,135 +123,6 @@ class USoundMix;
 class UStaticMesh;
 class UTexture2D;
 class UUserWidget;
-
-USTRUCT(BlueprintType)
-struct FIronCityDifficultyInfo {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int AccountLevel;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int Difficulty;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int LootLevel;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	FName StatClamp;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	FString MissionRewards;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	FGameplayTag RewardBadgeTag;
-};
-
-USTRUCT(BlueprintType)
-struct FIronCityRowToRating {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int Difficulty;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int RecommendedRating;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int MinRating;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int MaxRating;
-};
-
-USTRUCT(BlueprintType)
-struct FIronCityMatchmakingBuckets {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int Difficulty;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int RecommendedRating;
-};
-
-USTRUCT(BlueprintType)
-struct FItemDefinitionAndCount {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int Count;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	TSoftObjectPtr<UFortItemDefinition> ItemDefinition;
-};
-
-USTRUCT(BlueprintType)
-struct FSubGameInfo {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	UFortTokenType* AccessToken;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	bool RequiredFullInstall;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	bool bCanPartyWithoutFullInstall;
-};
-
-USTRUCT(BlueprintType)
-struct FUISoundFeedback {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	TSoftObjectPtr<USoundBase> UISound;
-};
-
-
-USTRUCT(BlueprintType)
-struct FDefaultCharacterPartsForPawnClass {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	FGameplayTag ClassTag;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	TArray<TSoftObjectPtr<UCustomCharacterPart>> CharacterParts;
-};
-
-USTRUCT(BlueprintType)
-struct FConditionalFoundationQuotaTier {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	TArray<TSoftClassPtr<ABuildingFoundation>> FoundationClasses;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int MinFoundations;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	int MaxFoundations;
-};
-
-USTRUCT(BlueprintType)
-struct FConditionalFoundationQuota {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	TArray<FConditionalFoundationQuotaTier> Tiers;
-};
-
-USTRUCT(BlueprintType)
-struct FPartnerPcbInfo {
-	GENERATED_BODY()
-public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	FGameplayTag PartnerTag;
-    
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-	FGameplayTagContainer ValidPartnerBundles;
-};
 
 UCLASS(Blueprintable)
 class FORTNITEGAME_API UFortGameData : public UPrimaryDataAsset {
@@ -286,10 +171,10 @@ public:
     TArray<FFortReplicatedStatMapping> StatMappings;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int ScoreDivisor;
+    int32 ScoreDivisor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int XPMult;
+    int32 XPMult;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float GroupScoreRates[5];
@@ -298,10 +183,10 @@ public:
     float ScoreToXPLinearRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int LinearEnd;
+    int32 LinearEnd;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int XpPerAccountLevel;
+    int32 XpPerAccountLevel;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CriticalMatch_XpBonusPercent;
@@ -352,7 +237,7 @@ public:
     FText NoXpConningMsg;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int MaxCraftQueueSize;
+    int32 MaxCraftQueueSize;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DefaultLootInstancingRange;
@@ -400,10 +285,10 @@ public:
     FDataTableRowHandle GameDifficultyRowPIE;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int AIDirectorIndex;
+    int32 AIDirectorIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int AlternateBalanceAIDirectorIndex;
+    int32 AlternateBalanceAIDirectorIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FItemDefinitionAndCount> DefaultInventoryList;
@@ -436,7 +321,7 @@ public:
     FGameplayTagContainer ExpeditionVehicleTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int DailyMissionAlertQuota;
+    int32 DailyMissionAlertQuota;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnlineAccountTexts OnlineAccountTexts;
@@ -457,12 +342,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<UFortPlaylistManager> PlaylistManagerClass;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftClassPtr<AFortCombatManager> CombatManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortCombatManager> CombatManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<APlayerCameraManager> DefaultCameraManager;
-   /* 
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<AFortInGameMapManager> UIMapManager;
     
@@ -471,7 +356,7 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<AFortMusicManager> MusicManager;
-    */
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortMusicManagerBank> MusicManagerBank;
     
@@ -481,17 +366,17 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UAthenaPickaxeItemDefinition> DefaultPickaxeSkin;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortAnalyticsData> AnalyticsData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortAnalyticsData> AnalyticsData;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortAnalyticsItemExclusions> StWAnalyticsItemExclusionData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortAnalyticsItemExclusions> StWAnalyticsItemExclusionData;
     
-    //UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-  //  TSoftObjectPtr<UFortAnalyticsItemExclusions> BRAnalyticsItemExclusionData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortAnalyticsItemExclusions> BRAnalyticsItemExclusionData;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortGameplayTagData> GameplayTagData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortGameplayTagData> GameplayTagData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortTooltipMap> ObjClassToTooltipClassMap;
@@ -529,8 +414,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortScoreStylingData> ScoreStylingData;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortItemCategory> ItemCategories;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortItemCategory> ItemCategories;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UDataTable> ScoreMultiplierDataTable;
@@ -541,8 +426,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UDataTable* CachedScoreMultiplierDataTable;
     
-   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
- //   TSoftClassPtr<UFortAppActivationSoundMixManager> AppActivationSoundMixManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<UFortAppActivationSoundMixManager> AppActivationSoundMixManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USoundMix> LoadingScreenSoundMix;
@@ -661,8 +546,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UMaterialParameterCollection> StencilDefinitionCollection;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortBuildingAudioBank> BuildingAudioBank;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortBuildingAudioBank> BuildingAudioBank;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FText ResourceNames[4];
@@ -697,8 +582,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortAmmoItemDefinition> EnergyAmmoItemDefinition;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortNeverPersistItemDefinition> BluGloItemDefinition;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortNeverPersistItemDefinition> BluGloItemDefinition;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortItemDefinition> CriticalMissionRewardItemDefinition;
@@ -724,21 +609,21 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText OutpostRefundButtonText;
     
- //   UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-   // TSoftObjectPtr<UFortInputData> FortInputData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortInputData> FortInputData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortTimeOfDayData> FortTimeOfDayData;
     
-//    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-  //  TSoftObjectPtr<UFortMissionCSVEventMap> MissionCSVEventMap;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortMissionCSVEventMap> MissionCSVEventMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortHeroData> FortHeroData;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortItemGlobalData> FortItemGlobalData;
-    /*
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortItemGlobalData> FortItemGlobalData;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortGamepadSettings> GamepadSettingsDefault;
     
@@ -750,7 +635,7 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortGamepadSettings> GamepadSettingsSwitch;
-	*/
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortTouchInputSettings> TouchInputSettings;
     
@@ -805,8 +690,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<UGameplayEffect> TeamStatsGameplayEffect;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortDailyRewardScheduleDefinitions> DailyRewardSchedules;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortDailyRewardScheduleDefinitions> DailyRewardSchedules;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UDataTable> ExpeditionCriteriaRequirementsData;
@@ -898,14 +783,14 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UDataTable> StatNamesToTrackTable;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortMissionGenerationData> MissionGenerationData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortMissionGenerationData> MissionGenerationData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSoftObjectPtr<UFortWorldItemDefinition>> CheatInventoryItems;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftClassPtr<AFortTheaterMapViewer> TheaterMapViewerClass;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortTheaterMapViewer> TheaterMapViewerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UDataTable> MissionAlertCategories;
@@ -913,20 +798,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UMyTownData> MyFortData;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortHomebaseManager> HomebaseManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortHomebaseManager> HomebaseManager;
     
-   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-  //  TSoftObjectPtr<UFortCollectionBookData> CollectionBookData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortCollectionBookData> CollectionBookData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortSurvivorData> SurvivorData;
     
-   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
- //   TSoftObjectPtr<UFortOutpostData> OutpostData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortOutpostData> OutpostData;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortAttributeLookupTable> AttributeLookupTable;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortAttributeLookupTable> AttributeLookupTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortAttributeCategory> AttributeCategories;
@@ -937,8 +822,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortQuestItemDefinition> EventMovieQuestItemDefinition;
     
-   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
- //   TSoftClassPtr<AFortDamageNumbersActor> DamageNumbersActorClass;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortDamageNumbersActor> DamageNumbersActorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<ABuildingWeakSpot> WeakSpotBlueprintClass;
@@ -958,11 +843,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSoftClassPtr<AFortAIDirector>> AIDirectors;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftClassPtr<AFortFeedbackManager> FeedbackManagerClass;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortFeedbackManager> FeedbackManagerClass;
     
-    //UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-  //  TSoftClassPtr<AFortFeedbackManager> FeedbackManagerClassAthena;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortFeedbackManager> FeedbackManagerClassAthena;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<AFortBluGloManager> BluGloManagerClass;
@@ -985,14 +870,14 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortHeroType> DefaultAthenaHero;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftClassPtr<AFortThreatVisualsManager> ThreatVisualsManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortThreatVisualsManager> ThreatVisualsManager;
     
-    //UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-   // TSoftClassPtr<AFortWindManager> WindManager;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortWindManager> WindManager;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftObjectPtr<UFortEditToolItemDefinition> EditToolItem;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortEditToolItemDefinition> EditToolItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortAbilitySet> GenericPlayerAbilitySet;
@@ -1006,11 +891,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortAbilitySet> AthenaPlayerAbilitySet;
     
-   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
- //   TSoftObjectPtr<UFortAbilityTagRelationshipMapping> AbilityTagRelationshipMapping;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortAbilityTagRelationshipMapping> AbilityTagRelationshipMapping;
     
-   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
- //   TSoftObjectPtr<UFortDeathCauseFromTagMapping> FortDeathCauseFromTagMapping;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UFortDeathCauseFromTagMapping> FortDeathCauseFromTagMapping;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortDeathCauseData> FortDeathCauseData;
@@ -1066,8 +951,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UMaterialInterface> HealthScreenDamagePostProcessMat;
     
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftClassPtr<AFortClientAnnouncement_ZoneModifiers> ZoneModifiersAnnouncementClass;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AFortClientAnnouncement_ZoneModifiers> ZoneModifiersAnnouncementClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UCurveTable> SessionXPCurveTable;
@@ -1154,12 +1039,12 @@ private:
     TSoftClassPtr<UUserWidget> DefaultRebootVanIndicatorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FPrimaryAssetId, int> CachedCreativeInventory;
+    TMap<FPrimaryAssetId, int32> CachedCreativeInventory;
     
 public:
     UFortGameData();
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static int GetXpPerAccountLevel();
+    static int32 GetXpPerAccountLevel();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetTeamXpBoost();
@@ -1171,11 +1056,4 @@ public:
     static float GetPersonalXpBoost();
     
 };
-
-
-
-
-
-
-
 

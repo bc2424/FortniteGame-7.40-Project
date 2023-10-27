@@ -1,4 +1,7 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #include "FortSpawnActorInfo.h"
+
+UFortSpawnActorInfo::UFortSpawnActorInfo() {
+    this->SpawnActorClass = NULL;
+    this->SpawnTiming = EFortSpawnActorTime::PostPlaylistLoad;
+}
 

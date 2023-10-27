@@ -1,182 +1,159 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
 #pragma once
-
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
-#include "FortniteGame.h"
-#include "PlaylistUserOptions.h"
-#include "FortWorldItemDefinition.h"
 #include "GameplayTagContainer.h"
-#include "FortGameplayModifierItemDefinition.h"
-#include "FortTimeOfDayManager.h"
+#include "GameplayTagContainer.h"
+#include "EAthenaGamePhaseStep.h"
+#include "EDBNOType.h"
+#include "EFriendlyFireType.h"
 #include "FortPlaylist.generated.h"
 
+class AFortTimeOfDayManager;
+class UCurveTable;
+class UDataTable;
+class UFortConditionalAssetGroup;
+class UFortGameplayModifierItemDefinition;
+class UFortSharedAssetGroup;
+class UFortWorldItemDefinition;
+class UPlaylistUserOptions;
+class UWorld;
 
-UCLASS()
-class UFortSharedAssetList : public UDataAsset
-{
+UCLASS(Blueprintable)
+class FORTNITEGAME_API UFortPlaylist : public UPrimaryDataAsset {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditAnywhere)
-    TArray<UFortWorldItemDefinition*> SharedItemsToFullyLoad;
-
-    UPROPERTY(EditAnywhere)
-    TArray<TSoftObjectPtr<UWorld>> SharedAdditionalLevels;                            
-};
-UCLASS()
-class UFortSharedAssetGroup : public UDataAsset
-{
-    GENERATED_BODY()
-public:
-    UPROPERTY(EditAnywhere)
-    TArray<UFortSharedAssetList*> SharedAssetsToLoad;
-};
-
-UCLASS()
-class UFortConditionalAssetGroup : public UDataAsset
-{
-    GENERATED_BODY()
-public:
-    UPROPERTY(EditAnywhere)
-    TMap<FString, UFortSharedAssetList*> ConditionalAssetsToLoad; 
-
-};
-
-UCLASS()
-class UFortPlaylist : public UPrimaryDataAsset
-{
-    GENERATED_BODY()
-public:
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 PlaylistId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName PlaylistName;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MinPlayers;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxPlayers;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxTeamCount;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxTeamSize;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxSocialPartySize;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxSquadSize;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxSquads;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool EnforceSquadFill;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowSquadFillOption;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowJoinInProgress;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText JoinInProgressMatchType;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowBroadcasting;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPlaylistUserOptions* UserOptions;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSoftObjectPtr<UWorld>> AdditionalLevels;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 DefaultFirstTeam;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 DefaultLastTeam;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer GameplayTagContainer;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EFriendlyFireType FriendlyFireType;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseFriendlyFireAimAssist;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 LootLevel;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagQuery LootTagQuery;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 BuildingLevelOverride;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EDBNOType DBNOType;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SpawnImmunityTime;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EAthenaGamePhaseStep> SkippedGamePhaseNotification;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSoftObjectPtr<UFortGameplayModifierItemDefinition>> ModifierList;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<AFortTimeOfDayManager> TimeOfDayManager;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UFortWorldItemDefinition*> ItemsToFullyLoad;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFortSharedAssetGroup* SharedAssetGroup;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFortConditionalAssetGroup* ConditionalAssetGroup;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDefaultPlaylist;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText UIDisplayName;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText UIDescription;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer HUDElementsToHide;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UDataTable> LootTierData;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UDataTable> LootPackages;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UDataTable> RangedWeapons;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UCurveTable> GameData;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UCurveTable> ResourceRates;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float GarbageCollectionFrequency;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ServerPerformanceEventFrequency;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ServerMetricsEventFrequency;
+    
+    UFortPlaylist();
 };
+

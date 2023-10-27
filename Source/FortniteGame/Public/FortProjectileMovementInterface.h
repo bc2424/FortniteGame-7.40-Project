@@ -1,8 +1,8 @@
-﻿#pragma once
+#pragma once
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
 #include "UObject/NoExportTypes.h"
-#include "FortniteGame.h"
+#include "EFortHomingStyle.h"
 #include "FortProjectileMovementInterface.generated.h"
 
 class AActor;
@@ -53,5 +53,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHomingPassedTarget();
+    
 };
 

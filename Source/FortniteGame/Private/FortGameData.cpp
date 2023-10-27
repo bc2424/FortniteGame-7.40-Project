@@ -1,6 +1,6 @@
-﻿#include "FortGameData.h"
+#include "FortGameData.h"
 
-int UFortGameData::GetXpPerAccountLevel() {
+int32 UFortGameData::GetXpPerAccountLevel() {
     return 0;
 }
 
