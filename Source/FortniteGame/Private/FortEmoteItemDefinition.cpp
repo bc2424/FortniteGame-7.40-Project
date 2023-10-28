@@ -5,5 +5,6 @@ FText UFortEmoteItemDefinition::GetCommandName() const {
 }
 
 UFortEmoteItemDefinition::UFortEmoteItemDefinition() {
+    ItemType = EFortItemType::Emote;
 }
 

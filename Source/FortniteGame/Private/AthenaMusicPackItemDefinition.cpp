@@ -5,5 +5,6 @@ TSoftObjectPtr<UTexture2D> UAthenaMusicPackItemDefinition::GetCoverArt() const {
 }
 
 UAthenaMusicPackItemDefinition::UAthenaMusicPackItemDefinition() {
+    ItemType = EFortItemType::AthenaMusicPack;
 }
 

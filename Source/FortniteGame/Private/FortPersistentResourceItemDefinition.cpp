@@ -6,5 +6,6 @@ bool UFortPersistentResourceItemDefinition::IsEventItem() const {
 
 UFortPersistentResourceItemDefinition::UFortPersistentResourceItemDefinition() {
     this->bIsEventItem = false;
+    ItemType = EFortItemType::AccountResource;
 }
 

@@ -25,5 +25,6 @@ TSoftClassPtr<ABattleBusCosmeticInstanceBase> UAthenaBattleBusItemDefinition::Ge
 }
 
 UAthenaBattleBusItemDefinition::UAthenaBattleBusItemDefinition() {
+    ItemType = EFortItemType::AthenaBattleBus;
 }
 

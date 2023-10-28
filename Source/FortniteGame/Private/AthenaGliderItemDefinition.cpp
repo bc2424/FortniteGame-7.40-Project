@@ -17,5 +17,6 @@ UAthenaGliderItemDefinition::UAthenaGliderItemDefinition() {
     this->GliderType = EFortGliderType::Glider;
     this->bActivateTrailsOnRotationalMovement = true;
     this->TrailParamName = TEXT("Moving");
+    ItemType = EFortItemType::AthenaGlider;
 }
 

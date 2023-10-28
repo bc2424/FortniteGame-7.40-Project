@@ -14,7 +14,8 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USoundBase* EmoteSound3P;
-    
+
+    virtual void NotifyBegin(class USkeletalMeshComponent * MeshComp, class UAnimSequenceBase * Animation, float TotalDuration) override;
     UFortAnimNotifyState_EmoteSound();
 };
 

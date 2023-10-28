@@ -2,5 +2,6 @@
 
 UFortTrapItemDefinition::UFortTrapItemDefinition() {
     this->bKnockBackUsingPawnDir = false;
+    ItemType = EFortItemType::Trap;
 }
 

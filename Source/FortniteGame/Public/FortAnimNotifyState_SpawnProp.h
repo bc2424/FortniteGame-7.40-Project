@@ -26,7 +26,7 @@ public:
     FRotator RotationOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector Scale;
+    FVector Scale = FVector(1.0f, 1.0f, 1.0f);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<AActor> ActorProp;
@@ -62,5 +62,6 @@ public:
     int32 PropId;
     
     UFortAnimNotifyState_SpawnProp();
+    virtual void NotifyBegin(class USkeletalMeshComponent * MeshComp, class UAnimSequenceBase * Animation, float TotalDuration) override;
 };
 

@@ -8,5 +8,6 @@ void UAthenaToyItemDefinition::BakeLaunchPositions() {
 }
 
 UAthenaToyItemDefinition::UAthenaToyItemDefinition() {
+    ItemType = EFortItemType::AthenaDance;
 }
 

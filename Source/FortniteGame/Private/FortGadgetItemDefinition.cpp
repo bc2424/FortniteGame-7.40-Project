@@ -28,5 +28,6 @@ UFortGadgetItemDefinition::UFortGadgetItemDefinition() {
     this->bDropAllOnEquip = false;
     this->bCanChangePreviewImageDuringGame = false;
     this->bValidForLastEquipped = false;
+    ItemType = EFortItemType::Gadget;
 }
 
