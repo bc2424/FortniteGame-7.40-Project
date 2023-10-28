@@ -1,12 +1,6 @@
 # FortniteGame-Modding-7.40
 
-> This is a Unreal Engine Project to mod Fortnite 7.40
-
-## Description
-
-This is a Unreal Project for modding a old Version of Fortnite (7.40) which has every c++ class recreated
-
----
+> This is a Unreal Project for modding a old Version of Fortnite (7.40) which has every c++ class recreated
 
 ## How To use
 
