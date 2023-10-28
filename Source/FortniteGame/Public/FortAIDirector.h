@@ -337,7 +337,7 @@ public:
     void ReceivePawnSpawned(AFortPawn* SpawnedPawn);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
-    void PostDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation);
+    void PostDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestStarted();
@@ -364,7 +364,7 @@ public:
     void OnDirectorDeactivated();
     
     UFUNCTION(BlueprintCallable)
-    void OnDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation);
+    void OnDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPointTooCloseToPatrolWards(const FVector& Point, const EWardAffectType WardEffectTypeFilter) const;

@@ -7,6 +7,6 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class UFortVehicleSkelMeshComponent : public USkeletalMeshComponentBudgeted {
     GENERATED_BODY()
 public:
-    UFortVehicleSkelMeshComponent();
+  //  UFortVehicleSkelMeshComponent();
 };
 

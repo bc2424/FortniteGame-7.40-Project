@@ -1,7 +1,10 @@
 #include "CustomCharacterPart.h"
 
-USkeletalMesh* UCustomCharacterPart::GetSkeletalMesh() const {
-    return NULL;
+#include "Engine/SkeletalMesh.h"
+
+USkeletalMesh* UCustomCharacterPart::GetSkeletalMesh() const
+{
+ return SkeletalMesh.Get();
 }
 
 TMap<int32, UMaterialInterface*> UCustomCharacterPart::GetMaterialOverridesByIndex() {

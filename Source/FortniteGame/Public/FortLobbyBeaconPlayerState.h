@@ -47,7 +47,7 @@ protected:
     ETrustedPlatformType TrustedPlatformType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CharacterGender, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> CharacterGender;
+    EFortCustomGender CharacterGender;
     
 public:
     AFortLobbyBeaconPlayerState();

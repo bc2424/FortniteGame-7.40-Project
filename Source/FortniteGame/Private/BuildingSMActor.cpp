@@ -47,7 +47,7 @@ void ABuildingSMActor::PostForceMove() {
 }
 
 
-void ABuildingSMActor::OnRep_ResourceType(TEnumAsByte<EFortResourceType::Type> OldType) {
+void ABuildingSMActor::OnRep_ResourceType(EFortResourceType OldType) {
 }
 
 void ABuildingSMActor::OnRep_ReplicationProxy() {

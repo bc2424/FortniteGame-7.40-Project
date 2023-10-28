@@ -11,7 +11,7 @@ class UFortAbilitySystemComponent;
 class UFortItemDefinition;
 
 UCLASS(Blueprintable)
-class FORTNITEGAME_API AFortUIProxyActor : public AActor, public IAbilitySystemInterface, public IFortDamageSourceInterface {
+class FORTNITEGAME_API AFortUIProxyActor : public AActor/*, public IAbilitySystemInterface*/, public IFortDamageSourceInterface {
     GENERATED_BODY()
 public:
 protected:

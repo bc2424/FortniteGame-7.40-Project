@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Border.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=Border -FallbackName=Border
 #include "CommonCustomNavigation.generated.h"
 

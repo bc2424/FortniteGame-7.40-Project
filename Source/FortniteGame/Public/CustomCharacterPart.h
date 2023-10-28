@@ -23,13 +23,13 @@ class FORTNITEGAME_API UCustomCharacterPart : public UPrimaryDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> GenderPermitted;
+    EFortCustomGender GenderPermitted;
     
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomBodyType::Type> BodyTypesPermitted;
+    EFortCustomBodyType BodyTypesPermitted;
     
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomPartType::Type> CharacterPartType;
+    EFortCustomPartType CharacterPartType;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -101,6 +101,7 @@ public:
     
     UFUNCTION(BlueprintCallable)
     TMap<int32, UMaterialInterface*> GetMaterialOverridesByIndex();
-    
+
+    friend class UCustomCharacterPartThumbnailRenderer;
 };
 

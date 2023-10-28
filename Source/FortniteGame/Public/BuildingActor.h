@@ -1,23 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "Engine/CurveTable.h"
 #include "Engine/EngineTypes.h"
-#include "Engine/EngineTypes.h"
 #include "AI/Navigation/NavAgentInterface.h"
 #include "AI/Navigation/NavRelevantInterface.h"
-#include "AbilitySystemInterface.h"
 #include "GameplayEffectTypes.h"
 #include "GameplayCueInterface.h"
-#include "GameplayEffectTypes.h"
-#include "GameplayEffectTypes.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagAssetInterface.h"
-#include "GameplayTagContainer.h"
-#include "GameplayTagContainer.h"
 #include "NavLinkHostInterface.h"
 #include "ActorHealthChangedDelegate.h"
 #include "BuildingActorOnInteractDelegate.h"
@@ -43,6 +35,7 @@
 #include "InteractionType.h"
 #include "LevelSaveSpawnable.h"
 #include "Templates/SubclassOf.h"
+#include "TextProperty.h"
 #include "BuildingActor.generated.h"
 
 class ABuildingActor;
@@ -68,7 +61,7 @@ class UPrimitiveComponent;
 class USoundBase;
 
 UCLASS(Abstract, Blueprintable, MinimalAPI, Config=Game)
-class ABuildingActor : public AActor, public IFortInteractInterface, public INavLinkHostInterface, public IFortTeamActorInterface, public IFortInitializationInterface, public INavRelevantInterface, public INavAgentInterface, public IFortSpawnableByPlacementSystemInterface, public IGameplayTagAssetInterface, public IAbilitySystemInterface, public IGameplayCueInterface, public IFortDamageableActorInterface, public IFortAbilitySystemInterface, public ILevelSaveSpawnable {
+class ABuildingActor : public AActor, public IFortInteractInterface, public INavLinkHostInterface, public IFortTeamActorInterface, public IFortInitializationInterface, public INavRelevantInterface, public INavAgentInterface, public IFortSpawnableByPlacementSystemInterface, public IGameplayTagAssetInterface, /*public IAbilitySystemInterface,*/ public IGameplayCueInterface, public IFortDamageableActorInterface, public IFortAbilitySystemInterface, public ILevelSaveSpawnable {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, DuplicateTransient, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -389,7 +382,7 @@ protected:
     
 public:
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortBuildingType::Type> BuildingType;
+    EFortBuildingType BuildingType;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
@@ -621,7 +614,7 @@ public:
     void OnDeathPlayEffects(float Damage, const FGameplayTagContainer& DamageTags, FVector Momentum, const FHitResult& HitInfo, AFortPawn* InstigatedBy, AActor* DamageCauser, FGameplayEffectContextHandle EffectContext);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation);
+    void OnDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
     void OnDamageServer(float Damage, const FGameplayTagContainer& DamageTags, FVector Momentum, const FHitResult& HitInfo, AController* InstigatedBy, AActor* DamageCauser, FGameplayEffectContextHandle EffectContext);
@@ -630,7 +623,7 @@ public:
     void OnDamagePlayEffects(float Damage, const FGameplayTagContainer& DamageTags, FVector Momentum, const FHitResult& HitInfo, AFortPawn* InstigatedBy, AActor* DamageCauser, FGameplayEffectContextHandle EffectContext);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintNativeEvent)
-    void OnBuildingActorInitialized(TEnumAsByte<EFortBuildingInitializationReason::Type> InitializationReason, TEnumAsByte<EFortBuildingPersistentState::Type> BuildingPersistentState);
+    void OnBuildingActorInitialized(EFortBuildingInitializationReason InitializationReason, EFortBuildingPersistentState BuildingPersistentState);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayerBuilt() const;

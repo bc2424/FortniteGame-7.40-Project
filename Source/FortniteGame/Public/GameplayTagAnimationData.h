@@ -15,7 +15,7 @@ private:
     FGameplayTagContainer GameplayTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> ValidGenders;
+    EFortCustomGender ValidGenders;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UAnimMontage> AnimMontage;

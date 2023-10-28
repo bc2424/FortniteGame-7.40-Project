@@ -35,7 +35,7 @@ protected:
     void ServerSetConsoleUniqueNetId(const FUniqueNetIdRepl& InUniqueId, const FUniqueNetIdRepl& NewConsoleNetId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerSetCharacterGender(const FUniqueNetIdRepl& InUniqueId, TEnumAsByte<EFortCustomGender::Type> GenderType);
+    void ServerSetCharacterGender(const FUniqueNetIdRepl& InUniqueId, EFortCustomGender GenderType);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerIncrementHomeBaseVersion(const FUniqueNetIdRepl& InUniqueId);

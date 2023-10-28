@@ -13,7 +13,7 @@ UMeshComponent* ACustomCharacterPartModifier::GetSkeletalMeshForAssociatedPlayer
     return NULL;
 }
 
-TEnumAsByte<EFortCustomPartType::Type> ACustomCharacterPartModifier::GetCharacterPartType() const {
+EFortCustomPartType ACustomCharacterPartModifier::GetCharacterPartType() const {
     return EFortCustomPartType::Head;
 }
 

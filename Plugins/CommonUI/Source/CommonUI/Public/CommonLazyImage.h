@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=SlateBrush -FallbackName=SlateBrush
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=Image -FallbackName=Image
+#include "Image.h"
 #include "OnLoadGuardStateChangedDynamicDelegate.h"
 #include "CommonLazyImage.generated.h"
 

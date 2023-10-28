@@ -17,7 +17,7 @@ public:
     void ServerAttemptSelectFOBCore(ABuildingFOBConfigActor* FOBToSelectOn, UFortFOBCoreDecoItemDefinition* DefToSelect);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ClientShowGameOverWidget(TEnumAsByte<EFortPvPGameResult::Type> GameResult);
+    void ClientShowGameOverWidget(EFortPvPGameResult GameResult);
     
     UFUNCTION(BlueprintCallable, Client, Unreliable)
     void ClientReceiveKillNotification(AFortPlayerStateZone* Killer, AFortPlayerStateZone* Killed);

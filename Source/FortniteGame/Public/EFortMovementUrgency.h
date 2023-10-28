@@ -3,13 +3,12 @@
 #include "EFortMovementUrgency.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortMovementUrgency {
-    enum Type {
+enum class EFortMovementUrgency : uint8 {
         None,
         Low,
         Medium,
         High,
         NumLevels,
-    };
-}
+};
+
 

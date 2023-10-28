@@ -10,7 +10,7 @@ class FORTNITEGAME_API UCustomColorSwatch : public UPrimaryDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> GenderPermitted;
+    EFortCustomGender GenderPermitted;
     
 protected:
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

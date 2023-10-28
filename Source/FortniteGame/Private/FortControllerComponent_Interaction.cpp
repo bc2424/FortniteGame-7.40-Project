@@ -1,9 +1,9 @@
 #include "FortControllerComponent_Interaction.h"
 #include "FortInteractContextInfo.h"
 
-void UFortControllerComponent_Interaction::ServerAttemptInteract_Implementation(AActor* ReceivingActor, UPrimitiveComponent* InteractComponent, TEnumAsByte<TInteractionType> InteractType, UObject* OptionalObjectData) {
+void UFortControllerComponent_Interaction::ServerAttemptInteract_Implementation(AActor* ReceivingActor, UPrimitiveComponent* InteractComponent, TInteractionType InteractType, UObject* OptionalObjectData) {
 }
-bool UFortControllerComponent_Interaction::ServerAttemptInteract_Validate(AActor* ReceivingActor, UPrimitiveComponent* InteractComponent, TEnumAsByte<TInteractionType> InteractType, UObject* OptionalObjectData) {
+bool UFortControllerComponent_Interaction::ServerAttemptInteract_Validate(AActor* ReceivingActor, UPrimitiveComponent* InteractComponent, TInteractionType InteractType, UObject* OptionalObjectData) {
     return true;
 }
 

@@ -5,6 +5,7 @@
 #include "ETransitionCurve.h"
 #include "OnActiveWidgetChangedDelegate.h"
 #include "OnActiveWidgetDeactivatedDelegate.h"
+#include "WidgetSwitcher.h"
 #include "CommonWidgetSwitcher.generated.h"
 
 class UCommonActivatablePanel;

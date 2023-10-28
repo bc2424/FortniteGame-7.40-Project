@@ -36,11 +36,11 @@ UFortMusicManagerBank* AFortMusicManager::GetMusicBank() const {
     return NULL;
 }
 
-float AFortMusicManager::GetEventHeatPercentTotal(TEnumAsByte<EFortCombatEvents::Type> CombatEvent) {
+float AFortMusicManager::GetEventHeatPercentTotal(EFortCombatEvents CombatEvent) {
     return 0.0f;
 }
 
-float AFortMusicManager::GetEventHeatPercent(TEnumAsByte<EFortCombatEvents::Type> CombatEvent) {
+float AFortMusicManager::GetEventHeatPercent(EFortCombatEvents CombatEvent) {
     return 0.0f;
 }
 
@@ -50,8 +50,8 @@ UFortMusicVoice* AFortMusicManager::ChangePrimaryMusic(UFortMusicAsset* NewMusic
 
 AFortMusicManager::AFortMusicManager() {
     this->ControllerOwner = NULL;
-    this->Voices[0] = CreateDefaultSubobject<UFortMusicVoice>(TEXT("MusicVoiceA"));
-    this->Voices[1] = CreateDefaultSubobject<UFortMusicVoice>(TEXT("MusicVoiceA"));
+  //  this->Voices[0] = CreateDefaultSubobject<UFortMusicVoice>(TEXT("MusicVoiceA"));
+    //this->Voices[1] = CreateDefaultSubobject<UFortMusicVoice>(TEXT("MusicVoiceA"));
     this->bWorldReadyCalled = false;
     this->MusicBank = NULL;
 }

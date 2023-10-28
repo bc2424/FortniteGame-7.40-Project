@@ -16,7 +16,7 @@ void AFortAIDirector::RegisterPatrolWard(TScriptInterface<IFortPatrolWardInterfa
 
 
 
-void AFortAIDirector::OnDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation) {
+void AFortAIDirector::OnDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation) {
 }
 
 bool AFortAIDirector::IsPointTooCloseToPatrolWards(const FVector& Point, const EWardAffectType WardEffectTypeFilter) const {

@@ -3,11 +3,11 @@
 #include "EFortPvPGameResult.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortPvPGameResult {
-    enum Type {
+enum class EFortPvPGameResult : uint8
+{
         Win,
         Loss,
         Draw,
-    };
-}
+};
+
 

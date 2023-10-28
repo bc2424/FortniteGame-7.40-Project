@@ -95,7 +95,7 @@ public:
     void SetSkeletalMesh(USkeletalMesh* SkeletalMesh);
     
     UFUNCTION(BlueprintCallable)
-    bool SetPart(TEnumAsByte<EFortCustomPartType::Type> Part, UCustomCharacterPart* PartAsset);
+    bool SetPart(EFortCustomPartType Part, UCustomCharacterPart* PartAsset);
     
     UFUNCTION(BlueprintCallable)
     void SetHeroType(UFortHeroType* NewHeroType);
@@ -104,19 +104,19 @@ public:
     void SetAthenaCharacterDefAndVariants(UAthenaCharacterItemDefinition* NewAthenaCharacter, const TArray<FMcpVariantChannelInfo>& InOverrideVariants);
     
     UFUNCTION(BlueprintCallable)
-    bool RemovePart(TEnumAsByte<EFortCustomPartType::Type> Part);
+    bool RemovePart(EFortCustomPartType Part);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    USkeletalMeshComponent* GetPartSkeletalMeshComponent(TEnumAsByte<EFortCustomPartType::Type> Part) const;
+    USkeletalMeshComponent* GetPartSkeletalMeshComponent(EFortCustomPartType Part) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortCustomGender::Type> GetGender() const;
+    EFortCustomGender GetGender() const;
     
     UFUNCTION(BlueprintCallable)
     void GetAllPartSkeletalMeshComponents(TArray<USkeletalMeshComponent*>& SkeletalMeshComponents);
     
     UFUNCTION(BlueprintCallable)
-    bool CyclePartBP(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNextPart);
+    bool CyclePartBP(EFortCustomPartType Part, bool bNextPart);
     
     
     // Fix for true pure virtual functions not being implemented

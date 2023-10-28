@@ -45,10 +45,10 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerSpawnDeco(FVector Location, FRotator Rotation, ABuildingSMActor* AttachedActor, TEnumAsByte<EBuildingAttachmentType> InBuildingAttachmentType);
+    void ServerSpawnDeco(FVector Location, FRotator Rotation, ABuildingSMActor* AttachedActor, EBuildingAttachmentType InBuildingAttachmentType);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerCreateBuildingAndSpawnDeco(FVector_NetQuantize10 BuildingLocation, FRotator BuildingRotation, FVector_NetQuantize10 Location, FRotator Rotation, TEnumAsByte<EBuildingAttachmentType> InBuildingAttachmentType);
+    void ServerCreateBuildingAndSpawnDeco(FVector_NetQuantize10 BuildingLocation, FRotator BuildingRotation, FVector_NetQuantize10 Location, FRotator Rotation, EBuildingAttachmentType InBuildingAttachmentType);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_ItemDefinition();

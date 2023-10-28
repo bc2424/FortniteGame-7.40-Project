@@ -51,10 +51,10 @@ public:
     static void FireEvent_GrapplingHookAttachEvent(const UObject* SourceBp, const bool bAttached, const bool bFromVehicle);
     
     UFUNCTION(BlueprintCallable)
-    static void FireEvent_BuildLimitProgressIncremented(const UObject* SourceBp, AFortPlayerController* FortPC, AFortMission* Mission, TEnumAsByte<EFortBuildingType::Type> BuildingType, int32 BuildLimitProgress, int32 BuildLimit);
+    static void FireEvent_BuildLimitProgressIncremented(const UObject* SourceBp, AFortPlayerController* FortPC, AFortMission* Mission, EFortBuildingType BuildingType, int32 BuildLimitProgress, int32 BuildLimit);
     
     UFUNCTION(BlueprintCallable)
-    static void FireEvent_BuildLimitProgressDecremented(const UObject* SourceBp, AController* Destroyer, AFortMission* Mission, TEnumAsByte<EFortBuildingType::Type> BuildingType, int32 BuildLimitProgress, int32 BuildLimit);
+    static void FireEvent_BuildLimitProgressDecremented(const UObject* SourceBp, AController* Destroyer, AFortMission* Mission, EFortBuildingType BuildingType, int32 BuildLimitProgress, int32 BuildLimit);
     
     UFUNCTION(BlueprintCallable)
     static void FireAnalyticsEvent_BlueprintArray(const UObject* SourceBp, const FString& EventName, const TArray<FFortAnalyticsEventAttribute>& Attributes);

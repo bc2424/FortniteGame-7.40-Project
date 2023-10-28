@@ -75,7 +75,7 @@ AFortAIController::AFortAIController() {
     this->bAlwaysNotifyBumpWall = false;
     this->bInstantRotation = false;
     this->bTurnTransitionsEnabled = true;
-    this->FortPathFollowingComp = CreateDefaultSubobject<UFortPathFollowingComponent>(TEXT("PathFollowingComponent"));
+  //  this->FortPathFollowingComp = CreateDefaultSubobject<UFortPathFollowingComponent>(TEXT("PathFollowingComponent"));
     this->GoalInfoUpdateRate = 0.25f;
     this->GoalActor = NULL;
     this->GoalVisibilityPersistanceTime = 1.00f;

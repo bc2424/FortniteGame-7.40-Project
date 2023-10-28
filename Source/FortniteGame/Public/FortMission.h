@@ -17,6 +17,7 @@
 #include "EncounterEnvironmentQueryInfo.h"
 #include "FortAIAssignmentIdentifier.h"
 #include "FortAIGoalInfo.h"
+#include "TextProperty.h"
 #include "FortBadgeCountArray.h"
 #include "FortEncounterSettings.h"
 #include "FortGeneratedDifficultyOptions.h"
@@ -222,10 +223,10 @@ public:
     bool RemoveParticipantAccount(FUniqueNetIdRepl& AbandoningPlayerId);
     
     UFUNCTION(BlueprintCallable)
-    void RemoveGoalsFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const TArray<FFortAIGoalInfo>& GoalInfos);
+    void RemoveGoalsFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const TArray<FFortAIGoalInfo>& GoalInfos);
     
     UFUNCTION(BlueprintCallable)
-    void RemoveGoalFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const FFortAIGoalInfo& GoalInfo);
+    void RemoveGoalFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const FFortAIGoalInfo& GoalInfo);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RegisterForContainerSearchedEvent(FOnMissionContainerSearchedEvent Delegate, const FGameplayTagQuery& ContainerRequirements);
@@ -355,8 +356,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCurrentFocusPercentage() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    FText GetCurrentFocusDisplayText() const;
+    //UFUNCTION(BlueprintCallable, BlueprintPure)
+   // FText GetCurrentFocusDisplayText() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     int32 GetCurrentBluGloRewards() const;
@@ -385,7 +386,7 @@ public:
     void FocusThisMission(FText FocusDisplayText, float FocusPercentage);
     
     UFUNCTION(BlueprintCallable)
-    void FindGoalLocationsForEncounterAssignment(const FFortAIAssignmentIdentifier& AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, TArray<FVector>& OutGoalLocations);
+    void FindGoalLocationsForEncounterAssignment(const FFortAIAssignmentIdentifier& AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, TArray<FVector>& OutGoalLocations);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     UFortAIEncounterSequence* CreateEncounterSequenceByIndex(int32 EncounterSequenceIndex);
@@ -394,7 +395,7 @@ public:
     UFortAIEncounterSequence* CreateEncounterSequence(const FGameplayTagContainer& SequenceTags);
     
     UFUNCTION(BlueprintCallable)
-    EAssignmentCreationResult CreateEncounterAssignment(const FGameplayTagContainer& AssignmentTags, const UFortAIEncounterInfo*& Encounter, UFortAIAssignmentSettings* AssignmentSettings, TSubclassOf<UFortAIGoalProvider> GoalProvider, FFortAIAssignmentIdentifier& AssignmentIdentifier);
+    EAssignmentCreationResult CreateEncounterAssignment(const FGameplayTagContainer& AssignmentTags, const UFortAIEncounterInfo* Encounter, UFortAIAssignmentSettings* AssignmentSettings, TSubclassOf<UFortAIGoalProvider> GoalProvider, FFortAIAssignmentIdentifier& AssignmentIdentifier);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     FFortMissionWeightedReward ChooseRandomReward();
@@ -432,13 +433,13 @@ public:
     void AddOrRemoveTimerTime(float TimeToAdd);
     
     UFUNCTION(BlueprintCallable)
-    void AddGoalToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const FFortAIGoalInfo& GoalInfo);
+    void AddGoalToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const FFortAIGoalInfo& GoalInfo);
     
     UFUNCTION(BlueprintCallable)
     void AddGoalToAssignment(UFortAIAssignment* Assignment, const FFortAIGoalInfo& GoalInfo);
     
     UFUNCTION(BlueprintCallable)
-    void AddGoalsToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const TArray<FFortAIGoalInfo>& GoalInfos);
+    void AddGoalsToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const TArray<FFortAIGoalInfo>& GoalInfos);
     
     UFUNCTION(BlueprintCallable)
     void AddGoalsToAssignment(UFortAIAssignment* Assignment, const TArray<FFortAIGoalInfo>& GoalInfos);

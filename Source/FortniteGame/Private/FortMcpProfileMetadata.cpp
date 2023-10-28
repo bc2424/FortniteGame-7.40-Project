@@ -1,5 +1,5 @@
 #include "FortMcpProfileMetadata.h"
-
+/*
 void UFortMcpProfileMetadata::UpdateOutpostCore_Implementation(const FString& CoreId, const FFortOutpostCoreInfo& CoreInfo, FDedicatedServerUrlContext& Context) {
 }
 
@@ -11,7 +11,6 @@ void UFortMcpProfileMetadata::CreateOrUpgradeOutpostItem_Implementation(const FS
 
 void UFortMcpProfileMetadata::CreateDeployableBaseItem_Implementation(const FString& TemplateId, FDedicatedServerUrlContext& Context) {
 }
-
+*/
 UFortMcpProfileMetadata::UFortMcpProfileMetadata() {
 }
-

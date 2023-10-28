@@ -9,8 +9,8 @@
 #include "Engine/EngineTypes.h"
 #include "Engine/EngineTypes.h"
 #include "GameplayEffectTypes.h"
-#include "MinimalGameplayCueReplicationProxy.h"
-#include "MinimalReplicationTagCountMap.h"
+#include "GameplayCueInterface.h"
+#include "GameplayEffectTypes.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
 #include "Styling/SlateBrush.h"
@@ -247,7 +247,7 @@ public:
     TEnumAsByte<TInteractionType> DBNOInteractionType;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortMovementStyle::Type> MovementStyles[4];
+    EFortMovementStyle MovementStyles[4];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float UpdateNearbyPickupFrequency;
@@ -322,10 +322,10 @@ public:
     EFortAIPawnGender AppearanceOverrideGender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCombatEvents::Type> FollowPlayerEvent;
+    EFortCombatEvents FollowPlayerEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCombatEvents::Type> InCombatNearPlayerEvent;
+    EFortCombatEvents InCombatNearPlayerEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TEnumAsByte<TInteractionType> InteractionType;
@@ -407,7 +407,7 @@ protected:
     uint8 bHasBuildingHitEffects: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortMovementUrgency::Type> MovementUrgency;
+    EFortMovementUrgency MovementUrgency;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     EFortressAIType AIType;
@@ -612,7 +612,7 @@ public:
     void SetShouldStartSleeping(bool bHintStartSleeping);
     
     UFUNCTION(BlueprintCallable)
-    void SetMovementUrgency(TEnumAsByte<EFortMovementUrgency::Type> Urgency);
+    void SetMovementUrgency(EFortMovementUrgency Urgency);
     
     UFUNCTION(BlueprintCallable)
     void SetMinSignificanceForAnimationCurves(float MinSignificance);
@@ -789,10 +789,10 @@ public:
     int32 GetScoreValue() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static TEnumAsByte<EFortMovementUrgency::Type> GetMovementUrgency(AFortAIPawn* FortAIPawn);
+    static EFortMovementUrgency GetMovementUrgency(AFortAIPawn* FortAIPawn);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static TEnumAsByte<EFortMovementStyle::Type> GetMovementStyle(const AFortAIPawn* FortAIPawn);
+    static EFortMovementStyle GetMovementStyle(const AFortAIPawn* FortAIPawn);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UFortItem* GetInventoryItem(FGuid ItemGuid) const;
@@ -801,7 +801,7 @@ public:
     USoundBase* GetImpactPhysicalSurfaceSound(const FHitResult& Impact) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static float GetGroundSpeedForUrgency(AFortAIPawn* FortAIPawn, TEnumAsByte<EFortMovementUrgency::Type> Urgency);
+    static float GetGroundSpeedForUrgency(AFortAIPawn* FortAIPawn, EFortMovementUrgency Urgency);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetDifficultyRating() const;
@@ -816,7 +816,7 @@ public:
     AActor* GetCurrentAimTarget() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortCustomGender::Type> GetCharacterGender() const;
+    EFortCustomGender GetCharacterGender() const;
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ForceKillNoDBNO();

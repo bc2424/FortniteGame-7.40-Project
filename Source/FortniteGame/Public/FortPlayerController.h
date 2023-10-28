@@ -544,10 +544,10 @@ protected:
     TSubclassOf<ABuildingSMActor> PreviousBuildableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceLevel::Type> CurrentResourceLevel;
+    EFortResourceLevel CurrentResourceLevel;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> CurrentResourceType;
+    EFortResourceType CurrentResourceType;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FLastBuildableState LastBuildableStateData[12];
@@ -1011,7 +1011,7 @@ public:
     void ServerTriggerCombatEventBatch(const TArray<FFortCombatManagerEvent>& Payload);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerTriggerCombatEvent(TEnumAsByte<EFortCombatEvents::Type> TriggeredEvent, float HeatMultiplier);
+    void ServerTriggerCombatEvent(EFortCombatEvents TriggeredEvent, float HeatMultiplier);
     
 protected:
     UFUNCTION(BlueprintCallable, Server, Unreliable, WithValidation)
@@ -1051,7 +1051,7 @@ public:
     void ServerSetShouldUseBotManager(bool InValue);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerSetReadyToContinue(bool bReady, TEnumAsByte<EFortGameplayState::Type> RequestedState, bool bTryStartTimer);
+    void ServerSetReadyToContinue(bool bReady, EFortGameplayState RequestedState, bool bTryStartTimer);
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
@@ -1087,7 +1087,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerRequestGameplayAction(TEnumAsByte<EFortRequestedGameplayAction::Type> RequestedAction);
+    void ServerRequestGameplayAction(EFortRequestedGameplayAction RequestedAction);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerRequestAttributeSources(FGameplayAttribute Attribute, UFortAbilitySystemComponent* AbilitySystemComponent);
@@ -1106,7 +1106,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerRemoveInventoryStateValue(FGuid ItemGuid, TEnumAsByte<EFortItemEntryState::Type> StateValueType);
+    void ServerRemoveInventoryStateValue(FGuid ItemGuid, EFortItemEntryState StateValueType);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerRemoveInventoryItem(FGuid ItemGuid, int32 Count, bool bForceRemoveFromQuickBars, bool bForceRemoval);
@@ -1129,7 +1129,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerOnMaterialSelection(TEnumAsByte<EFortResourceType::Type> NewResourceType, TEnumAsByte<EFortResourceLevel::Type> NewResourceLevel);
+    void ServerOnMaterialSelection(EFortResourceType NewResourceType, EFortResourceLevel NewResourceLevel);
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
@@ -1360,7 +1360,7 @@ public:
     void OnEnterVolume(AFortVolume* Volume);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnDisplayHitMarker(const FGameplayTagContainer& HitTags, TEnumAsByte<EFortDamageZone::Type> Zone);
+    void OnDisplayHitMarker(const FGameplayTagContainer& HitTags, EFortDamageZone Zone);
     
     UFUNCTION(BlueprintCallable)
     void MutePlayer(const FUniqueNetIdRepl& UniqueNetId);
@@ -1624,7 +1624,7 @@ public:
     void ClientRequestReadyCheck(const FText& QueryText, const FText& YesText, const FText& NoText);
     
     UFUNCTION(BlueprintCallable, Client, Unreliable)
-    void ClientReportDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, TEnumAsByte<EFortResourceType::Type> PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot);
+    void ClientReportDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, EFortResourceType PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientRegisterWithParty();

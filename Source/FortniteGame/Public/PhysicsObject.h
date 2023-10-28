@@ -46,7 +46,7 @@ class UStaticMeshComponent;
 class UWeaponHitNotifyAudioBank;
 
 UCLASS(Blueprintable, Config=Game)
-class FORTNITEGAME_API APhysicsObject : public AFortPhysicsPawn, public IFortDamageableActorInterface, public IAbilitySystemInterface, public IGameplayCueInterface, public IGameplayTagAssetInterface {
+class FORTNITEGAME_API APhysicsObject : public AFortPhysicsPawn, public IFortDamageableActorInterface/*, public IAbilitySystemInterface*/, public IGameplayCueInterface, public IGameplayTagAssetInterface {
     GENERATED_BODY()
 public:
 protected:
@@ -147,8 +147,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_SurfaceTypePhysicsObjectOn, meta=(AllowPrivateAccess=true))
     TEnumAsByte<EPhysicalSurface> SurfaceTypePhysicsObjectOn;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnSurfaceTypeVehicleIsOnChanged OnSurfaceTypePhysicsObjectIsOnChangedDelegate;
+   // UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+  //  FOnSurfaceTypeVehicleIsOnChanged OnSurfaceTypePhysicsObjectIsOnChangedDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFortAbilitySet* StartupAbilitySet;
@@ -213,7 +213,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnSurfaceTypePhysicsObjectIsOnChanged(TEnumAsByte<EPhysicalSurface> SurfaceTypePhysicsObjectIsOn);
+    void OnSurfaceTypePhysicsObjectIsOnChanged(EPhysicalSurface SurfaceTypePhysicsObjectIsOn);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -272,13 +272,13 @@ public:
     void OnDamaged(float Damage, const FGameplayTagContainer& DamageTags, const FGameplayEffectContextHandle& EffectContext, AController* EventInstigator, AActor* DamageCauser);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
-    void OnCollisionHitServer(const FVector& HitLocation, const FVector& VelocityOfHitter, const FVector& HitNormal, APawn* HitPawn, TEnumAsByte<EPhysicalSurface> HitSurfaceType);
+    void OnCollisionHitServer(const FVector& HitLocation, const FVector& VelocityOfHitter, const FVector& HitNormal, APawn* HitPawn, EPhysicalSurface HitSurfaceType);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnCollisionHitDamageEffects(float DamageTaken);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
-    void OnCollisionHitClient(const FVector& HitLocation, const FVector& VelocityOfHitter, const FVector& HitNormal, APawn* HitPawn, TEnumAsByte<EPhysicalSurface> HitSurfaceType);
+    void OnCollisionHitClient(const FVector& HitLocation, const FVector& VelocityOfHitter, const FVector& HitNormal, APawn* HitPawn, EPhysicalSurface HitSurfaceType);
     
     UFUNCTION(BlueprintCallable)
     float ModifyIncomingDamage(float Damage, const FGameplayTagContainer& InTags, const FGameplayEffectContextHandle& EffectContext, AController* EventInstigator, AActor* DamageCauser);

@@ -1,18 +1,5 @@
 #include "CustomCharacterPartAnimInstance.h"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 USkeletalMeshComponent* UCustomCharacterPartAnimInstance::GetPartSkeletalMeshComponent() const {
     return NULL;
 }
@@ -29,7 +16,7 @@ float UCustomCharacterPartAnimInstance::GetOwnerDirection() const {
     return 0.0f;
 }
 
-TEnumAsByte<EFortCustomPartType::Type> UCustomCharacterPartAnimInstance::GetCharacterPartType() const {
+EFortCustomPartType UCustomCharacterPartAnimInstance::GetCharacterPartType() const {
     return EFortCustomPartType::Head;
 }
 

@@ -3,8 +3,7 @@
 #include "EFortCustomBodyType.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortCustomBodyType {
-    enum Type {
+enum class EFortCustomBodyType  : uint8{
         Small = 0x1,
         Medium,
         MediumAndSmall,
@@ -14,5 +13,4 @@ namespace EFortCustomBodyType {
         All,
         Deprecated,
     };
-}
 

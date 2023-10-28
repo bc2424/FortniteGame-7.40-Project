@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UserWidget.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=PointerEvent -FallbackName=PointerEvent
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=UserWidget -FallbackName=UserWidget
 #include "CommonUserWidget.generated.h"

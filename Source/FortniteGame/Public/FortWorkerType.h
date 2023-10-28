@@ -12,7 +12,7 @@ class FORTNITEGAME_API UFortWorkerType : public UFortCharacterType {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> Gender;
+    EFortCustomGender Gender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UFortItemIconDefinition> FixedPortrait;

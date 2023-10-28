@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=TableRowBase -FallbackName=TableRowBase
 #include "CommonInputTypeInfo.h"
+#include "Engine/DataTable.h"
 #include "CommonInputActionData.generated.h"
 
 USTRUCT(BlueprintType)

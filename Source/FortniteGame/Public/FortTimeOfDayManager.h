@@ -44,13 +44,13 @@ protected:
     float TimeOfDayReplicated;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortDayPhase::Type> CurrentDayNightPhase;
+    EFortDayPhase CurrentDayNightPhase;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortDayPhase::Type> TransitionFromPhase;
+    EFortDayPhase TransitionFromPhase;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortDayPhase::Type> TransitionToPhase;
+    EFortDayPhase TransitionToPhase;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float TransitionBlendPercent;
@@ -154,7 +154,7 @@ protected:
     uint8 bBlendingOutLightAndFogOverrides: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortDayPhase::Type> BlendingOutLightAndFogOverridesDayPhase;
+    EFortDayPhase BlendingOutLightAndFogOverridesDayPhase;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float LightAndFogOverridesFadeTime;
@@ -316,10 +316,10 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void RemoveLightAndFogPhaseSettingOverrideMulticast(TEnumAsByte<EFortDayPhase::Type> DayPhase, float BlendOutLength);
+    void RemoveLightAndFogPhaseSettingOverrideMulticast(EFortDayPhase DayPhase, float BlendOutLength);
     
     UFUNCTION(BlueprintCallable)
-    void RemoveLightAndFogPhaseSettingOverride(TEnumAsByte<EFortDayPhase::Type> DayPhase, float BlendOutLength);
+    void RemoveLightAndFogPhaseSettingOverride(EFortDayPhase DayPhase, float BlendOutLength);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnUpdateDirectionalLightForTimeOfDay(const FLinearColor& AboutToApplyDirectionalLightColor);
@@ -355,7 +355,7 @@ public:
     float GetStormStrength() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortDayPhase::Type> GetPreviousDayPhase() const;
+    EFortDayPhase GetPreviousDayPhase() const;
     
 private:
     UFUNCTION(BlueprintCallable, Exec)
@@ -378,10 +378,10 @@ public:
     void BlendLightAndFogPhaseSettingOverride(float Alpha);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void AddLightAndFogPhaseSettingOverrideMulticast(TEnumAsByte<EFortDayPhase::Type> DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength);
+    void AddLightAndFogPhaseSettingOverrideMulticast(EFortDayPhase DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength);
     
     UFUNCTION(BlueprintCallable)
-    void AddLightAndFogPhaseSettingOverride(TEnumAsByte<EFortDayPhase::Type> DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength);
+    void AddLightAndFogPhaseSettingOverride(EFortDayPhase DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength);
     
     
     // Fix for true pure virtual functions not being implemented

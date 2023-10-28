@@ -3,12 +3,11 @@
 #include "EFortCustomGender.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortCustomGender {
-    enum Type {
+enum class EFortCustomGender : uint8
+{
         Invalid,
         Male,
         Female,
         Both,
-    };
-}
+};
 

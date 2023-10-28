@@ -3,8 +3,8 @@
 #include "ECaptureState.generated.h"
 
 UENUM(BlueprintType)
-namespace ECaptureState {
-    enum Type {
+enum class ECaptureState : uint8
+{
         CS_Idle,
         CS_Capturing,
         CS_Contested,
@@ -12,6 +12,8 @@ namespace ECaptureState {
         CS_Captured,
         CS_Reset,
         CS_MAX UMETA(Hidden),
-    };
-}
+};
+
+
+
 

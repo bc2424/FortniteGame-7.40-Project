@@ -3,14 +3,13 @@
 #include "EFortMovementStyle.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortMovementStyle {
-    enum Type {
+enum class EFortMovementStyle : uint8
+{
         Running,
         Walking,
         Charging,
         Sprinting,
         PersonalVehicle,
         Flying,
-    };
-}
+};
 

@@ -13,6 +13,5 @@ protected:
     FFortMoveConfig MoveConfig;
     
 public:
-    UFortAITask_Move();
 };
 

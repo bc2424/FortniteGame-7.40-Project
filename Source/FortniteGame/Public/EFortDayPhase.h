@@ -3,13 +3,12 @@
 #include "EFortDayPhase.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortDayPhase {
-    enum Type {
+enum class EFortDayPhase : uint8
+{ 
         Morning,
         Day,
         Evening,
         Night,
         NumPhases,
-    };
-}
+};
 

@@ -3,8 +3,8 @@
 #include "EFortCombatEvents.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortCombatEvents {
-    enum Type {
+enum class EFortCombatEvents : uint8
+{
         HuskFollowing,
         SmasherFollowing,
         TrollFollowing,
@@ -35,5 +35,5 @@ namespace EFortCombatEvents {
         PlayerPathCost,
         Max_None,
     };
-}
+
 

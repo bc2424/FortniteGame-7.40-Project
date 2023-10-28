@@ -10,7 +10,7 @@ struct FFortCharacterPartMontageInfo {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomPartType::Type> CharacterPart;
+    EFortCustomPartType CharacterPart;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAnimMontage* AnimMontage;

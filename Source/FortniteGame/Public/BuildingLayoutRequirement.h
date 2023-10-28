@@ -45,7 +45,7 @@ protected:
     ELayoutRequirementStatus RequirementStatus;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> OverrideResourceType;
+    EFortResourceType OverrideResourceType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     bool bAllowAnyPattern;
@@ -70,7 +70,7 @@ public:
     void SetRequirementVisible(bool bVisible);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
-    void SetRequiredResourceType(TEnumAsByte<EFortResourceType::Type> DesiredResourceType);
+    void SetRequiredResourceType(EFortResourceType DesiredResourceType);
     
     UFUNCTION(BlueprintCallable)
     void OnRequirementSatisfyingActorDied(AActor* DamagedActor, float Damage, AController* InstigatedBy, AActor* DamageCauser, FVector HitLocation, UPrimitiveComponent* FHitComponent, FName BoneName, FVector Momentum);

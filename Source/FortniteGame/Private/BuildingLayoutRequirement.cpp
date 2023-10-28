@@ -8,7 +8,7 @@ bool ABuildingLayoutRequirement::SupportsEditingOfOccupant() const {
 void ABuildingLayoutRequirement::SetRequirementVisible(bool bVisible) {
 }
 
-void ABuildingLayoutRequirement::SetRequiredResourceType(TEnumAsByte<EFortResourceType::Type> DesiredResourceType) {
+void ABuildingLayoutRequirement::SetRequiredResourceType(EFortResourceType DesiredResourceType) {
 }
 
 void ABuildingLayoutRequirement::OnRequirementSatisfyingActorDied(AActor* DamagedActor, float Damage, AController* InstigatedBy, AActor* DamageCauser, FVector HitLocation, UPrimitiveComponent* FHitComponent, FName BoneName, FVector Momentum) {

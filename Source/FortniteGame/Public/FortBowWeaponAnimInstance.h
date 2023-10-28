@@ -24,7 +24,7 @@ public:
     float BowAimPitch;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> OwnerGender;
+    EFortCustomGender OwnerGender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsBowCharging: 1;

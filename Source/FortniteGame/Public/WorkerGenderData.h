@@ -9,7 +9,7 @@ struct FORTNITEGAME_API FWorkerGenderData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> Gender;
+    EFortCustomGender Gender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FWorkerPortraitData> PotraitData;

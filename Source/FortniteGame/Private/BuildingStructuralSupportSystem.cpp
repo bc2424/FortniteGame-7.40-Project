@@ -14,7 +14,7 @@ bool UBuildingStructuralSupportSystem::K2_GetWorldLocFromGridIndices(const FBuil
     return false;
 }
 
-void UBuildingStructuralSupportSystem::K2_GetNeighboringBuildingActors(TEnumAsByte<EFortBuildingType::Type> BuildingType, const FVector& WorldLocation, FBuildingSupportCellIndex& OutActorGridIndices, FBuildingNeighboringActorInfo& OutNeighboringActors) const {
+void UBuildingStructuralSupportSystem::K2_GetNeighboringBuildingActors(EFortBuildingType BuildingType, const FVector& WorldLocation, FBuildingSupportCellIndex& OutActorGridIndices, FBuildingNeighboringActorInfo& OutNeighboringActors) const {
 }
 
 void UBuildingStructuralSupportSystem::K2_GetNeighboringActorsForWallActor(const FVector& WorldLocation, FBuildingSupportCellIndex& OutActorGridIndices, FBuildingNeighboringActorInfo& OutNeighboringActors) const {
@@ -42,19 +42,19 @@ bool UBuildingStructuralSupportSystem::K2_GetBuildingActorsInGridCell(const FVec
     return false;
 }
 
-TEnumAsByte<EFortStructuralGridQueryResults::Type> UBuildingStructuralSupportSystem::K2_CanAddWallActorToGrid(const FVector& WorldLocation, const FBuildingSupportCellIndex& GridIndices, TEnumAsByte<EFortBuildingType::Type> WallType, EStructuralWallPosition& OutWallPosition, int32& OutWallIdx, TArray<ABuildingActor*>& OutExistingBuildings, bool& OutbSupportedByWorld, bool bAllowStaticOverlap, bool bPerformCollisionChecks) const {
+EFortStructuralGridQueryResults UBuildingStructuralSupportSystem::K2_CanAddWallActorToGrid(const FVector& WorldLocation, const FBuildingSupportCellIndex& GridIndices, EFortBuildingType WallType, EStructuralWallPosition& OutWallPosition, int32& OutWallIdx, TArray<ABuildingActor*>& OutExistingBuildings, bool& OutbSupportedByWorld, bool bAllowStaticOverlap, bool bPerformCollisionChecks) const {
     return EFortStructuralGridQueryResults::CanAdd;
 }
 
-TEnumAsByte<EFortStructuralGridQueryResults::Type> UBuildingStructuralSupportSystem::K2_CanAddFloorActorToGrid(const FVector& WorldLocation, const FBuildingSupportCellIndex& GridIndices, TEnumAsByte<EFortBuildingType::Type> FloorType, EStructuralFloorPosition& OutFloorPosition, int32& OutFloorIdx, TArray<ABuildingActor*>& OutExistingBuildings, bool& OutbSupportedByWorld, bool bAllowStaticOverlap, bool bPerformCollisionChecks) const {
+EFortStructuralGridQueryResults UBuildingStructuralSupportSystem::K2_CanAddFloorActorToGrid(const FVector& WorldLocation, const FBuildingSupportCellIndex& GridIndices, EFortBuildingType FloorType, EStructuralFloorPosition& OutFloorPosition, int32& OutFloorIdx, TArray<ABuildingActor*>& OutExistingBuildings, bool& OutbSupportedByWorld, bool bAllowStaticOverlap, bool bPerformCollisionChecks) const {
     return EFortStructuralGridQueryResults::CanAdd;
 }
 
-TEnumAsByte<EFortStructuralGridQueryResults::Type> UBuildingStructuralSupportSystem::K2_CanAddCenterCellActorToGrid(const FVector& WorldLocation, const FBuildingSupportCellIndex& GridIndices, TEnumAsByte<EFortBuildingType::Type> CenterCellType, int32& OutHorizontalGridIdx, TArray<ABuildingActor*>& OutExistingBuildings, bool& OutbStructurallySupported, bool bAllowStaticOverlap, bool bPerformCollisionChecks) const {
+EFortStructuralGridQueryResults UBuildingStructuralSupportSystem::K2_CanAddCenterCellActorToGrid(const FVector& WorldLocation, const FBuildingSupportCellIndex& GridIndices, EFortBuildingType CenterCellType, int32& OutHorizontalGridIdx, TArray<ABuildingActor*>& OutExistingBuildings, bool& OutbStructurallySupported, bool bAllowStaticOverlap, bool bPerformCollisionChecks) const {
     return EFortStructuralGridQueryResults::CanAdd;
 }
 
-TEnumAsByte<EFortStructuralGridQueryResults::Type> UBuildingStructuralSupportSystem::K2_CanAddBuildingActorToGrid(UObject* WorldContextObject, const ABuildingSMActor* ActorToCheck, const FVector& Location, const FRotator& Rotation, bool bMirrored, TArray<ABuildingActor*>& ExistingBuildings, EFortBuildPreviewMarkerOptionalAdjustment& MarkerOptionalAdjustment, bool bAllowStaticOverlap) const {
+EFortStructuralGridQueryResults UBuildingStructuralSupportSystem::K2_CanAddBuildingActorToGrid(UObject* WorldContextObject, const ABuildingSMActor* ActorToCheck, const FVector& Location, const FRotator& Rotation, bool bMirrored, TArray<ABuildingActor*>& ExistingBuildings, EFortBuildPreviewMarkerOptionalAdjustment& MarkerOptionalAdjustment, bool bAllowStaticOverlap) const {
     return EFortStructuralGridQueryResults::CanAdd;
 }
 
@@ -89,7 +89,7 @@ ABuildingSMActor* UBuildingStructuralSupportSystem::GetCenterCellActor(const FBu
     return NULL;
 }
 
-TEnumAsByte<EFortStructuralGridQueryResults::Type> UBuildingStructuralSupportSystem::CanAddBuildingActorClassToGrid(UObject* WorldContextObject, UClass* BuildingSMActorClassToCheck, const FVector& Location, const FRotator& Rotation, bool bMirrored, TArray<ABuildingActor*>& ExistingBuildings, EFortBuildPreviewMarkerOptionalAdjustment& MarkerOptionalAdjustment, bool bAllowStaticOverlap) const {
+EFortStructuralGridQueryResults UBuildingStructuralSupportSystem::CanAddBuildingActorClassToGrid(UObject* WorldContextObject, UClass* BuildingSMActorClassToCheck, const FVector& Location, const FRotator& Rotation, bool bMirrored, TArray<ABuildingActor*>& ExistingBuildings, EFortBuildPreviewMarkerOptionalAdjustment& MarkerOptionalAdjustment, bool bAllowStaticOverlap) const {
     return EFortStructuralGridQueryResults::CanAdd;
 }
 

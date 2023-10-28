@@ -23,7 +23,7 @@ void ABuildingCapturePointActor::OnLeaveCapturePoint(UPrimitiveComponent* Overla
 void ABuildingCapturePointActor::OnEnterCapturePoint(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 }
 
-void ABuildingCapturePointActor::OnCapturePointStateChange_Implementation(TEnumAsByte<ECaptureState::Type> InState, uint8 InTeam) {
+void ABuildingCapturePointActor::OnCapturePointStateChange_Implementation(ECaptureState InState, uint8 InTeam) {
 }
 
 void ABuildingCapturePointActor::OnCapturePointLockStateChange_Implementation(bool bInLocked) {
@@ -32,7 +32,7 @@ void ABuildingCapturePointActor::OnCapturePointLockStateChange_Implementation(bo
 void ABuildingCapturePointActor::OnCapturePointActiveStateChange_Implementation(bool bInActive) {
 }
 
-TEnumAsByte<ECaptureState::Type> ABuildingCapturePointActor::GetCaptureState() const {
+ECaptureState ABuildingCapturePointActor::GetCaptureState() const {
     return ECaptureState::CS_Idle;
 }
 
@@ -64,7 +64,6 @@ ABuildingCapturePointActor::ABuildingCapturePointActor() {
     this->TeamCapturingPoint = 0;
     this->TeamControllingPoint = 0;
     this->TeamOwningPoint = 0;
-    this->CaptureState = ECaptureState::CS_Idle;
     this->CapturePercentage = 0.00f;
     this->ReplicatedCapturePercentage = 0.00f;
 }

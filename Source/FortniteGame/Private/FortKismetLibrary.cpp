@@ -4,11 +4,11 @@
 float UFortKismetLibrary::VectorToNormalizedAngleInDegrees(FVector V) {
     return 0.0f;
 }
-
+/*
 FVector UFortKismetLibrary::VectorSlerp(const FVector& Origin, const FVector& Start, const FVector& End, const float Alpha) {
     return FVector{};
 }
-
+*/
 void UFortKismetLibrary::UnhideTutorialWidget(UObject* WorldContextObject, FName WidgetName) {
 }
 
@@ -99,7 +99,7 @@ void UFortKismetLibrary::RemoveActorsOfClassFromBuildingSMActorArray(const TArra
 void UFortKismetLibrary::RegisterDayTimeHitCallback(UObject* Object, const FString& FunctionName, float TimeInHours, bool bRecurring, bool bBlockTriggeringThisCycle) {
 }
 
-void UFortKismetLibrary::RegisterDayPhaseHitCallback(UObject* Object, const FString& FunctionName, TEnumAsByte<EFortDayPhase::Type> Phase, bool bRecurring, bool bBlockTriggeringThisCycle) {
+void UFortKismetLibrary::RegisterDayPhaseHitCallback(UObject* Object, const FString& FunctionName, EFortDayPhase Phase, bool bRecurring, bool bBlockTriggeringThisCycle) {
 }
 
 bool UFortKismetLibrary::RandomGroundLocationInCircle(UObject* WorldContextObject, const FVector& CircleCenter, float CircleRadius, const AActor* TraceIgnoreActor, float TraceStartZ, float TraceEndZ, float TraceRadius, FCollisionProfileName TraceProfile, FVector& OutLocation) {
@@ -154,11 +154,11 @@ TEnumAsByte<EFortWeaponCoreAnimation::Type> UFortKismetLibrary::MakeWeaponCoreAn
     return EFortWeaponCoreAnimation::Melee;
 }
 
-TEnumAsByte<EFortResourceType::Type> UFortKismetLibrary::MakeResourceType(TEnumAsByte<EFortResourceType::Type> Value) {
+EFortResourceType UFortKismetLibrary::MakeResourceType(EFortResourceType Value) {
     return EFortResourceType::Wood;
 }
 
-TEnumAsByte<EFortMovementStyle::Type> UFortKismetLibrary::MakeMovementStyle(TEnumAsByte<EFortMovementStyle::Type> Value) {
+EFortMovementStyle UFortKismetLibrary::MakeMovementStyle(EFortMovementStyle Value) {
     return EFortMovementStyle::Running;
 }
 
@@ -170,7 +170,7 @@ FFortGameplayEffectContainerSpec UFortKismetLibrary::MakeGameplayEffectContainer
     return FFortGameplayEffectContainerSpec{};
 }
 
-TEnumAsByte<EFortDayPhase::Type> UFortKismetLibrary::MakeDayNightPhase(TEnumAsByte<EFortDayPhase::Type> Value) {
+EFortDayPhase UFortKismetLibrary::MakeDayNightPhase(EFortDayPhase Value) {
     return EFortDayPhase::Morning;
 }
 
@@ -189,7 +189,7 @@ AFortPickup* UFortKismetLibrary::K2_SpawnPickupInWorld(UObject* WorldContextObje
     return NULL;
 }
 
-void UFortKismetLibrary::K2_SetCurrentResourceType(AFortPlayerController* Controller, TEnumAsByte<EFortResourceType::Type> NewMaterial) {
+void UFortKismetLibrary::K2_SetCurrentResourceType(AFortPlayerController* Controller, EFortResourceType NewMaterial) {
 }
 
 int32 UFortKismetLibrary::K2_RemoveItemFromPlayerByGuid(AFortPlayerController* PlayerController, FGuid ItemGuid, int32 AmountToRemove, bool bForceRemoval) {
@@ -207,11 +207,11 @@ int32 UFortKismetLibrary::K2_RemoveFortItemFromPlayer(AFortPlayerController* Pla
     return 0;
 }
 
-int32 UFortKismetLibrary::K2_PayBuildingResourceCost(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType, const int32 ResourceAmount) {
+int32 UFortKismetLibrary::K2_PayBuildingResourceCost(AFortPlayerController* Controller, const EFortResourceType ResourceType, const int32 ResourceAmount) {
     return 0;
 }
 
-bool UFortKismetLibrary::K2_HasBuildingResourcesAvailable(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType, const int32 ResourceAmount) {
+bool UFortKismetLibrary::K2_HasBuildingResourcesAvailable(AFortPlayerController* Controller, const EFortResourceType ResourceType, const int32 ResourceAmount) {
     return false;
 }
 
@@ -221,14 +221,14 @@ void UFortKismetLibrary::K2_GiveItemToPlayer(AFortPlayerController* PlayerContro
 void UFortKismetLibrary::K2_GiveItemToAllPlayers(UObject* WorldContextObject, UFortWorldItemDefinition* ItemDefinition, int32 NumberToGive, bool bNotifyPlayer) {
 }
 
-void UFortKismetLibrary::K2_GiveBuildingResource(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType, const int32 ResourceAmount) {
+void UFortKismetLibrary::K2_GiveBuildingResource(AFortPlayerController* Controller, const EFortResourceType ResourceType, const int32 ResourceAmount) {
 }
 
-UFortResourceItemDefinition* UFortKismetLibrary::K2_GetResourceItemDefinition(const TEnumAsByte<EFortResourceType::Type> ResourceType) {
+UFortResourceItemDefinition* UFortKismetLibrary::K2_GetResourceItemDefinition(const EFortResourceType ResourceType) {
     return NULL;
 }
 
-int32 UFortKismetLibrary::K2_GetNumAvailableBuildingResources(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType) {
+int32 UFortKismetLibrary::K2_GetNumAvailableBuildingResources(AFortPlayerController* Controller, const EFortResourceType ResourceType) {
     return 0;
 }
 
@@ -236,7 +236,7 @@ int32 UFortKismetLibrary::K2_GetItemQuantityOnPlayer(AFortPlayerController* Play
     return 0;
 }
 
-TEnumAsByte<EFortResourceType::Type> UFortKismetLibrary::K2_GetCurrentResourceType(AFortPlayerController* Controller) {
+EFortResourceType UFortKismetLibrary::K2_GetCurrentResourceType(AFortPlayerController* Controller) {
     return EFortResourceType::Wood;
 }
 
@@ -408,7 +408,7 @@ float UFortKismetLibrary::GetTimeOfDay(UObject* WorldContextObject) {
     return 0.0f;
 }
 
-float UFortKismetLibrary::GetTimeDayPhaseBegins(UObject* WorldContextObject, TEnumAsByte<EFortDayPhase::Type> DayPhase) {
+float UFortKismetLibrary::GetTimeDayPhaseBegins(UObject* WorldContextObject, EFortDayPhase DayPhase) {
     return 0.0f;
 }
 
@@ -484,7 +484,7 @@ UGameplayAbility* UFortKismetLibrary::GetPrimaryInstance(const FGameplayAbilityS
     return NULL;
 }
 
-TEnumAsByte<EFortDayPhase::Type> UFortKismetLibrary::GetPreviousDayPhase(UObject* WorldContextObject) {
+EFortDayPhase UFortKismetLibrary::GetPreviousDayPhase(UObject* WorldContextObject) {
     return EFortDayPhase::Morning;
 }
 
@@ -504,7 +504,7 @@ FVector UFortKismetLibrary::GetPlayerAimPoint(const AFortPlayerController* Sourc
     return FVector{};
 }
 
-int64 UFortKismetLibrary::GetPhysicalMemoryMB() {
+int32 UFortKismetLibrary::GetPhysicalMemoryMB() {
     return 0;
 }
 
@@ -578,7 +578,7 @@ FString UFortKismetLibrary::GetHumanReadableName(AActor* Actor) {
     return TEXT("");
 }
 
-int32 UFortKismetLibrary::GetHoursUntilDayPhase(UObject* WorldContextObject, TEnumAsByte<EFortDayPhase::Type> DayPhase) {
+int32 UFortKismetLibrary::GetHoursUntilDayPhase(UObject* WorldContextObject, EFortDayPhase DayPhase) {
     return 0;
 }
 
@@ -620,7 +620,7 @@ UFortGameUserSettings* UFortKismetLibrary::GetFortGameUserSettings() {
     return NULL;
 }
 
-float UFortKismetLibrary::GetFloatHoursUntilDayPhase(UObject* WorldContextObject, TEnumAsByte<EFortDayPhase::Type> DayPhase) {
+float UFortKismetLibrary::GetFloatHoursUntilDayPhase(UObject* WorldContextObject, EFortDayPhase DayPhase) {
     return 0.0f;
 }
 
@@ -652,7 +652,7 @@ int32 UFortKismetLibrary::GetCurrentSafeZonePhase(UObject* WorldContextObject) {
     return 0;
 }
 
-TEnumAsByte<EFortDayPhase::Type> UFortKismetLibrary::GetCurrentDayPhase(UObject* WorldContextObject) {
+EFortDayPhase UFortKismetLibrary::GetCurrentDayPhase(UObject* WorldContextObject) {
     return EFortDayPhase::Morning;
 }
 
@@ -800,7 +800,7 @@ bool UFortKismetLibrary::EmptyQuickBarSlot(UObject* WorldContextObject, EFortQui
 void UFortKismetLibrary::EffectContextAddSourceObject(FGameplayEffectContextHandle EffectContext, UObject* Src) {
 }
 
-float UFortKismetLibrary::Divide_Int64Int64UsingFloatingPoint(int64 A, int64 B) {
+float UFortKismetLibrary::Divide_Int64Int64UsingFloatingPoint(int32 A, int32 B) {
     return 0.0f;
 }
 

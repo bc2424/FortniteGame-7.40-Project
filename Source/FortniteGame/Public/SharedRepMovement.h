@@ -33,7 +33,7 @@ public:
     uint8 LandingFlashCountPacked;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortMovementStyle::Type> CurrentMovementStyle;
+    EFortMovementStyle CurrentMovementStyle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bProxyIsJumpForceApplied;

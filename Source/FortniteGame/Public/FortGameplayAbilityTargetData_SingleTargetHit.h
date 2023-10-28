@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameplayAbilityTargetData_SingleTargetHit.h"
+#include "GameplayAbilityTargetTypes.h"
 #include "FortGameplayAbilityTargetData_SingleTargetHit.generated.h"
 
 USTRUCT(BlueprintType)

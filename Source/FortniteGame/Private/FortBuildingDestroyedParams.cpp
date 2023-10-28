@@ -1,9 +1,9 @@
 #include "FortBuildingDestroyedParams.h"
 
-void UFortBuildingDestroyedParams::SetParams(ABuildingActor* _Building, TEnumAsByte<EFortBuildingType::Type> _BuildingType, AController* _Destroyer, UFortBuildingDestroyedParams*& ThisParam) {
+void UFortBuildingDestroyedParams::SetParams(ABuildingActor* _Building, EFortBuildingType _BuildingType, AController* _Destroyer, UFortBuildingDestroyedParams*& ThisParam) {
 }
 
-void UFortBuildingDestroyedParams::BreakParams(ABuildingActor*& _Building, TEnumAsByte<EFortBuildingType::Type>& _BuildingType, AController*& _Destroyer) {
+void UFortBuildingDestroyedParams::BreakParams(ABuildingActor*& _Building, EFortBuildingType& _BuildingType, AController*& _Destroyer) {
 }
 
 UFortBuildingDestroyedParams::UFortBuildingDestroyedParams() {

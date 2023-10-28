@@ -16,17 +16,17 @@ public:
     ABuildingActor* Building;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortBuildingType::Type> BuildingType;
+    EFortBuildingType BuildingType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     AController* DamagedBy;
     
     UFortBuildingDamagedParams();
     UFUNCTION(BlueprintCallable)
-    void SetParams(ABuildingActor* _Building, TEnumAsByte<EFortBuildingType::Type> _BuildingType, AController* _DamagedBy, float _DamageAmount, UFortBuildingDamagedParams*& ThisParam);
+    void SetParams(ABuildingActor* _Building, EFortBuildingType _BuildingType, AController* _DamagedBy, float _DamageAmount, UFortBuildingDamagedParams*& ThisParam);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void BreakParams(ABuildingActor*& _Building, TEnumAsByte<EFortBuildingType::Type>& _BuildingType, AController*& _DamagedBy, float& _DamageAmount);
+    void BreakParams(ABuildingActor*& _Building, EFortBuildingType& _BuildingType, AController*& _DamagedBy, float& _DamageAmount);
     
 };
 

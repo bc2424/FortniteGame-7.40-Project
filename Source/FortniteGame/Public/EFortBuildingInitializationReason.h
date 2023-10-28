@@ -3,8 +3,8 @@
 #include "EFortBuildingInitializationReason.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortBuildingInitializationReason {
-    enum Type {
+enum class EFortBuildingInitializationReason : uint8
+{
         StaticallyPlaced,
         Spawned,
         Replaced,
@@ -13,6 +13,6 @@ namespace EFortBuildingInitializationReason {
         PlacementTool,
         TrapTool,
         None,
-    };
-}
+};
+
 

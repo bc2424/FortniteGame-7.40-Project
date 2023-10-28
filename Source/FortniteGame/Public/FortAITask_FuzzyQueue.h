@@ -7,6 +7,5 @@ UCLASS(Blueprintable)
 class UFortAITask_FuzzyQueue : public UAITask_MoveTo {
     GENERATED_BODY()
 public:
-    UFortAITask_FuzzyQueue();
 };
 

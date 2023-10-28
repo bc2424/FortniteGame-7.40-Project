@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "HoverDronePawn.h"
+#include "MotionControllerComponent.h"
 #include "ARDronePawn.generated.h"
 
 class UARScreenCaptureComponent;

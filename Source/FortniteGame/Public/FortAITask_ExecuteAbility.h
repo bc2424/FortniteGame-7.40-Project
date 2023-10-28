@@ -12,7 +12,7 @@ UCLASS(Blueprintable)
 class UFortAITask_ExecuteAbility : public UAITask {
     GENERATED_BODY()
 public:
-    UFortAITask_ExecuteAbility();
+ //   UFortAITask_ExecuteAbility();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnInjectedHitResultDied(AActor* DamagedActor, float Damage, AController* InstigatedBy, AActor* DamageCauser, FVector HitLocation, UPrimitiveComponent* FHitComponent, FName BoneName, FVector Momentum);

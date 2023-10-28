@@ -6,7 +6,7 @@
 #include "FortControlResistanceSet.generated.h"
 
 UCLASS(Blueprintable, MinimalAPI)
-class UFortControlResistanceSet : public UFortAttributeSet, public ITickableAttributeSetInterface {
+class UFortControlResistanceSet : public UFortAttributeSet/*, public ITickableAttributeSetInterface*/ {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ControlResistance, meta=(AllowPrivateAccess=true))

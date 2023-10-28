@@ -1,5 +1,5 @@
 #include "FortMcpProfileCampaign.h"
-
+/*
 void UFortMcpProfileCampaign::UpgradeItemRarity_Implementation(const FString& TargetItemId, FClientUrlContext& Context) {
 }
 
@@ -165,7 +165,7 @@ void UFortMcpProfileCampaign::ActivateConsumable_Implementation(const FString& T
 
 void UFortMcpProfileCampaign::AbandonExpedition_Implementation(const FString& ExpeditionId, FClientUrlContext& Context) {
 }
-
+*/
 UFortMcpProfileCampaign::UFortMcpProfileCampaign() {
     this->bEnableHeroLoadoutMocking = true;
     this->HeroLoadoutCommandDelaySeconds = 3.00f;

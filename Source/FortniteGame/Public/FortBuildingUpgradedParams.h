@@ -19,17 +19,17 @@ public:
     ABuildingActor* NewBuilding;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortBuildingType::Type> BuildingType;
+    EFortBuildingType BuildingType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     AFortPlayerController* Editor;
     
     UFortBuildingUpgradedParams();
     UFUNCTION(BlueprintCallable)
-    void SetParams(ABuildingActor* _OriginalBuilding, ABuildingActor* _NewBuilding, TEnumAsByte<EFortBuildingType::Type> _BuildingType, AFortPlayerController* _Editor, UFortBuildingUpgradedParams*& ThisParam);
+    void SetParams(ABuildingActor* _OriginalBuilding, ABuildingActor* _NewBuilding, EFortBuildingType _BuildingType, AFortPlayerController* _Editor, UFortBuildingUpgradedParams*& ThisParam);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void BreakParams(ABuildingActor*& _OriginalBuilding, ABuildingActor*& _NewBuilding, TEnumAsByte<EFortBuildingType::Type>& _BuildingType, AFortPlayerController*& _Editor);
+    void BreakParams(ABuildingActor*& _OriginalBuilding, ABuildingActor*& _NewBuilding, EFortBuildingType& _BuildingType, AFortPlayerController*& _Editor);
     
 };
 

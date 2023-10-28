@@ -10,7 +10,7 @@ class UFortBTContext_MoveUrgency : public UFortBTService_ContextOverride {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortMovementUrgency::Type> MoveUrgency;
+    EFortMovementUrgency MoveUrgency;
     
 public:
     UFortBTContext_MoveUrgency();

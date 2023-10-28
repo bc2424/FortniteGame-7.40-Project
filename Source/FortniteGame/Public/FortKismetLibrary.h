@@ -1,13 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
+#include "TextProperty.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/CurveTable.h"
@@ -20,7 +14,6 @@
 #include "GameplayAbilitySpec.h"
 #include "GameplayEffectTypes.h"
 #include "AttributeSet.h"
-#include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
 #include "AttributeInfo.h"
 #include "EAthenaWinCondition.h"
@@ -115,8 +108,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static float VectorToNormalizedAngleInDegrees(FVector V);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static FVector VectorSlerp(const FVector& Origin, const FVector& Start, const FVector& End, const float Alpha);
+  //  UFUNCTION(BlueprintCallable, BlueprintPure)
+//    static FVector VectorSlerp(const FVector& Origin, const FVector& Start, const FVector& End, const float Alpha);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta=(WorldContext="WorldContextObject"))
     static void UnhideTutorialWidget(UObject* WorldContextObject, FName WidgetName);
@@ -200,7 +193,7 @@ public:
     static void RegisterDayTimeHitCallback(UObject* Object, const FString& FunctionName, float TimeInHours, bool bRecurring, bool bBlockTriggeringThisCycle);
     
     UFUNCTION(BlueprintCallable)
-    static void RegisterDayPhaseHitCallback(UObject* Object, const FString& FunctionName, TEnumAsByte<EFortDayPhase::Type> Phase, bool bRecurring, bool bBlockTriggeringThisCycle);
+    static void RegisterDayPhaseHitCallback(UObject* Object, const FString& FunctionName, EFortDayPhase DayPhase, bool bRecurring, bool bBlockTriggeringThisCycle);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool RandomGroundLocationInCircle(UObject* WorldContextObject, const FVector& CircleCenter, float CircleRadius, const AActor* TraceIgnoreActor, float TraceStartZ, float TraceEndZ, float TraceRadius, FCollisionProfileName TraceProfile, FVector& OutLocation);
@@ -245,10 +238,10 @@ public:
     static TEnumAsByte<EFortWeaponCoreAnimation::Type> MakeWeaponCoreAnimation(TEnumAsByte<EFortWeaponCoreAnimation::Type> Value);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static TEnumAsByte<EFortResourceType::Type> MakeResourceType(TEnumAsByte<EFortResourceType::Type> Value);
+    static EFortResourceType MakeResourceType(EFortResourceType Value);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static TEnumAsByte<EFortMovementStyle::Type> MakeMovementStyle(TEnumAsByte<EFortMovementStyle::Type> Value);
+    static EFortMovementStyle MakeMovementStyle(EFortMovementStyle Value);
     
     UFUNCTION(BlueprintCallable)
     static FFortGameplayEffectContainerSpec MakeGameplayEffectContainerSpecFromAbilityComponent(const FFortGameplayEffectContainer& EffectContainer, UAbilitySystemComponent* AbilityComp, int32 GameplayEffectLevel);
@@ -257,7 +250,7 @@ public:
     static FFortGameplayEffectContainerSpec MakeGameplayEffectContainerSpecFromAbility(const FFortGameplayEffectContainer& EffectContainer, UGameplayAbility* Ability, int32 GameplayEffectLevel);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static TEnumAsByte<EFortDayPhase::Type> MakeDayNightPhase(TEnumAsByte<EFortDayPhase::Type> Value);
+    static EFortDayPhase MakeDayNightPhase(EFortDayPhase Value);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static TEnumAsByte<EFortBuildingState::Type> MakeBuildingState(TEnumAsByte<EFortBuildingState::Type> Value);
@@ -272,7 +265,7 @@ public:
     static AFortPickup* K2_SpawnPickupInWorld(UObject* WorldContextObject, UFortWorldItemDefinition* ItemDefinition, int32 NumberToSpawn, FVector Position, FVector Direction, int32 OverrideMaxStackCount, bool bToss, bool bRandomRotation, bool bBlockedFromAutoPickup, int32 PickupInstigatorHandle);
     
     UFUNCTION(BlueprintCallable)
-    void K2_SetCurrentResourceType(AFortPlayerController* Controller, TEnumAsByte<EFortResourceType::Type> NewMaterial);
+    void K2_SetCurrentResourceType(AFortPlayerController* Controller, EFortResourceType NewMaterial);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     static int32 K2_RemoveItemFromPlayerByGuid(AFortPlayerController* PlayerController, FGuid ItemGuid, int32 AmountToRemove, bool bForceRemoval);
@@ -287,10 +280,10 @@ public:
     static int32 K2_RemoveFortItemFromPlayer(AFortPlayerController* PlayerController, UFortItem* Item, int32 AmountToRemove, bool bForceRemoval);
     
     UFUNCTION(BlueprintCallable)
-    static int32 K2_PayBuildingResourceCost(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType, const int32 ResourceAmount);
+    static int32 K2_PayBuildingResourceCost(AFortPlayerController* Controller, const EFortResourceType ResourceType, const int32 ResourceAmount);
     
     UFUNCTION(BlueprintCallable)
-    static bool K2_HasBuildingResourcesAvailable(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType, const int32 ResourceAmount);
+    static bool K2_HasBuildingResourcesAvailable(AFortPlayerController* Controller, const EFortResourceType ResourceType, const int32 ResourceAmount);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     static void K2_GiveItemToPlayer(AFortPlayerController* PlayerController, const UFortWorldItemDefinition* ItemDefinition, int32 NumberToGive, bool bNotifyPlayer);
@@ -299,19 +292,19 @@ public:
     static void K2_GiveItemToAllPlayers(UObject* WorldContextObject, UFortWorldItemDefinition* ItemDefinition, int32 NumberToGive, bool bNotifyPlayer);
     
     UFUNCTION(BlueprintCallable)
-    static void K2_GiveBuildingResource(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType, const int32 ResourceAmount);
+    static void K2_GiveBuildingResource(AFortPlayerController* Controller, const EFortResourceType ResourceType, const int32 ResourceAmount);
     
     UFUNCTION(BlueprintCallable)
-    static UFortResourceItemDefinition* K2_GetResourceItemDefinition(const TEnumAsByte<EFortResourceType::Type> ResourceType);
+    static UFortResourceItemDefinition* K2_GetResourceItemDefinition(const EFortResourceType ResourceType);
     
     UFUNCTION(BlueprintCallable)
-    static int32 K2_GetNumAvailableBuildingResources(AFortPlayerController* Controller, const TEnumAsByte<EFortResourceType::Type> ResourceType);
+    static int32 K2_GetNumAvailableBuildingResources(AFortPlayerController* Controller, const EFortResourceType ResourceType);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 K2_GetItemQuantityOnPlayer(AFortPlayerController* PlayerController, UFortItemDefinition* ItemDefinition);
     
     UFUNCTION(BlueprintCallable)
-    static TEnumAsByte<EFortResourceType::Type> K2_GetCurrentResourceType(AFortPlayerController* Controller);
+    static EFortResourceType K2_GetCurrentResourceType(AFortPlayerController* Controller);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector K2_GetClosestAxisXY(FVector InVector);
@@ -443,7 +436,7 @@ public:
     static float GetTimeOfDay(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static float GetTimeDayPhaseBegins(UObject* WorldContextObject, TEnumAsByte<EFortDayPhase::Type> DayPhase);
+    static float GetTimeDayPhaseBegins(UObject* WorldContextObject, EFortDayPhase DayPhase);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static AFortThreatVisualsManager* GetThreatVisualsManager(UObject* WorldContextObject);
@@ -500,7 +493,7 @@ public:
     static UGameplayAbility* GetPrimaryInstance(const FGameplayAbilitySpec& Spec);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static TEnumAsByte<EFortDayPhase::Type> GetPreviousDayPhase(UObject* WorldContextObject);
+    static EFortDayPhase GetPreviousDayPhase(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool GetPlaylistUsesCustomCharacterParts(const UObject* WorldContextObject);
@@ -572,7 +565,7 @@ public:
     static FString GetHumanReadableName(AActor* Actor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static int32 GetHoursUntilDayPhase(UObject* WorldContextObject, TEnumAsByte<EFortDayPhase::Type> DayPhase);
+    static int32 GetHoursUntilDayPhase(UObject* WorldContextObject, EFortDayPhase DayPhase);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetHostilityPercentage(UObject* WorldContextObject);
@@ -605,7 +598,7 @@ public:
     static UFortGameUserSettings* GetFortGameUserSettings();
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static float GetFloatHoursUntilDayPhase(UObject* WorldContextObject, TEnumAsByte<EFortDayPhase::Type> DayPhase);
+    static float GetFloatHoursUntilDayPhase(UObject* WorldContextObject, EFortDayPhase DayPhase);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector GetEffectDirection(FGameplayEffectContextHandle EffectContext);
@@ -629,7 +622,7 @@ public:
     static int32 GetCurrentSafeZonePhase(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static TEnumAsByte<EFortDayPhase::Type> GetCurrentDayPhase(UObject* WorldContextObject);
+    static EFortDayPhase GetCurrentDayPhase(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static EAthenaWinCondition GetCurrentAthenaWinCondition(const UObject* WorldContextObject);

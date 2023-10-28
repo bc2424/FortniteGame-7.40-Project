@@ -1,16 +1,16 @@
 #include "FortGameSession.h"
 #include "FortPartyBeaconHost.h"
-#include "FortSpectatorBeaconHost.h"
+//#include "FortSpectatorBeaconHost.h"
 
 void AFortGameSession::DumpReservations() const {
 }
 
 AFortGameSession::AFortGameSession() {
     this->ReservationBeaconHostClass = AFortPartyBeaconHost::StaticClass();
-    this->SpectatorBeaconHostClass = AFortSpectatorBeaconHost::StaticClass();
+  //  this->SpectatorBeaconHostClass = AFortSpectatorBeaconHost::StaticClass();
     this->ReservationBeaconHost = NULL;
     this->LobbyBeaconHost = NULL;
-    this->SpectatorBeaconHost = NULL;
+ //   this->SpectatorBeaconHost = NULL;
     this->BulkUnregisterTimerDelay = 60.00f;
     this->MaxBroadcasters = 2;
     this->DisconnectedReservationTimeout = 300.00f;

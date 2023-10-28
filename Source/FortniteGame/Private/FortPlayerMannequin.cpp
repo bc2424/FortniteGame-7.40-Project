@@ -13,7 +13,7 @@ bool AFortPlayerMannequin::SetWeaponSkeletalMesh(USkeletalMesh* SkeletalMesh) {
 void AFortPlayerMannequin::SetSkeletalMesh(USkeletalMesh* SkeletalMesh) {
 }
 
-bool AFortPlayerMannequin::SetPart(TEnumAsByte<EFortCustomPartType::Type> Part, UCustomCharacterPart* PartAsset) {
+bool AFortPlayerMannequin::SetPart(EFortCustomPartType Part, UCustomCharacterPart* PartAsset) {
     return false;
 }
 
@@ -23,22 +23,22 @@ void AFortPlayerMannequin::SetHeroType(UFortHeroType* NewHeroType) {
 void AFortPlayerMannequin::SetAthenaCharacterDefAndVariants(UAthenaCharacterItemDefinition* NewAthenaCharacter, const TArray<FMcpVariantChannelInfo>& InOverrideVariants) {
 }
 
-bool AFortPlayerMannequin::RemovePart(TEnumAsByte<EFortCustomPartType::Type> Part) {
+bool AFortPlayerMannequin::RemovePart(EFortCustomPartType Part) {
     return false;
 }
 
-USkeletalMeshComponent* AFortPlayerMannequin::GetPartSkeletalMeshComponent(TEnumAsByte<EFortCustomPartType::Type> Part) const {
+USkeletalMeshComponent* AFortPlayerMannequin::GetPartSkeletalMeshComponent(EFortCustomPartType Part) const {
     return NULL;
 }
 
-TEnumAsByte<EFortCustomGender::Type> AFortPlayerMannequin::GetGender() const {
+EFortCustomGender AFortPlayerMannequin::GetGender() const {
     return EFortCustomGender::Invalid;
 }
 
 void AFortPlayerMannequin::GetAllPartSkeletalMeshComponents(TArray<USkeletalMeshComponent*>& SkeletalMeshComponents) {
 }
 
-bool AFortPlayerMannequin::CyclePartBP(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNextPart) {
+bool AFortPlayerMannequin::CyclePartBP(EFortCustomPartType Part, bool bNextPart) {
     return false;
 }
 

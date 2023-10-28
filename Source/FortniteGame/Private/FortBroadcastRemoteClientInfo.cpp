@@ -38,9 +38,9 @@ bool AFortBroadcastRemoteClientInfo::ServerSetPlayerCanDBNORevive_Validate(bool 
     return true;
 }
 
-void AFortBroadcastRemoteClientInfo::ServerSetPlayerBuildingMaterial_Implementation(TEnumAsByte<EFortResourceType::Type> Material) {
+void AFortBroadcastRemoteClientInfo::ServerSetPlayerBuildingMaterial_Implementation(EFortResourceType Material) {
 }
-bool AFortBroadcastRemoteClientInfo::ServerSetPlayerBuildingMaterial_Validate(TEnumAsByte<EFortResourceType::Type> Material) {
+bool AFortBroadcastRemoteClientInfo::ServerSetPlayerBuildingMaterial_Validate(EFortResourceType Material) {
     return true;
 }
 
@@ -68,7 +68,7 @@ void AFortBroadcastRemoteClientInfo::OnServerPlayerQuickChatEntryChanged(const F
 void AFortBroadcastRemoteClientInfo::OnServerPlayerEditActorChanged(ABuildingSMActor* EditActor) {
 }
 
-void AFortBroadcastRemoteClientInfo::OnServerPlayerDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, TEnumAsByte<EFortResourceType::Type> PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot) {
+void AFortBroadcastRemoteClientInfo::OnServerPlayerDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, EFortResourceType PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot) {
 }
 
 void AFortBroadcastRemoteClientInfo::OnServerAddMapMarker(FFortWorldMarkerData InMarkerData) {
@@ -143,7 +143,7 @@ void AFortBroadcastRemoteClientInfo::OnPlayerBuildableClassChanged() {
 void AFortBroadcastRemoteClientInfo::ClientRemotePlayerRemoveMapMarker_Implementation(FMarkerID MarkerID) {
 }
 
-void AFortBroadcastRemoteClientInfo::ClientRemotePlayerDamagedResourceBuilding_Implementation(ABuildingSMActor* BuildingSMActor, TEnumAsByte<EFortResourceType::Type> PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot) {
+void AFortBroadcastRemoteClientInfo::ClientRemotePlayerDamagedResourceBuilding_Implementation(ABuildingSMActor* BuildingSMActor, EFortResourceType PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot) {
 }
 
 void AFortBroadcastRemoteClientInfo::ClientRemotePlayerAddMapMarker_Implementation(FFortWorldMarkerData InMarkerData) {

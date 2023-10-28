@@ -11,10 +11,10 @@ struct FPlayerBuildableClassFilter {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> ResourceType;
+    EFortResourceType ResourceType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortBuildingType::Type> BuildingType;
+    EFortBuildingType BuildingType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 Level;

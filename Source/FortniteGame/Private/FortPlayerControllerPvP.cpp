@@ -6,7 +6,7 @@ bool AFortPlayerControllerPvP::ServerAttemptSelectFOBCore_Validate(ABuildingFOBC
     return true;
 }
 
-void AFortPlayerControllerPvP::ClientShowGameOverWidget_Implementation(TEnumAsByte<EFortPvPGameResult::Type> GameResult) {
+void AFortPlayerControllerPvP::ClientShowGameOverWidget_Implementation(EFortPvPGameResult GameResult) {
 }
 
 void AFortPlayerControllerPvP::ClientReceiveKillNotification_Implementation(AFortPlayerStateZone* Killer, AFortPlayerStateZone* Killed) {

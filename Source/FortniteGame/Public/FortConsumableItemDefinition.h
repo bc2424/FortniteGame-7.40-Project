@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameplayEventData.h"
 #include "ConsumeEffectData.h"
 #include "FortWorldItemDefinition.h"
+#include "Abilities/GameplayAbilityTypes.h"
 #include "FortConsumableItemDefinition.generated.h"
 
 class UAnimMontage;

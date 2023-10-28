@@ -8,7 +8,7 @@ class UFortAbilitySystemComponent;
 class UFortDamageSet;
 
 UCLASS(Blueprintable)
-class FORTNITEGAME_API AFortGlobalEnvironmentAbilityActor : public AInfo, public IAbilitySystemInterface {
+class FORTNITEGAME_API AFortGlobalEnvironmentAbilityActor : public AInfo /*, public IAbilitySystemInterface */{
     GENERATED_BODY()
 public:
 protected:

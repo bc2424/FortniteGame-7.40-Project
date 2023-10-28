@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "AbilityTask.h"
-#include "EGameplayTargetingConfirmation.h"
+#include "Abilities/GameplayAbilityTargetTypes.h"
 #include "GameplayEffectTypes.h"
 #include "GameplayTagContainer.h"
 #include "WaitTargetSelectionDelegateDelegate.h"

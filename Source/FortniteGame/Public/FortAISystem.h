@@ -27,7 +27,7 @@ protected:
     TArray<UFortRiftBlockerComponent*> ActiveRiftBlockers;
     
 public:
-    UFortAISystem();
+   // UFortAISystem();
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsInCone2D(FVector ConeOrigin, FVector ConeDirection, float HalfAngle, FVector LocationToCheck);
     

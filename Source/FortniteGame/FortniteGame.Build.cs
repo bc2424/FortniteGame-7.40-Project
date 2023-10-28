@@ -43,7 +43,20 @@ public class FortniteGame : ModuleRules
 			"CommonUI",
 			"LoginFlow",
 			"FortniteEditor",
-			"MeshNetwork"
+			"MeshNetwork",
+			"ClientPilot",
+			"BlueprintContext",
+			"AnimGraphRuntime",
+			"PhysXVehicles",
+			"Rejoin",
+			"SidecarSys",
+			"SignificanceManager",
+			"Foliage",
+			"Paper2D",
+			"ClothingSystemRuntime",
+			"JsonUtilities",
+			"HeadMountedDisplay",
+			"CommonInput"
 		});
 
         PrivateDependencyModuleNames.AddRange(new string[] { "GameplayAbilities", "GameplayTags", "GameplayTasks", "AnimationBudgetAllocator", "McpProfileSys" });

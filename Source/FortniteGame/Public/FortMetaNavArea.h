@@ -10,7 +10,5 @@ class FORTNITEGAME_API UFortMetaNavArea : public UNavAreaMeta {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FNavAgentData> AgentData;
-    
-    UFortMetaNavArea();
 };
 

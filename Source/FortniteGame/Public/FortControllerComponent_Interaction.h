@@ -63,7 +63,7 @@ protected:
 public:
     UFortControllerComponent_Interaction();
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerAttemptInteract(AActor* ReceivingActor, UPrimitiveComponent* InteractComponent, TEnumAsByte<TInteractionType> InteractType, UObject* OptionalObjectData);
+    void ServerAttemptInteract(AActor* ReceivingActor, UPrimitiveComponent* InteractComponent, TInteractionType InteractType, UObject* OptionalObjectData);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     UFortInteractContextInfo* K2_GetInteractResponse();

@@ -15,7 +15,5 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector FocalPoint;
-    
-    UFortAITask_RotateToFace();
 };
 

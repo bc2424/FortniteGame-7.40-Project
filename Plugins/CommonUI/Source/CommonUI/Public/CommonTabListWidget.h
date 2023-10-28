@@ -4,6 +4,7 @@
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=ESlateVisibility -FallbackName=ESlateVisibility
 #include "CommonRegisteredTabInfo.h"
 #include "CommonUserWidget.h"
+#include "Engine/DataTable.h"
 #include "Templates/SubclassOf.h"
 #include "CommonTabListWidget.generated.h"
 

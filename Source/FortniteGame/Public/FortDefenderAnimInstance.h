@@ -10,7 +10,7 @@ class UFortDefenderAnimInstance : public UFortAIAnimInstance {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> Gender;
+    EFortCustomGender Gender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bShouldWalkRightFootForward: 1;

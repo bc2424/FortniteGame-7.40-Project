@@ -33,7 +33,7 @@ void AFortAIPawn::SetSkinColor(FLinearColor NewSkinColor, float NewSkinBrightnes
 void AFortAIPawn::SetShouldStartSleeping(bool bHintStartSleeping) {
 }
 
-void AFortAIPawn::SetMovementUrgency(TEnumAsByte<EFortMovementUrgency::Type> Urgency) {
+void AFortAIPawn::SetMovementUrgency(EFortMovementUrgency Urgency) {
 }
 
 void AFortAIPawn::SetMinSignificanceForAnimationCurves(float MinSignificance) {
@@ -194,11 +194,11 @@ int32 AFortAIPawn::GetScoreValue() const {
     return 0;
 }
 
-TEnumAsByte<EFortMovementUrgency::Type> AFortAIPawn::GetMovementUrgency(AFortAIPawn* FortAIPawn) {
+EFortMovementUrgency AFortAIPawn::GetMovementUrgency(AFortAIPawn* FortAIPawn) {
     return EFortMovementUrgency::None;
 }
 
-TEnumAsByte<EFortMovementStyle::Type> AFortAIPawn::GetMovementStyle(const AFortAIPawn* FortAIPawn) {
+EFortMovementStyle AFortAIPawn::GetMovementStyle(const AFortAIPawn* FortAIPawn) {
     return EFortMovementStyle::Running;
 }
 
@@ -210,7 +210,7 @@ USoundBase* AFortAIPawn::GetImpactPhysicalSurfaceSound(const FHitResult& Impact)
     return NULL;
 }
 
-float AFortAIPawn::GetGroundSpeedForUrgency(AFortAIPawn* FortAIPawn, TEnumAsByte<EFortMovementUrgency::Type> Urgency) {
+float AFortAIPawn::GetGroundSpeedForUrgency(AFortAIPawn* FortAIPawn, EFortMovementUrgency Urgency) {
     return 0.0f;
 }
 
@@ -230,7 +230,7 @@ AActor* AFortAIPawn::GetCurrentAimTarget() const {
     return NULL;
 }
 
-TEnumAsByte<EFortCustomGender::Type> AFortAIPawn::GetCharacterGender() const {
+EFortCustomGender AFortAIPawn::GetCharacterGender() const {
     return EFortCustomGender::Invalid;
 }
 

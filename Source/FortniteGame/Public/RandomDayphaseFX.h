@@ -18,7 +18,7 @@ public:
     TArray<UParticleSystem*> AltParticleSystems;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<TEnumAsByte<EFortDayPhase::Type>> RequiredDayphases;
+    TArray<EFortDayPhase> RequiredDayphases;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ChanceToSpawnFX;

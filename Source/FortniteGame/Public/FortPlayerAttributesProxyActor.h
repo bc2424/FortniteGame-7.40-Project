@@ -8,7 +8,7 @@
 class UFortAbilitySystemComponent;
 
 UCLASS(Blueprintable)
-class FORTNITEGAME_API AFortPlayerAttributesProxyActor : public AActor, public IAbilitySystemInterface {
+class FORTNITEGAME_API AFortPlayerAttributesProxyActor : public AActor/*, public IAbilitySystemInterface */{
     GENERATED_BODY()
 public:
 private:

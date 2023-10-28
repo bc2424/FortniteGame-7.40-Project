@@ -6,7 +6,7 @@
 #include "FortRegenHealthSet.generated.h"
 
 UCLASS(Blueprintable, MinimalAPI)
-class UFortRegenHealthSet : public UFortHealthSet, public ITickableAttributeSetInterface {
+class UFortRegenHealthSet : public UFortHealthSet/*, public ITickableAttributeSetInterface*/ {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))

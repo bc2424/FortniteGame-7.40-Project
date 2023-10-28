@@ -1,5 +1,5 @@
 #include "FortMcpProfileCreative.h"
-
+/*
 void UFortMcpProfileCreative::UpdatePlotPublishInfo_Implementation(const FString& PlotItemId, const FString& LinkCode, int32 LinkVersion, FDedicatedServerUrlContext& Context) {
 }
 
@@ -20,7 +20,7 @@ void UFortMcpProfileCreative::DeleteIsland_Implementation(const FString& PlotIte
 
 void UFortMcpProfileCreative::CreateNewIsland_Implementation(const FString& TemplateId, FDedicatedServerUrlContext& Context) {
 }
-
+*/
 UFortMcpProfileCreative::UFortMcpProfileCreative() {
     this->bEnablePublishing = true;
 }

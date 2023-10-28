@@ -6,7 +6,7 @@
 #include "FortPlayerAttrSet.generated.h"
 
 UCLASS(Blueprintable, MinimalAPI)
-class UFortPlayerAttrSet : public UFortAttributeSet, public ITickableAttributeSetInterface {
+class UFortPlayerAttrSet : public UFortAttributeSet/*, public ITickableAttributeSetInterface*/ {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Stamina, meta=(AllowPrivateAccess=true))

@@ -30,7 +30,7 @@ class UFortAwardItemDefinition;
 class UFortHeroType;
 
 UCLASS(Blueprintable)
-class FORTNITEGAME_API AFortPlayerState : public APlayerState, public IFortTeamActorInterface, public IAbilitySystemInterface, public IVisualLoggerDebugSnapshotInterface {
+class FORTNITEGAME_API AFortPlayerState : public APlayerState, public IFortTeamActorInterface/*, public IAbilitySystemInterface*/, public IVisualLoggerDebugSnapshotInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
@@ -98,10 +98,10 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CharacterGender, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> CharacterGender;
+   EFortCustomGender CharacterGender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CharacterBodyType, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomBodyType::Type> CharacterBodyType;
+    EFortCustomBodyType CharacterBodyType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CharacterParts, meta=(AllowPrivateAccess=true))
     FCustomCharacterParts CharacterParts;
@@ -110,10 +110,10 @@ protected:
     UCustomColorSwatch* CharacterColorSwatches[2];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> LocalCharacterGender;
+    EFortCustomGender LocalCharacterGender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomBodyType::Type> LocalCharacterBodyType;
+    EFortCustomBodyType LocalCharacterBodyType;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UCustomCharacterPart* LocalCharacterParts[6];

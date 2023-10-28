@@ -9,7 +9,7 @@ class UFortResourceItemDefinition : public UFortWorldItemDefinition {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> ResourceType;
+    EFortResourceType ResourceType;
     
     UFortResourceItemDefinition();
 };

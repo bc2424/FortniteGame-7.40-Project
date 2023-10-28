@@ -57,10 +57,10 @@ public:
     FName PickRandomSectionByName() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UAnimMontage* GetAnimationHardReference(TEnumAsByte<EFortCustomBodyType::Type> BodyType, TEnumAsByte<EFortCustomGender::Type> Gender) const;
+    UAnimMontage* GetAnimationHardReference(EFortCustomBodyType BodyType, EFortCustomGender Gender) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TSoftObjectPtr<UAnimMontage> GetAnimation(TEnumAsByte<EFortCustomBodyType::Type> BodyType, TEnumAsByte<EFortCustomGender::Type> Gender) const;
+    TSoftObjectPtr<UAnimMontage> GetAnimation(EFortCustomBodyType BodyType, EFortCustomGender Gender) const;
     
 };
 

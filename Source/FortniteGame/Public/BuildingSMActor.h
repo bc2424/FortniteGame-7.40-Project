@@ -70,7 +70,7 @@ class UTexture;
 class UTexture2D;
 
 UCLASS(Abstract, Blueprintable, MinimalAPI)
-class ABuildingSMActor : public ABuildingActor, public IFortAttachToActorInterface, public IAbilitySystemReplicationProxyInterface {
+class ABuildingSMActor : public ABuildingActor, public IFortAttachToActorInterface/*, public IAbilitySystemReplicationProxyInterface */{
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, SaveGame, ReplicatedUsing=OnRep_MetaData, meta=(AllowPrivateAccess=true))
@@ -86,7 +86,7 @@ public:
     int32 AltMeshIdx;
     
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, SaveGame, ReplicatedUsing=OnRep_ResourceType, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> ResourceType;
+    EFortResourceType ResourceType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bForceReplicateSubObjects: 1;
@@ -559,7 +559,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnRep_ResourceType(TEnumAsByte<EFortResourceType::Type> OldType);
+    void OnRep_ResourceType(EFortResourceType OldType);
     
 public:
     UFUNCTION(BlueprintCallable)

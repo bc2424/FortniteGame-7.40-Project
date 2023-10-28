@@ -30,10 +30,10 @@ void UFortBlueprintAnalytics::FireEvent_ItemThrownBP(const UObject* SourceBp, co
 void UFortBlueprintAnalytics::FireEvent_GrapplingHookAttachEvent(const UObject* SourceBp, const bool bAttached, const bool bFromVehicle) {
 }
 
-void UFortBlueprintAnalytics::FireEvent_BuildLimitProgressIncremented(const UObject* SourceBp, AFortPlayerController* FortPC, AFortMission* Mission, TEnumAsByte<EFortBuildingType::Type> BuildingType, int32 BuildLimitProgress, int32 BuildLimit) {
+void UFortBlueprintAnalytics::FireEvent_BuildLimitProgressIncremented(const UObject* SourceBp, AFortPlayerController* FortPC, AFortMission* Mission, EFortBuildingType BuildingType, int32 BuildLimitProgress, int32 BuildLimit) {
 }
 
-void UFortBlueprintAnalytics::FireEvent_BuildLimitProgressDecremented(const UObject* SourceBp, AController* Destroyer, AFortMission* Mission, TEnumAsByte<EFortBuildingType::Type> BuildingType, int32 BuildLimitProgress, int32 BuildLimit) {
+void UFortBlueprintAnalytics::FireEvent_BuildLimitProgressDecremented(const UObject* SourceBp, AController* Destroyer, AFortMission* Mission, EFortBuildingType BuildingType, int32 BuildLimitProgress, int32 BuildLimit) {
 }
 
 void UFortBlueprintAnalytics::FireAnalyticsEvent_BlueprintArray(const UObject* SourceBp, const FString& EventName, const TArray<FFortAnalyticsEventAttribute>& Attributes) {

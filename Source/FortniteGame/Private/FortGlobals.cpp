@@ -151,7 +151,7 @@ int32 UFortGlobals::GetMinTheaterListRefreshDelay() {
     return 0;
 }
 
-int64 UFortGlobals::GetMemoryRequirementForMediaStreamingMB() {
+int32 UFortGlobals::GetMemoryRequirementForMediaStreamingMB() {
     return 0;
 }
 

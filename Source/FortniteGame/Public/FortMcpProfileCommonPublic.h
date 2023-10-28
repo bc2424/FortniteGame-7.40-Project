@@ -9,11 +9,11 @@ class FORTNITEGAME_API UFortMcpProfileCommonPublic : public UFortMcpProfile {
     GENERATED_BODY()
 public:
     UFortMcpProfileCommonPublic();
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+  /*  UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
     void SetHomebaseName(const FString& HomebaseName, UPARAM(NotReplicated) FClientUrlContext& Context);
     
     UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
     void SetHomebaseBanner(const FString& HomebaseBannerIconId, const FString& HomebaseBannerColorId, UPARAM(NotReplicated) FClientUrlContext& Context);
-    
+    */
 };
 

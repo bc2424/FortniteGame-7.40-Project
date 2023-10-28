@@ -22,6 +22,6 @@ protected:
     TSubclassOf<UFortSpectatorCameraComponent> CameraComponentType;
     
 public:
-    AFortArenaCamera();
+  //  AFortArenaCamera();
 };
 

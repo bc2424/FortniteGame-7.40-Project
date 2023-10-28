@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=RichTextBlock -FallbackName=RichTextBlock
 #include "ERichTextInlineIconDisplayMode.h"
+#include "RichTextBlock.h"
 #include "Templates/SubclassOf.h"
 #include "CommonRichTextBlock.generated.h"
 

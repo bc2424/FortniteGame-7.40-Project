@@ -1,6 +1,6 @@
 #include "FortMusicTimeOfDayBank.h"
 
-UFortMusicAsset* UFortMusicTimeOfDayBank::GetAssetFromDayPhase(TEnumAsByte<EFortDayPhase::Type> DayPhase) const {
+UFortMusicAsset* UFortMusicTimeOfDayBank::GetAssetFromDayPhase(EFortDayPhase DayPhase) const {
     return NULL;
 }
 

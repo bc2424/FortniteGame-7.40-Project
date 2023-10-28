@@ -15,7 +15,7 @@ public:
     
     UFortMusicTimeOfDayBank();
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UFortMusicAsset* GetAssetFromDayPhase(TEnumAsByte<EFortDayPhase::Type> DayPhase) const;
+    UFortMusicAsset* GetAssetFromDayPhase(EFortDayPhase DayPhase) const;
     
 };
 

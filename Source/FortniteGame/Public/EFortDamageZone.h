@@ -3,13 +3,13 @@
 #include "EFortDamageZone.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortDamageZone {
-    enum Type {
+enum class EFortDamageZone : uint8
+{
         Light,
         Normal,
         Critical,
         Vulnerability,
         Max,
-    };
-}
+};
+
 

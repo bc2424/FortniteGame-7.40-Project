@@ -1,68 +1,68 @@
 #include "FortGameInstance.h"
 
-bool UFortGameInstance::UninstallFortniteBROnNextBoot_Implementation(bool bRestartApp, bool bPromptForRestart) {
+bool UFortGameInstance::UninstallFortniteBROnNextBoot(bool bRestartApp, bool bPromptForRestart) {
     return false;
 }
 
-bool UFortGameInstance::UninstallAllOptionalContentOnNextBoot_Implementation(bool bRestartApp, bool bPromptForRestart) {
+bool UFortGameInstance::UninstallAllOptionalContentOnNextBoot(bool bRestartApp, bool bPromptForRestart) {
     return false;
 }
 
-void UFortGameInstance::SetUserSetting_Implementation(const FString& Key, const FString& Value, FWebJSResponse Response) {
+void UFortGameInstance::SetUserSetting(const FString& Key, const FString& Value, FWebJSResponse Response) {
 }
 
 void UFortGameInstance::SetOverrideCurrentMusicFFT(float FFT100hz, float FFT2000hz) {
 }
 
-void UFortGameInstance::SetNotificationCallback_Implementation(FWebJSFunction Callback) {
+void UFortGameInstance::SetNotificationCallback(FWebJSFunction Callback) {
 }
 
-void UFortGameInstance::SetMultipleUserSettings_Implementation(const TMap<FString, FString>& Settings, FWebJSResponse Response) {
+void UFortGameInstance::SetMultipleUserSettings(const TMap<FString, FString>& Settings, FWebJSResponse Response) {
 }
 
-void UFortGameInstance::SetHotfixCompleteCallback_Implementation(FWebJSFunction Callback) {
+void UFortGameInstance::SetHotfixCompleteCallback(FWebJSFunction Callback) {
 }
 
-void UFortGameInstance::SetFeatureStatusCallback_Implementation(FWebJSFunction Callback) {
+void UFortGameInstance::SetFeatureStatusCallback(FWebJSFunction Callback) {
 }
 
-void UFortGameInstance::SetErrorSimulationCommands_Implementation(const FString& CommandLine) {
+void UFortGameInstance::SetErrorSimulationCommands(const FString& CommandLine) {
 }
 
-void UFortGameInstance::SetActiveGameFeature_Implementation(EFortGameFeature Feature, FWebJSResponse Response) {
+void UFortGameInstance::SetActiveGameFeature(EFortGameFeature Feature, FWebJSResponse Response) {
 }
 
-void UFortGameInstance::RequestGameFeatureState_Implementation(EFortGameFeature Feature, EFortGameFeatureState State, FWebJSResponse Response) {
+void UFortGameInstance::RequestGameFeatureState(EFortGameFeature Feature, EFortGameFeatureState State, FWebJSResponse Response) {
 }
 
-void UFortGameInstance::RequestBroadcast_Implementation() {
+void UFortGameInstance::RequestBroadcast() {
 }
 
-void UFortGameInstance::PauseContentInstall_Implementation() {
+void UFortGameInstance::PauseContentInstall() {
 }
 
-void UFortGameInstance::OpenUpdateApp_Implementation() {
+void UFortGameInstance::OpenUpdateApp() {
 }
 
 void UFortGameInstance::OnTournamentDataRefreshed() {
 }
 
-void UFortGameInstance::IsContentUpToDate_Implementation(EFortGameFeature Feature, FWebJSResponse Response) {
+void UFortGameInstance::IsContentUpToDate(EFortGameFeature Feature, FWebJSResponse Response) {
 }
 
-void UFortGameInstance::GetUserSetting_Implementation(const FString& Key, FWebJSResponse Response) {
+void UFortGameInstance::GetUserSetting(const FString& Key, FWebJSResponse Response) {
 }
 
-void UFortGameInstance::GetProjectVersion_Implementation(FWebJSResponse Response) {
+void UFortGameInstance::GetProjectVersion(FWebJSResponse Response) {
 }
 
-void UFortGameInstance::GetHotfixHasApplied_Implementation(FWebJSResponse Response) {
+void UFortGameInstance::GetHotfixHasApplied(FWebJSResponse Response) {
 }
 
-void UFortGameInstance::GetDownloadSize_Implementation(EFortGameFeature Feature, FWebJSResponse Response) {
+void UFortGameInstance::GetDownloadSize(EFortGameFeature Feature, FWebJSResponse Response) {
 }
 
-void UFortGameInstance::GetContentState_Implementation(EFortGameFeature Feature, FWebJSResponse Response) {
+void UFortGameInstance::GetContentState(EFortGameFeature Feature, FWebJSResponse Response) {
 }
 
 void UFortGameInstance::ContinueDelayedStartup() {
@@ -71,13 +71,13 @@ void UFortGameInstance::ContinueDelayedStartup() {
 void UFortGameInstance::ClearOverrideCurrentMusicFFT() {
 }
 
-void UFortGameInstance::CheckLatestClient_Implementation(FWebJSResponse Response) {
+void UFortGameInstance::CheckLatestClient(FWebJSResponse Response) {
 }
 
 void UFortGameInstance::ChangeActiveGameFeature(const FString& FeatureString) {
 }
 
-void UFortGameInstance::CancelContentInstall_Implementation() {
+void UFortGameInstance::CancelContentInstall() {
 }
 
 UFortGameInstance::UFortGameInstance() {

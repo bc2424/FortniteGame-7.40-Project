@@ -7,6 +7,6 @@ UCLASS(Blueprintable)
 class UFortTestControllerBase : public UGauntletTestController {
     GENERATED_BODY()
 public:
-    UFortTestControllerBase();
+   // UFortTestControllerBase();
 };
 

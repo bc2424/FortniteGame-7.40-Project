@@ -1,5 +1,5 @@
 #include "FortMcpProfileSubgame.h"
-
+/*
 void UFortMcpProfileSubgame::UpdateQuests_Implementation(const TArray<FFortQuestObjectiveCompletion>& Advance, FDedicatedServerUrlContext& Context) {
 }
 
@@ -29,7 +29,7 @@ void UFortMcpProfileSubgame::ClientQuestLogin_Implementation(FClientUrlContext& 
 
 void UFortMcpProfileSubgame::ClaimQuestReward_Implementation(const FString& QuestId, int32 SelectedRewardIndex, FClientUrlContext& Context) {
 }
-
+*/
 UFortMcpProfileSubgame::UFortMcpProfileSubgame() {
 }
 

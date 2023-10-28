@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "NetReplicationGraphConnection.h"
+#include "MeshReplicationGraphNode_AlwaysRelevant_ForConnection.h"
 #include "FortReplicationGraphConnection.generated.h"
 
 UCLASS(Blueprintable, NonTransient)

@@ -3,8 +3,8 @@
 #include "EFortItemEntryState.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortItemEntryState {
-    enum Type {
+enum class EFortItemEntryState : uint8
+{
         NoneState,
         NewItemCount,
         ShouldShowItemToast,
@@ -19,6 +19,6 @@ namespace EFortItemEntryState {
         CraftAndSlotTarget,
         GenericAttributeValueSet,
         PickupInstigatorHandle,
-    };
-}
+};
+
 

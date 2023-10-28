@@ -8,7 +8,7 @@ struct FCombatEventMultiplier {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCombatEvents::Type> CombatEvent;
+    EFortCombatEvents CombatEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxContribution;

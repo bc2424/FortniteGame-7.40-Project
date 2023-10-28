@@ -22,7 +22,7 @@
 #include "FortPlaylistAthena.generated.h"
 
 class AFortInGameMapManager;
-class UAnimationSharingSetup;
+//class UAnimationSharingSetup;
 class UAthenaAISettings;
 class UDataTable;
 class UFortAthenaExitCraftInfo;
@@ -360,8 +360,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUsesAnimationSharing;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UAnimationSharingSetup> AnimationSharingSetup;
+   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true)) didnt exist in s7
+  //  TSoftObjectPtr<UAnimationSharingSetup> AnimationSharingSetup;
     
 protected:
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

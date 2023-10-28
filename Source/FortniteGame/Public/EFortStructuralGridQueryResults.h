@@ -3,8 +3,8 @@
 #include "EFortStructuralGridQueryResults.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortStructuralGridQueryResults {
-    enum Type {
+enum class EFortStructuralGridQueryResults : uint8
+{
         CanAdd,
         ExistingActor,
         Obstructed,
@@ -16,6 +16,6 @@ namespace EFortStructuralGridQueryResults {
         ResourceTypeNotPermittedByLayoutRequirement,
         BuildingAtRequirementsDisabled,
         BuildingOtherThanRequirementsDisabled,
-    };
-}
+};
+
 

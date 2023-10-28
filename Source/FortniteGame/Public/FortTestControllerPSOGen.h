@@ -7,6 +7,6 @@ UCLASS(Blueprintable)
 class UFortTestControllerPSOGen : public UGauntletTestController {
     GENERATED_BODY()
 public:
-    UFortTestControllerPSOGen();
+  //  UFortTestControllerPSOGen();
 };
 

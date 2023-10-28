@@ -9,10 +9,10 @@ struct FBuildingEditAnalyticEvent {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortBuildingType::Type> BuildingType;
+    EFortBuildingType BuildingType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> ResourceType;
+    EFortResourceType ResourceType;
     
     FORTNITEGAME_API FBuildingEditAnalyticEvent();
 };

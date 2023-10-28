@@ -11,7 +11,7 @@ public:
     float EventValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCombatEvents::Type> Event;
+    EFortCombatEvents Event;
     
     FORTNITEGAME_API FFortCombatManagerEvent();
 };

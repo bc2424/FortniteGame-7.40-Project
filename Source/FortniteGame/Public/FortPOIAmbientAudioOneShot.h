@@ -20,7 +20,7 @@ public:
     FVector2D TriggerDistanceRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<TEnumAsByte<EFortDayPhase::Type>> AllowedDayPhases;
+    TArray<EFortDayPhase> AllowedDayPhases;
     
     FORTNITEGAME_API FFortPOIAmbientAudioOneShot();
 };

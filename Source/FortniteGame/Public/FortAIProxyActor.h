@@ -13,7 +13,7 @@ class UFortHealthSet;
 class UFortMovementSet;
 
 UCLASS(Blueprintable)
-class FORTNITEGAME_API AFortAIProxyActor : public AActor, public IAbilitySystemInterface, public IFortDamageableActorInterface {
+class FORTNITEGAME_API AFortAIProxyActor : public AActor/*, public IAbilitySystemInterface*/, public IFortDamageableActorInterface {
     GENERATED_BODY()
 public:
 protected:

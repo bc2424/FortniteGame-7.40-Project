@@ -14,27 +14,27 @@ private:
     bool bEnablePublishing;
     
 public:
-    UFortMcpProfileCreative();
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+    UFortMcpProfileCreative();/*
+    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null, NetMulticast)
     void UpdatePlotPublishInfo(const FString& PlotItemId, const FString& LinkCode, int32 LinkVersion, UPARAM(NotReplicated) FDedicatedServerUrlContext& Context);
     
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null, NetMulticast)
     void SetLastUsedCreativePlot(const FString& PlotItemId, UPARAM(NotReplicated) FDedicatedServerUrlContext& Context);
     
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null, NetMulticast)
     void SetCreativePlotMetadata(const FString& PlotItemId, const FString& Locale, const FString& Title, const FString& Tagline, const FString& YoutubeVideoId, const FString& Introduction, UPARAM(NotReplicated) FDedicatedServerUrlContext& Context);
     
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null, NetMulticast)
     void RestoreDeletedIsland(const FString& PlotItemId, UPARAM(NotReplicated) FDedicatedServerUrlContext& Context);
     
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null, NetMulticast)
     void ModifyCreativePlotPermissions(const FString& PlotItemId, EFortCreativePlotPermission Permission, const TArray<FString>& AccountIds, UPARAM(NotReplicated) FDedicatedServerUrlContext& Context);
     
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null, NetMulticast)
     void DeleteIsland(const FString& PlotItemId, UPARAM(NotReplicated) FDedicatedServerUrlContext& Context);
     
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null, NetMulticast)
     void CreateNewIsland(const FString& TemplateId, UPARAM(NotReplicated) FDedicatedServerUrlContext& Context);
-    
+  */  
 };
 

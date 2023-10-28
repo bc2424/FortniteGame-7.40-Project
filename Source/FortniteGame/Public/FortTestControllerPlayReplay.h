@@ -7,6 +7,6 @@ UCLASS(Blueprintable)
 class UFortTestControllerPlayReplay : public UGauntletTestController {
     GENERATED_BODY()
 public:
-    UFortTestControllerPlayReplay();
+   // UFortTestControllerPlayReplay();
 };
 

@@ -15,7 +15,7 @@ private:
     FName NameValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortItemEntryState::Type> StateType;
+    EFortItemEntryState StateType;
     
 public:
     FFortItemEntryStateValue();

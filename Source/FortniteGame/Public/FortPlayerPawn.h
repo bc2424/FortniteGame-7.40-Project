@@ -1,17 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
+#include "Particles/ParticleSystem.h"
 #include "Engine/CurveTable.h"
 #include "Engine/EngineTypes.h"
 #include "Components/TimelineComponent.h"
-#include "UObject/NoExportTypes.h"
 #include "AttributeSet.h"
-#include "AttributeSet.h"
-#include "GameplayTagContainer.h"
-#include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
 #include "Styling/SlateBrush.h"
 #include "CarriedObjectAttachmentInfo.h"
@@ -50,6 +44,8 @@
 #include "VehiclePawnState.h"
 #include "VortexParams.h"
 #include "ZiplinePawnState.h"
+#include "Engine/SpringInterpolator.h"
+#include "Particles/ParticleSystem.h"
 #include "ZiplineStateChangedDelegate.h"
 #include "FortPlayerPawn.generated.h"
 
@@ -106,6 +102,7 @@ class USkeletalMeshComponent;
 class USkeletalMeshComponentBudgeted;
 class USoundBase;
 class UTexture;
+class UFXSystemAsset;
 
 UCLASS(Blueprintable, MinimalAPI, Config=Game)
 class AFortPlayerPawn : public AFortPawn, public IFortCarriedObjectHolderInterface, public IFortInteractInterface, public ICustomCharacterPartOwnerInterface, public IFortUICameraFrameTargetInterface {
@@ -261,10 +258,10 @@ private:
     uint8 bCharacterPartsCastIndirectShadows: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> CharacterGender;
+    EFortCustomGender CharacterGender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomBodyType::Type> CharacterBodyType;
+    EFortCustomBodyType CharacterBodyType;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -918,19 +915,19 @@ public:
     void ServerEquipLastWeaponOrGadget(bool bForce);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerCyclePart(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNextPart);
+    void ServerCyclePart(EFortCustomPartType Part, bool bNextPart);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerCycleColorSwatch(TEnumAsByte<EColorSwatchType> SwatchType, bool bNext);
+    void ServerCycleColorSwatch(EColorSwatchType SwatchType, bool bNext);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerCycleAccessoryColorSwatch(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNext);
+    void ServerCycleAccessoryColorSwatch(EFortCustomPartType Part, bool bNext);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerChoosePart(TEnumAsByte<EFortCustomPartType::Type> Part, UCustomCharacterPart* ChosenCharacterPart);
+    void ServerChoosePart(EFortCustomPartType Part, UCustomCharacterPart* ChosenCharacterPart);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerChooseGender(TEnumAsByte<EFortCustomGender::Type> Gender);
+    void ServerChooseGender(EFortCustomGender Gender);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SafeZoneStatusChanged();
@@ -1224,7 +1221,7 @@ public:
     void GetSlopeSlidingAngles(float& LocalPitch, float& LocalRoll) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    USkeletalMeshComponent* GetSkeletalMeshForPartType(TEnumAsByte<EFortCustomPartType::Type> PartType) const;
+    USkeletalMeshComponent* GetSkeletalMeshForPartType(EFortCustomPartType PartType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintPure)
     float GetSimulatedAttributeValue(const FGameplayAttribute& Attribute, const float DefaultValue) const;
@@ -1272,13 +1269,13 @@ public:
     AFortSkyTube* GetCurrentSkyTube() const;
     
     //UFUNCTION(BlueprintCallable)
-    //TSoftObjectPtr<UFXSystemAsset> GetContrailParticleSystemSoftRef();
+   // TSoftObjectPtr<UFXSystemAsset> GetContrailParticleSystemSoftRef();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortCustomGender::Type> GetCharacterGender() const;
+    EFortCustomGender GetCharacterGender() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortCustomBodyType::Type> GetCharacterBodyType() const;
+    EFortCustomBodyType GetCharacterBodyType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBaseAimPitchQuantized() const;

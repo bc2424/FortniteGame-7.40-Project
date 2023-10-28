@@ -3,8 +3,8 @@
 #include "EFortBuildingType.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortBuildingType {
-    enum Type {
+enum class EFortBuildingType : uint8
+{
         Wall,
         Floor,
         Corner,
@@ -18,6 +18,5 @@ namespace EFortBuildingType {
         Trap,
         GenericCenterCellActor,
         None,
-    };
-}
+};
 

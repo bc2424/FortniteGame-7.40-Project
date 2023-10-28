@@ -62,7 +62,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnThresholdChange(TEnumAsByte<EFortCombatThresholds::Type> OldThreshold, TEnumAsByte<EFortCombatThresholds::Type> NewThreshold);
+    void OnThresholdChange(EFortCombatThresholds OldThreshold, EFortCombatThresholds NewThreshold);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerSpawned();
@@ -74,7 +74,7 @@ public:
     void OnMusicBankChanged(UFortMusicManagerBank* NewBank);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation);
+    void OnDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -85,10 +85,10 @@ public:
     UFortMusicManagerBank* GetMusicBank() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetEventHeatPercentTotal(TEnumAsByte<EFortCombatEvents::Type> CombatEvent);
+    float GetEventHeatPercentTotal(EFortCombatEvents CombatEvent);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetEventHeatPercent(TEnumAsByte<EFortCombatEvents::Type> CombatEvent);
+    float GetEventHeatPercent(EFortCombatEvents CombatEvent);
     
     UFUNCTION(BlueprintCallable)
     UFortMusicVoice* ChangePrimaryMusic(UFortMusicAsset* NewMusicAsset, bool bPlayStinger);

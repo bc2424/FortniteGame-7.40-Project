@@ -108,7 +108,7 @@ protected:
     bool bOverrideRotationOnRestartPlayer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortGameplayState::Type> PendingTimerState;
+    EFortGameplayState PendingTimerState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDBNOEnabled;

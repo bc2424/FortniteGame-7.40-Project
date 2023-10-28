@@ -1,9 +1,9 @@
 #include "FortBuildingUpgradedParams.h"
 
-void UFortBuildingUpgradedParams::SetParams(ABuildingActor* _OriginalBuilding, ABuildingActor* _NewBuilding, TEnumAsByte<EFortBuildingType::Type> _BuildingType, AFortPlayerController* _Editor, UFortBuildingUpgradedParams*& ThisParam) {
+void UFortBuildingUpgradedParams::SetParams(ABuildingActor* _OriginalBuilding, ABuildingActor* _NewBuilding, EFortBuildingType _BuildingType, AFortPlayerController* _Editor, UFortBuildingUpgradedParams*& ThisParam) {
 }
 
-void UFortBuildingUpgradedParams::BreakParams(ABuildingActor*& _OriginalBuilding, ABuildingActor*& _NewBuilding, TEnumAsByte<EFortBuildingType::Type>& _BuildingType, AFortPlayerController*& _Editor) {
+void UFortBuildingUpgradedParams::BreakParams(ABuildingActor*& _OriginalBuilding, ABuildingActor*& _NewBuilding, EFortBuildingType& _BuildingType, AFortPlayerController*& _Editor) {
 }
 
 UFortBuildingUpgradedParams::UFortBuildingUpgradedParams() {

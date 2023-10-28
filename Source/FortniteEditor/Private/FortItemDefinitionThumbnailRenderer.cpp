@@ -8,13 +8,16 @@
 #include "AthenaCharacterItemDefinition.h"
 #include "AthenaMusicPackItemDefinition.h"
 #include "AthenaPickaxeItemDefinition.h"
-#include "FortniteGame/Public/Items/FortItemDefinition.h"
+#include "FortniteGame/Public/FortItemDefinition.h"
 #include "BatchedElements.h"
 #include "CanvasTypes.h"
 #include "CanvasItem.h"
+#include "FortWeaponMeleeItemDefinition.h"
+#include "FortHeroType.h"
 #include "Engine/Engine.h"
 #include "ThumbnailRendering/ThumbnailManager.h"
 #include "Engine/Texture2D.h"
+
 
 void UFortItemDefinitionThumbnailRenderer::GetThumbnailSize(UObject* Object, float Zoom, uint32& OutWidth, uint32& OutHeight) const
 {

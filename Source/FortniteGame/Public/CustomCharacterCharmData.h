@@ -10,7 +10,7 @@ class FORTNITEGAME_API UCustomCharacterCharmData : public UCustomCharacterAccess
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomPartType::Type> PartAttachedToOverride;
+    EFortCustomPartType PartAttachedToOverride;
     
 public:
     UCustomCharacterCharmData();

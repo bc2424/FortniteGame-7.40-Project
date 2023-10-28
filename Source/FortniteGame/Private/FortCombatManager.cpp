@@ -5,11 +5,11 @@
 void AFortCombatManager::OnRep_CombatEventHeat() {
 }
 
-float AFortCombatManager::GetEventHeatPercentTotal(TEnumAsByte<EFortCombatEvents::Type> CombatEvent) {
+float AFortCombatManager::GetEventHeatPercentTotal(EFortCombatEvents CombatEvent) {
     return 0.0f;
 }
 
-float AFortCombatManager::GetEventHeatPercent(TEnumAsByte<EFortCombatEvents::Type> CombatEvent) {
+float AFortCombatManager::GetEventHeatPercent(EFortCombatEvents CombatEvent) {
     return 0.0f;
 }
 

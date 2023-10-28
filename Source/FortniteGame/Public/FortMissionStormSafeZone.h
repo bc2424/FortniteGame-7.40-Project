@@ -13,7 +13,7 @@ class UFortGameplayAbility;
 class UStaticMeshComponent;
 
 UCLASS(Blueprintable)
-class AFortMissionStormSafeZone : public AActor, public IAbilitySystemInterface {
+class AFortMissionStormSafeZone : public AActor/*, public IAbilitySystemInterface*/ {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))

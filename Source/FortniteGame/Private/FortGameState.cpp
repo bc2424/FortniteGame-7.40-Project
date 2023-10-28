@@ -68,7 +68,7 @@ float AFortGameState::GetMatchTime() const {
     return 0.0f;
 }
 
-TEnumAsByte<EFortGameplayState::Type> AFortGameState::GetGameplayState() const {
+EFortGameplayState AFortGameState::GetGameplayState() const {
     return EFortGameplayState::NormalGameplay;
 }
 

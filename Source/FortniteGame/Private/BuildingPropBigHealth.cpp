@@ -1,10 +1,10 @@
 #include "BuildingPropBigHealth.h"
 #include "Net/UnrealNetwork.h"
 
-void ABuildingPropBigHealth::SetBigHealthMax(int64 NewHealth) {
+void ABuildingPropBigHealth::SetBigHealthMax(int32 NewHealth) {
 }
 
-void ABuildingPropBigHealth::SetBigHealth(int64 NewHealth) {
+void ABuildingPropBigHealth::SetBigHealth(int32 NewHealth) {
 }
 
 void ABuildingPropBigHealth::OnRep_BigHealth() {
@@ -27,7 +27,7 @@ void ABuildingPropBigHealth::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
 
 ABuildingPropBigHealth::ABuildingPropBigHealth() {
     this->BigHealth = 0;
-    this->BigHealthMax = 50000000000000000;
+    this->BigHealthMax = 20000;
     this->bShowHealthBar = true;
 }
 

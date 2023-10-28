@@ -31,7 +31,7 @@ public:
     int32 WalkVariation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortMovementStyle::Type> MovementStyle;
+    EFortMovementStyle MovementStyle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 BlockGetUp: 1;

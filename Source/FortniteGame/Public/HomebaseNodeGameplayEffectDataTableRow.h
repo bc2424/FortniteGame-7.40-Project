@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
-#include "EGameplayModOp.h"
 #include "AttributeSet.h"
+#include "GameplayEffectTypes.h"
 #include "GameplayTagContainer.h"
 #include "HomebaseNodeGameplayEffectDataTableRow.generated.h"
 

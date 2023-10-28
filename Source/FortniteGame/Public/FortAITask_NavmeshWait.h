@@ -7,6 +7,5 @@ UCLASS(Blueprintable)
 class UFortAITask_NavmeshWait : public UAITask {
     GENERATED_BODY()
 public:
-    UFortAITask_NavmeshWait();
 };
 

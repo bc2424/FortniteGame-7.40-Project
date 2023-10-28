@@ -10,7 +10,7 @@ class FORTNITEGAME_API UFortMcpProfileCollectionBook : public UFortMcpProfile {
 public:
     UFortMcpProfileCollectionBook();
 private:
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+ /*   UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
     void UpgradeSlottedItem(const FString& TargetItemId, UPARAM(NotReplicated) FClientUrlContext& Context);
     
     UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
@@ -19,6 +19,6 @@ private:
 public:
     UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
     void ClaimCollectionBookPageRewards(const FString& PageTemplateId, const FString& SectionId, int32 SelectedRewardIndex, UPARAM(NotReplicated) FClientUrlContext& Context);
-    
+    */
 };
 

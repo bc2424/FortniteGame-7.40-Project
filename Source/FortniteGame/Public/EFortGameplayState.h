@@ -3,14 +3,14 @@
 #include "EFortGameplayState.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortGameplayState {
-    enum Type {
+enum class EFortGameplayState : uint8
+{
         NormalGameplay,
         WaitingToStart,
         EndOfZone,
         EnteringZone,
         LeavingZone,
         Invalid,
-    };
-}
+};
+
 

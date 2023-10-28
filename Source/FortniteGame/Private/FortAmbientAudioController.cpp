@@ -9,7 +9,7 @@ void UFortAmbientAudioController::SetAudioBank(UFortPOIAmbientAudioBank* NewBank
 void UFortAmbientAudioController::OnLocationTagChanged(const FGameplayTag Tag, int32 Num) {
 }
 
-void UFortAmbientAudioController::OnDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation) {
+void UFortAmbientAudioController::OnDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation) {
 }
 
 void UFortAmbientAudioController::InitializePlayerState() {

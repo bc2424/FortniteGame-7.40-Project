@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AnimNodes/AnimNode_RandomPlayer.h"
+#include "AnimNode_RandomPlayer.h"
 #include "GameplayTagContainer.h"
 #include "FortAnimSetRandomAnimation.generated.h"
 

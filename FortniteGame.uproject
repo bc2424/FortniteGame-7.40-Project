@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{6BB0A938-4182-421E-23FD-F894C3FE6614}",
+	"EngineAssociation": "{358072F3-4207-FA13-350C-078BA59AE6DC}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -203,10 +203,7 @@
 		},
 		{
 			"Name": "AppleARKit",
-			"Enabled": true,
-			"SupportedTargetPlatforms": [
-				"IOS"
-			]
+			"Enabled": true
 		},
 		{
 			"Name": "GameplayAbilities",

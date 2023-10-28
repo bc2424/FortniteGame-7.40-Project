@@ -25,7 +25,7 @@ private:
     
 public:
     UFortMcpProfileAthena();
-    UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
+   /* UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
     void SetPartyAssistQuest(const FString& QuestToPinAsPartyAssist, UPARAM(NotReplicated) FClientUrlContext& Context);
     
     UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
@@ -76,6 +76,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, ServiceRequest=null)
     void BulkEquipBattleRoyaleCustomization(const TArray<FFortAthenaLoadoutData>& LoadoutData, UPARAM(NotReplicated) FClientUrlContext& Context);
-    
+    */
 };
 

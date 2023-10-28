@@ -53,10 +53,10 @@ void AFortTimeOfDayManager::SetDirectionalLightColorMultiplier(float NewDirectio
 void AFortTimeOfDayManager::SetDayPhase(const FString& DayPhase) {
 }
 
-void AFortTimeOfDayManager::RemoveLightAndFogPhaseSettingOverrideMulticast_Implementation(TEnumAsByte<EFortDayPhase::Type> DayPhase, float BlendOutLength) {
+void AFortTimeOfDayManager::RemoveLightAndFogPhaseSettingOverrideMulticast_Implementation(EFortDayPhase DayPhase, float BlendOutLength) {
 }
 
-void AFortTimeOfDayManager::RemoveLightAndFogPhaseSettingOverride(TEnumAsByte<EFortDayPhase::Type> DayPhase, float BlendOutLength) {
+void AFortTimeOfDayManager::RemoveLightAndFogPhaseSettingOverride(EFortDayPhase DayPhase, float BlendOutLength) {
 }
 
 
@@ -88,7 +88,7 @@ float AFortTimeOfDayManager::GetStormStrength() const {
     return 0.0f;
 }
 
-TEnumAsByte<EFortDayPhase::Type> AFortTimeOfDayManager::GetPreviousDayPhase() const {
+EFortDayPhase AFortTimeOfDayManager::GetPreviousDayPhase() const {
     return EFortDayPhase::Morning;
 }
 
@@ -110,10 +110,10 @@ void AFortTimeOfDayManager::BreakExponentialHeightFogValues(FExponentialHeightFo
 void AFortTimeOfDayManager::BlendLightAndFogPhaseSettingOverride(float Alpha) {
 }
 
-void AFortTimeOfDayManager::AddLightAndFogPhaseSettingOverrideMulticast_Implementation(TEnumAsByte<EFortDayPhase::Type> DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength) {
+void AFortTimeOfDayManager::AddLightAndFogPhaseSettingOverrideMulticast_Implementation(EFortDayPhase DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength) {
 }
 
-void AFortTimeOfDayManager::AddLightAndFogPhaseSettingOverride(TEnumAsByte<EFortDayPhase::Type> DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength) {
+void AFortTimeOfDayManager::AddLightAndFogPhaseSettingOverride(EFortDayPhase DayPhase, TSubclassOf<UFortDayPhaseInfoOverride> DayPhaseInfoOverride, float BlendInLength) {
 }
 
 void AFortTimeOfDayManager::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -167,10 +167,6 @@ AFortTimeOfDayManager::AFortTimeOfDayManager() {
     this->DayPostProcessComponent = CreateDefaultSubobject<UPostProcessComponent>(TEXT("DayPostProcessComponent"));
     this->EveningPostProcessComponent = CreateDefaultSubobject<UPostProcessComponent>(TEXT("EveningPostProcessComponent"));
     this->NightPostProcessComponent = CreateDefaultSubobject<UPostProcessComponent>(TEXT("NightPostProcessComponent"));
-    this->DayPhasePostProcessComponent[0] = CreateDefaultSubobject<UPostProcessComponent>(TEXT("MorningPostProcessComponent"));
-    this->DayPhasePostProcessComponent[1] = CreateDefaultSubobject<UPostProcessComponent>(TEXT("MorningPostProcessComponent"));
-    this->DayPhasePostProcessComponent[2] = CreateDefaultSubobject<UPostProcessComponent>(TEXT("MorningPostProcessComponent"));
-    this->DayPhasePostProcessComponent[3] = CreateDefaultSubobject<UPostProcessComponent>(TEXT("MorningPostProcessComponent"));
     this->MaterialParameterCollection = NULL;
     this->SunMesh = NULL;
     this->MoonMesh = NULL;

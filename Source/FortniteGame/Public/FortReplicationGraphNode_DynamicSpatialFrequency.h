@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ReplicationGraphNode_DynamicSpatialFrequency.h"
+#include "ReplicationGraph.h"
 #include "FortReplicationGraphNode_DynamicSpatialFrequency.generated.h"
 
 UCLASS(Blueprintable, NonTransient)

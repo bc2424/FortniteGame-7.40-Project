@@ -1,8 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Widget.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=DataTableRowHandle -FallbackName=DataTableRowHandle
 //CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=SlateBrush -FallbackName=SlateBrush
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=Widget -FallbackName=Widget
+#include "Engine/DataTable.h"
 #include "CommonActionWidget.generated.h"
 
 class UMaterialInstanceDynamic;

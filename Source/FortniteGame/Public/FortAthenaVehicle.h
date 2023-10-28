@@ -34,7 +34,7 @@
 #include "MarkedActorDisplayInfo.h"
 #include "OnHandleOutOfHealthDelegate.h"
 #include "OnMountedWeaponFiredDelegate.h"
-#include "OnSurfaceTypeVehicleIsOnChangedDelegate.h"
+//#include "OnSurfaceTypeVehicleIsOnChangedDelegate.h"
 #include "OnVehicleSquadChangedDelegate.h"
 #include "ReplicatedAthenaVehicleAttributes.h"
 #include "SMVehicleGear.h"
@@ -81,7 +81,7 @@ class UTexture;
 class UWeaponHitNotifyAudioBank;
 
 UCLASS(Blueprintable, MinimalAPI, Config=Game)
-class AFortAthenaVehicle : public AFortPhysicsPawn, public IFortInteractInterface, public IFortDamageableActorInterface, public IAbilitySystemInterface, public IGameplayCueInterface, public ILevelSaveSpawnable, public IGameplayTagAssetInterface, public IFortMarkableActorInterface, public IFortVehicleInterface, public IFortAutoFireTargetInterface {
+class AFortAthenaVehicle : public AFortPhysicsPawn, public IFortInteractInterface, public IFortDamageableActorInterface/*, public IAbilitySystemInterface*/, public IGameplayCueInterface, public ILevelSaveSpawnable, public IGameplayTagAssetInterface, public IFortMarkableActorInterface, public IFortVehicleInterface, public IFortAutoFireTargetInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -382,8 +382,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_SurfaceTypeVehicleOn, meta=(AllowPrivateAccess=true))
     TEnumAsByte<EPhysicalSurface> SurfaceTypeVehicleOn;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnSurfaceTypeVehicleIsOnChanged OnSurfaceTypeVehicleIsOnChangedDelegate;
+    //UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    //FOnSurfaceTypeVehicleIsOnChanged OnSurfaceTypeVehicleIsOnChangedDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFortAbilitySet* StartupAbilitySet;
@@ -511,7 +511,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnSurfaceTypeVehicleIsOnChanged(TEnumAsByte<EPhysicalSurface> SurfaceTypeVehicleIsOn);
+    void OnSurfaceTypeVehicleIsOnChanged(EPhysicalSurface SurfaceTypeVehicleIsOn);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -590,7 +590,7 @@ public:
     void OnDamaged(float Damage, const FGameplayTagContainer& DamageTags, const FGameplayEffectContextHandle& EffectContext, AController* EventInstigator, AActor* DamageCauser);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
-    void OnCollisionHitEffects(const FVector& HitLocation, const FVector& HitNormalImpulse, const FVector& HitFrictionImpulse, const FVector& HitNormal, AActor* HitActor, TEnumAsByte<EPhysicalSurface> HitSurfaceType);
+    void OnCollisionHitEffects(const FVector& HitLocation, const FVector& HitNormalImpulse, const FVector& HitFrictionImpulse, const FVector& HitNormal, AActor* HitActor, EPhysicalSurface HitSurfaceType);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnCollisionHitDamageEffects(float DamageTaken);

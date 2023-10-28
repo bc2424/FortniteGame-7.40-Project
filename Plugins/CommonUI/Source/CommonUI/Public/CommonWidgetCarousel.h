@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=PanelWidget -FallbackName=PanelWidget
 #include "OnCurrentPageIndexChangedDelegate.h"
+#include "PanelWidget.h"
 #include "CommonWidgetCarousel.generated.h"
 
 class UWidget;

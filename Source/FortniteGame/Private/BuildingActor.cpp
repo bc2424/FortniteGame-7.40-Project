@@ -88,12 +88,12 @@ void ABuildingActor::OnRep_AbilitySystemComponent() {
 
 
 
-void ABuildingActor::OnDayPhaseChanged_Implementation(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation) {
+void ABuildingActor::OnDayPhaseChanged_Implementation(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation) {
 }
 
 
 
-void ABuildingActor::OnBuildingActorInitialized_Implementation(TEnumAsByte<EFortBuildingInitializationReason::Type> InitializationReason, TEnumAsByte<EFortBuildingPersistentState::Type> BuildingPersistentState) {
+void ABuildingActor::OnBuildingActorInitialized_Implementation(EFortBuildingInitializationReason InitializationReason, EFortBuildingPersistentState BuildingPersistentState) {
 }
 
 bool ABuildingActor::IsPlayerBuilt() const {

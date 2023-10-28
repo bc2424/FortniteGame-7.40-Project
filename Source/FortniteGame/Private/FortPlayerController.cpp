@@ -132,9 +132,9 @@ bool AFortPlayerController::ServerTriggerCombatEventBatch_Validate(const TArray<
     return true;
 }
 
-void AFortPlayerController::ServerTriggerCombatEvent_Implementation(TEnumAsByte<EFortCombatEvents::Type> TriggeredEvent, float HeatMultiplier) {
+void AFortPlayerController::ServerTriggerCombatEvent_Implementation(EFortCombatEvents TriggeredEvent, float HeatMultiplier) {
 }
-bool AFortPlayerController::ServerTriggerCombatEvent_Validate(TEnumAsByte<EFortCombatEvents::Type> TriggeredEvent, float HeatMultiplier) {
+bool AFortPlayerController::ServerTriggerCombatEvent_Validate(EFortCombatEvents TriggeredEvent, float HeatMultiplier) {
     return true;
 }
 
@@ -204,9 +204,9 @@ bool AFortPlayerController::ServerSetShouldUseBotManager_Validate(bool InValue) 
     return true;
 }
 
-void AFortPlayerController::ServerSetReadyToContinue_Implementation(bool bReady, TEnumAsByte<EFortGameplayState::Type> RequestedState, bool bTryStartTimer) {
+void AFortPlayerController::ServerSetReadyToContinue_Implementation(bool bReady, EFortGameplayState RequestedState, bool bTryStartTimer) {
 }
-bool AFortPlayerController::ServerSetReadyToContinue_Validate(bool bReady, TEnumAsByte<EFortGameplayState::Type> RequestedState, bool bTryStartTimer) {
+bool AFortPlayerController::ServerSetReadyToContinue_Validate(bool bReady, EFortGameplayState RequestedState, bool bTryStartTimer) {
     return true;
 }
 
@@ -264,9 +264,9 @@ bool AFortPlayerController::ServerReturnToMainMenu_Validate() {
     return true;
 }
 
-void AFortPlayerController::ServerRequestGameplayAction_Implementation(TEnumAsByte<EFortRequestedGameplayAction::Type> RequestedAction) {
+void AFortPlayerController::ServerRequestGameplayAction_Implementation(EFortRequestedGameplayAction RequestedAction) {
 }
-bool AFortPlayerController::ServerRequestGameplayAction_Validate(TEnumAsByte<EFortRequestedGameplayAction::Type> RequestedAction) {
+bool AFortPlayerController::ServerRequestGameplayAction_Validate(EFortRequestedGameplayAction RequestedAction) {
     return true;
 }
 
@@ -300,9 +300,9 @@ bool AFortPlayerController::ServerRepairBuildingActor_Validate(ABuildingSMActor*
     return true;
 }
 
-void AFortPlayerController::ServerRemoveInventoryStateValue_Implementation(FGuid ItemGuid, TEnumAsByte<EFortItemEntryState::Type> StateValueType) {
+void AFortPlayerController::ServerRemoveInventoryStateValue_Implementation(FGuid ItemGuid, EFortItemEntryState StateValueType) {
 }
-bool AFortPlayerController::ServerRemoveInventoryStateValue_Validate(FGuid ItemGuid, TEnumAsByte<EFortItemEntryState::Type> StateValueType) {
+bool AFortPlayerController::ServerRemoveInventoryStateValue_Validate(FGuid ItemGuid, EFortItemEntryState StateValueType) {
     return true;
 }
 
@@ -342,9 +342,9 @@ bool AFortPlayerController::ServerPingMinimap_Validate(FVector WorldLocation, FL
     return true;
 }
 
-void AFortPlayerController::ServerOnMaterialSelection_Implementation(TEnumAsByte<EFortResourceType::Type> NewResourceType, TEnumAsByte<EFortResourceLevel::Type> NewResourceLevel) {
+void AFortPlayerController::ServerOnMaterialSelection_Implementation(EFortResourceType NewResourceType, EFortResourceLevel NewResourceLevel) {
 }
-bool AFortPlayerController::ServerOnMaterialSelection_Validate(TEnumAsByte<EFortResourceType::Type> NewResourceType, TEnumAsByte<EFortResourceLevel::Type> NewResourceLevel) {
+bool AFortPlayerController::ServerOnMaterialSelection_Validate(EFortResourceType NewResourceType, EFortResourceLevel NewResourceLevel) {
     return true;
 }
 
@@ -954,7 +954,7 @@ bool AFortPlayerController::ClientRequestReadyCheck_Validate(const FText& QueryT
     return true;
 }
 
-void AFortPlayerController::ClientReportDamagedResourceBuilding_Implementation(ABuildingSMActor* BuildingSMActor, TEnumAsByte<EFortResourceType::Type> PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot) {
+void AFortPlayerController::ClientReportDamagedResourceBuilding_Implementation(ABuildingSMActor* BuildingSMActor, EFortResourceType PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot) {
 }
 
 void AFortPlayerController::ClientRegisterWithParty_Implementation() {

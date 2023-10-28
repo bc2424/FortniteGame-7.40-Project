@@ -28,7 +28,7 @@ public:
     TEnumAsByte<EFortTextureDataType::Type> Type;
     
     UPROPERTY(AssetRegistrySearchable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> ResourceType;
+    EFortResourceType ResourceType;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float ResourceCost[4];

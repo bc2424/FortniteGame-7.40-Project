@@ -42,10 +42,10 @@ bool AFortMission::RemoveParticipantAccount(FUniqueNetIdRepl& AbandoningPlayerId
     return false;
 }
 
-void AFortMission::RemoveGoalsFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const TArray<FFortAIGoalInfo>& GoalInfos) {
+void AFortMission::RemoveGoalsFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const TArray<FFortAIGoalInfo>& GoalInfos) {
 }
 
-void AFortMission::RemoveGoalFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const FFortAIGoalInfo& GoalInfo) {
+void AFortMission::RemoveGoalFromEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const FFortAIGoalInfo& GoalInfo) {
 }
 
 void AFortMission::RegisterForContainerSearchedEvent(FOnMissionContainerSearchedEvent Delegate, const FGameplayTagQuery& ContainerRequirements) {
@@ -185,10 +185,10 @@ int32 AFortMission::GetDaysRemainingBeforeOverPar() const {
 float AFortMission::GetCurrentFocusPercentage() const {
     return 0.0f;
 }
-
+/*
 FText AFortMission::GetCurrentFocusDisplayText() const {
     return FText::GetEmpty();
-}
+}*/
 
 int32 AFortMission::GetCurrentBluGloRewards_Implementation() const {
     return 0;
@@ -215,7 +215,7 @@ bool AFortMission::GetActorsSpawnedMatchingQuery(const FGameplayTagQuery& TagQue
 void AFortMission::FocusThisMission(FText FocusDisplayText, float FocusPercentage) {
 }
 
-void AFortMission::FindGoalLocationsForEncounterAssignment(const FFortAIAssignmentIdentifier& AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, TArray<FVector>& OutGoalLocations) {
+void AFortMission::FindGoalLocationsForEncounterAssignment(const FFortAIAssignmentIdentifier& AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, TArray<FVector>& OutGoalLocations) {
 }
 
 UFortAIEncounterSequence* AFortMission::CreateEncounterSequenceByIndex(int32 EncounterSequenceIndex) {
@@ -226,7 +226,7 @@ UFortAIEncounterSequence* AFortMission::CreateEncounterSequence(const FGameplayT
     return NULL;
 }
 
-EAssignmentCreationResult AFortMission::CreateEncounterAssignment(const FGameplayTagContainer& AssignmentTags, const UFortAIEncounterInfo*& Encounter, UFortAIAssignmentSettings* AssignmentSettings, TSubclassOf<UFortAIGoalProvider> GoalProvider, FFortAIAssignmentIdentifier& AssignmentIdentifier) {
+EAssignmentCreationResult AFortMission::CreateEncounterAssignment(const FGameplayTagContainer& AssignmentTags, const UFortAIEncounterInfo* Encounter, UFortAIAssignmentSettings* AssignmentSettings, TSubclassOf<UFortAIGoalProvider> GoalProvider, FFortAIAssignmentIdentifier& AssignmentIdentifier) {
     return EAssignmentCreationResult::AssignmentNotFoundOrCreated;
 }
 
@@ -256,13 +256,13 @@ bool AFortMission::AddParticipantAccount(AFortPlayerController* PlayerController
 void AFortMission::AddOrRemoveTimerTime_Implementation(float TimeToAdd) {
 }
 
-void AFortMission::AddGoalToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const FFortAIGoalInfo& GoalInfo) {
+void AFortMission::AddGoalToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const FFortAIGoalInfo& GoalInfo) {
 }
 
 void AFortMission::AddGoalToAssignment(UFortAIAssignment* Assignment, const FFortAIGoalInfo& GoalInfo) {
 }
 
-void AFortMission::AddGoalsToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo*& Encounter, const TArray<FFortAIGoalInfo>& GoalInfos) {
+void AFortMission::AddGoalsToEncounterAssignment(FFortAIAssignmentIdentifier AssignmentIdentifier, const UFortAIEncounterInfo* Encounter, const TArray<FFortAIGoalInfo>& GoalInfos) {
 }
 
 void AFortMission::AddGoalsToAssignment(UFortAIAssignment* Assignment, const TArray<FFortAIGoalInfo>& GoalInfos) {

@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Slider.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=OnFloatValueChangedEvent__DelegateSignature -FallbackName=OnFloatValueChangedEventDelegate
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=Slider -FallbackName=Slider
 #include "AnalogSlider.generated.h"

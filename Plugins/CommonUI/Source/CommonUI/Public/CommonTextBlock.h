@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=TextBlock -FallbackName=TextBlock
+#include "TextBlock.h"
 #include "Templates/SubclassOf.h"
 #include "CommonTextBlock.generated.h"
 

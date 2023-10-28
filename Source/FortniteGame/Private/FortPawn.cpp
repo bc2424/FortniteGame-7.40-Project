@@ -389,7 +389,7 @@ FVector AFortPawn::GetDefaultTargetingOrigin() const {
     return FVector{};
 }
 
-TEnumAsByte<EFortDamageZone::Type> AFortPawn::GetDamageZone(const FHitResult& InHitResult) const {
+EFortDamageZone AFortPawn::GetDamageZone(const FHitResult& InHitResult) const {
     return EFortDamageZone::Light;
 }
 

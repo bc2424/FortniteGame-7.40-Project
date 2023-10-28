@@ -32,7 +32,7 @@ private:
     TSubclassOf<ABuildingSMActor> RemoteBuildableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_RemoteBuildingMaterial, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> RemoteBuildingMaterial;
+    EFortResourceType RemoteBuildingMaterial;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_RemoteIsFullScreenMapActive, meta=(AllowPrivateAccess=true))
     bool bRemoteIsFullScreenMapActive;
@@ -82,7 +82,7 @@ private:
     void ServerSetPlayerCanDBNORevive(bool bCanDBNORevive);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void ServerSetPlayerBuildingMaterial(TEnumAsByte<EFortResourceType::Type> Material);
+    void ServerSetPlayerBuildingMaterial(EFortResourceType Material);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerSetPlayerBuildableClass(TSubclassOf<ABuildingSMActor> BuildableClass);
@@ -106,7 +106,7 @@ private:
     void OnServerPlayerEditActorChanged(ABuildingSMActor* EditActor);
     
     UFUNCTION(BlueprintCallable)
-    void OnServerPlayerDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, TEnumAsByte<EFortResourceType::Type> PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot);
+    void OnServerPlayerDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, EFortResourceType PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot);
     
     UFUNCTION(BlueprintCallable)
     void OnServerAddMapMarker(FFortWorldMarkerData InMarkerData);
@@ -181,7 +181,7 @@ private:
     void ClientRemotePlayerRemoveMapMarker(FMarkerID MarkerID);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void ClientRemotePlayerDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, TEnumAsByte<EFortResourceType::Type> PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot);
+    void ClientRemotePlayerDamagedResourceBuilding(ABuildingSMActor* BuildingSMActor, EFortResourceType PotentialResourceType, int32 PotentialResourceCount, bool bDestroyed, bool bJustHitWeakspot);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void ClientRemotePlayerAddMapMarker(FFortWorldMarkerData InMarkerData);

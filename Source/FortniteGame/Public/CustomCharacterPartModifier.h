@@ -30,7 +30,7 @@ private:
     uint8 bRegisteredForTargetingOrFirstPersonCamera: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomPartType::Type> PartType;
+    EFortCustomPartType PartType;
     
 public:
     ACustomCharacterPartModifier();
@@ -47,7 +47,7 @@ public:
     void OnEndSkydiving();
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
-    void OnDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation);
+    void OnDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnBeginSkydiving();
@@ -61,7 +61,7 @@ public:
     UMeshComponent* GetSkeletalMeshForAssociatedPlayerPawnPartType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortCustomPartType::Type> GetCharacterPartType() const;
+    EFortCustomPartType GetCharacterPartType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     AFortPlayerPawn* GetAssociatedPlayerPawn() const;

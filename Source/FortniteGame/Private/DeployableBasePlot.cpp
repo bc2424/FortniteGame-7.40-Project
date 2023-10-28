@@ -60,13 +60,13 @@ void ADeployableBasePlot::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 ADeployableBasePlot::ADeployableBasePlot() {
     this->OccupantDeployableBaseRecord = NULL;
-    this->BuildableSpaceComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
+  //  this->BuildableSpaceComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
     this->SavableSpaceComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("SavableSpaceComponent"));
     this->EntirePlotSpaceComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("EntirePlotSpaceComponent"));
     this->SpawnOffsetComponent = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComponent"));
-    this->BuildableAreasArray[0] = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
-    this->BuildableAreasArray[1] = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
-    this->BuildableAreasArray[2] = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
+  //  this->BuildableAreasArray[0] = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
+    //this->BuildableAreasArray[1] = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
+    //this->BuildableAreasArray[2] = CreateDefaultSubobject<UBoxComponent>(TEXT("BuildableSpaceComponent"));
     this->DeployableBaseCore = NULL;
     this->bDirty = false;
     this->bDirtiedSinceLastWriteToBuffer = false;

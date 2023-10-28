@@ -38,7 +38,9 @@ class FORTNITEGAME_API UFortItemDefinition : public UMcpItemDefinitionBase, publ
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFortOnItemDefinitionCountChangedDelegate OnItemCountChanged;
-    
+#if WITH_EDITOR
+    friend class UFortItemDefinitionThumbnailRenderer;
+#endif
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EFortRarity Rarity;

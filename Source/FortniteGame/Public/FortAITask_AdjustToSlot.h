@@ -14,6 +14,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector SlotDirection;
     
-    UFortAITask_AdjustToSlot();
+   // UFortAITask_AdjustToSlot();
 };
 

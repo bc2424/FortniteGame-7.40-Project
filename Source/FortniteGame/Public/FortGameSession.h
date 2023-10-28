@@ -4,6 +4,7 @@
 #include "OnlineBeaconHostObject.h"
 #include "FortDisconnectedPlayerReservation.h"
 #include "FortHostSessionParams.h"
+#include "GameFramework/GameSession.h"
 #include "Templates/SubclassOf.h"
 #include "FortGameSession.generated.h"
 

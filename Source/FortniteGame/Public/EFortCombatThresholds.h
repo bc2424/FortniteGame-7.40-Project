@@ -3,13 +3,12 @@
 #include "EFortCombatThresholds.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortCombatThresholds {
-    enum Type {
+enum class EFortCombatThresholds : uint8
+{
         Low,
         Medium,
         High,
         Extreme,
         Max_None,
-    };
-}
+};
 

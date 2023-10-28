@@ -99,7 +99,7 @@ protected:
     AFortWorldManager* WorldManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_GameplayState, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortGameplayState::Type> GameplayState;
+    EFortGameplayState GameplayState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_MusicManagerSubclass, meta=(AllowPrivateAccess=true))
     TSubclassOf<AFortMusicManager> MusicManagerSubclass;
@@ -242,7 +242,7 @@ public:
     float GetMatchTime() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortGameplayState::Type> GetGameplayState() const;
+    EFortGameplayState GetGameplayState() const;
     
     UFUNCTION(BlueprintCallable, Exec)
     void DemoEndOfDayRecap();

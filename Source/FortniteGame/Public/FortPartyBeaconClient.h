@@ -37,8 +37,8 @@ protected:
     void ServerAbandonExistingReservation(const FString& InSessionId, FUniqueNetIdRepl RequestingPlayer);
     
 public:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ClientReconnectResponse(TEnumAsByte<EPartyReservationResult::Type> ReservationResponse);
+  //  UFUNCTION(BlueprintCallable, Client, Reliable)
+    //void ClientReconnectResponse(EPartyReservationResult ReservationResponse);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientAllowedToProceedFromReservationTimeout();
@@ -46,8 +46,8 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientAllowedToProceedFromReservation();
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ClientAbandonResponse(TEnumAsByte<EPartyReservationResult::Type> ReservationResponse);
+    //UFUNCTION(BlueprintCallable, Client, Reliable)
+   // void ClientAbandonResponse(EPartyReservationResult ReservationResponse);
     
 };
 

@@ -5,6 +5,7 @@
 //CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=Margin -FallbackName=Margin
 //CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=SlateBrush -FallbackName=SlateBrush
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=ContentWidget -FallbackName=ContentWidget
+#include "ContentWidget.h"
 #include "OnLoadGuardStateChangedDynamicDelegate.h"
 #include "Templates/SubclassOf.h"
 #include "CommonLoadGuard.generated.h"

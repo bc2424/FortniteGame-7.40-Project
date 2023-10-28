@@ -1,9 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "Engine/EngineTypes.h"
 #include "Engine/EngineTypes.h"
@@ -536,7 +533,7 @@ public:
     void PlayWeaponFireFX(bool bSecondaryFire);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic)
-    void PlayReloadFX(TEnumAsByte<EFortReloadFXState::Type> ReloadStage);
+    void PlayReloadFX(EFortReloadFXState ReloadStage);
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -606,10 +603,10 @@ protected:
     void OnPlayWeaponFireFX(bool bPersistentFire, bool bSecondaryFire);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
-    void OnPlayReloadFX(TEnumAsByte<EFortReloadFXState::Type> ReloadStage);
+    void OnPlayReloadFX(EFortReloadFXState ReloadStage);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnPlayImpactFX(const FHitResult& HitResult, TEnumAsByte<EPhysicalSurface> ImpactPhysicalSurface, UParticleSystemComponent* SpawnedPSC);
+    void OnPlayImpactFX(const FHitResult& HitResult, EPhysicalSurface ImpactPhysicalSurface, UParticleSystemComponent* SpawnedPSC);
     
 public:
     UFUNCTION(BlueprintCallable)

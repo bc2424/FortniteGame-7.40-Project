@@ -9,12 +9,12 @@ class FORTNITEGAME_API UFortAnimNotify_PlayReloadFX : public UAnimNotify {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortReloadFXState::Type> ReloadStage;
+    EFortReloadFXState ReloadStage;
     
     UFortAnimNotify_PlayReloadFX();
 private:
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
-    void SetReloadStage(TEnumAsByte<EFortReloadFXState::Type> InReloadStage) const;
+    void SetReloadStage(EFortReloadFXState InReloadStage) const;
     
 };
 

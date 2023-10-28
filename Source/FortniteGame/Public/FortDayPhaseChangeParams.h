@@ -15,14 +15,14 @@ public:
     AFortTimeOfDayManager* LightingAndFogManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortDayPhase::Type> NewDayPhase;
+    EFortDayPhase NewDayPhase;
     
     UFortDayPhaseChangeParams();
     UFUNCTION(BlueprintCallable)
-    void SetParams(AFortTimeOfDayManager* _LightingAndFogManager, TEnumAsByte<EFortDayPhase::Type> _NewDayPhase, UFortDayPhaseChangeParams*& ThisParam);
+    void SetParams(AFortTimeOfDayManager* _LightingAndFogManager, EFortDayPhase _NewDayPhase, UFortDayPhaseChangeParams*& ThisParam);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void BreakParams(AFortTimeOfDayManager*& _LightingAndFogManager, TEnumAsByte<EFortDayPhase::Type>& _NewDayPhase);
+    void BreakParams(AFortTimeOfDayManager*& _LightingAndFogManager, EFortDayPhase& _NewDayPhase);
     
 };
 

@@ -42,9 +42,9 @@ bool AFortLobbyBeaconClient::ServerSetConsoleUniqueNetId_Validate(const FUniqueN
     return true;
 }
 
-void AFortLobbyBeaconClient::ServerSetCharacterGender_Implementation(const FUniqueNetIdRepl& InUniqueId, TEnumAsByte<EFortCustomGender::Type> GenderType) {
+void AFortLobbyBeaconClient::ServerSetCharacterGender_Implementation(const FUniqueNetIdRepl& InUniqueId, EFortCustomGender GenderType) {
 }
-bool AFortLobbyBeaconClient::ServerSetCharacterGender_Validate(const FUniqueNetIdRepl& InUniqueId, TEnumAsByte<EFortCustomGender::Type> GenderType) {
+bool AFortLobbyBeaconClient::ServerSetCharacterGender_Validate(const FUniqueNetIdRepl& InUniqueId, EFortCustomGender GenderType) {
     return true;
 }
 

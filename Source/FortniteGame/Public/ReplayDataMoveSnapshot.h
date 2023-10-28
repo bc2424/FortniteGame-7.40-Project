@@ -12,7 +12,7 @@ public:
     FVector_NetQuantize Position;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortMovementStyle::Type> MovementStyle;
+    EFortMovementStyle MovementStyle;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint16 WorldTime;

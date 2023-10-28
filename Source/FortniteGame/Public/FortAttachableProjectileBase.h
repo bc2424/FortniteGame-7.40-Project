@@ -32,8 +32,8 @@ public:
     void OnFinalizeAttachmentSocketLocandRot(FVector InWorldPos, FRotator InWorldRot, FName InSocketName, bool bFoundClosestOnPhysicsAsset, FVector& OutWorldPos, FRotator& OutWorldRot, FName& OutSocketName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnAttachedToEndPlayed(AActor* DamagedActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+  /*  UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnAttachedToEndPlayed(AActor* DamagedActor, TEnumAsByte<EEndPlayReason> EndPlayReason);*/ //cant fix this
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAttachedToDied(AActor* DamagedActor, float Damage, AController* InstigatedBy, AActor* DamageCauser, FVector HitLocation, UPrimitiveComponent* FHitComponent, FName BoneName, FVector Momentum);

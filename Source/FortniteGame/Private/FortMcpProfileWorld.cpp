@@ -1,5 +1,5 @@
 #include "FortMcpProfileWorld.h"
-
+/*
 void UFortMcpProfileWorld::UnlockProfiles_Implementation(const FString& Code, FDedicatedServerUrlContext& Context) {
 }
 
@@ -44,7 +44,7 @@ void UFortMcpProfileWorld::BatchUpdatePlayers_Implementation(const TArray<FFortB
 
 void UFortMcpProfileWorld::AbortDisintegration_Implementation(FDedicatedServerUrlContext& Context) {
 }
-
+*/
 UFortMcpProfileWorld::UFortMcpProfileWorld() {
     this->FortInventory = NULL;
     this->bIsInventoryInitialized = false;

@@ -200,33 +200,33 @@ bool AFortPlayerPawn::ServerEquipLastWeaponOrGadget_Validate(bool bForce) {
     return true;
 }
 
-void AFortPlayerPawn::ServerCyclePart_Implementation(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNextPart) {
+void AFortPlayerPawn::ServerCyclePart_Implementation(EFortCustomPartType Part, bool bNextPart) {
 }
-bool AFortPlayerPawn::ServerCyclePart_Validate(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNextPart) {
+bool AFortPlayerPawn::ServerCyclePart_Validate(EFortCustomPartType Part, bool bNextPart) {
     return true;
 }
 
-void AFortPlayerPawn::ServerCycleColorSwatch_Implementation(TEnumAsByte<EColorSwatchType> SwatchType, bool bNext) {
+void AFortPlayerPawn::ServerCycleColorSwatch_Implementation(EColorSwatchType SwatchType, bool bNext) {
 }
-bool AFortPlayerPawn::ServerCycleColorSwatch_Validate(TEnumAsByte<EColorSwatchType> SwatchType, bool bNext) {
+bool AFortPlayerPawn::ServerCycleColorSwatch_Validate(EColorSwatchType SwatchType, bool bNext) {
     return true;
 }
 
-void AFortPlayerPawn::ServerCycleAccessoryColorSwatch_Implementation(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNext) {
+void AFortPlayerPawn::ServerCycleAccessoryColorSwatch_Implementation(EFortCustomPartType Part, bool bNext) {
 }
-bool AFortPlayerPawn::ServerCycleAccessoryColorSwatch_Validate(TEnumAsByte<EFortCustomPartType::Type> Part, bool bNext) {
+bool AFortPlayerPawn::ServerCycleAccessoryColorSwatch_Validate(EFortCustomPartType Part, bool bNext) {
     return true;
 }
 
-void AFortPlayerPawn::ServerChoosePart_Implementation(TEnumAsByte<EFortCustomPartType::Type> Part, UCustomCharacterPart* ChosenCharacterPart) {
+void AFortPlayerPawn::ServerChoosePart_Implementation(EFortCustomPartType Part, UCustomCharacterPart* ChosenCharacterPart) {
 }
-bool AFortPlayerPawn::ServerChoosePart_Validate(TEnumAsByte<EFortCustomPartType::Type> Part, UCustomCharacterPart* ChosenCharacterPart) {
+bool AFortPlayerPawn::ServerChoosePart_Validate(EFortCustomPartType Part, UCustomCharacterPart* ChosenCharacterPart) {
     return true;
 }
 
-void AFortPlayerPawn::ServerChooseGender_Implementation(TEnumAsByte<EFortCustomGender::Type> Gender) {
+void AFortPlayerPawn::ServerChooseGender_Implementation(EFortCustomGender Gender) {
 }
-bool AFortPlayerPawn::ServerChooseGender_Validate(TEnumAsByte<EFortCustomGender::Type> Gender) {
+bool AFortPlayerPawn::ServerChooseGender_Validate(EFortCustomGender Gender) {
     return true;
 }
 
@@ -513,7 +513,7 @@ FVector AFortPlayerPawn::GetSlopeSlidingNormal() const {
 void AFortPlayerPawn::GetSlopeSlidingAngles(float& LocalPitch, float& LocalRoll) const {
 }
 
-USkeletalMeshComponent* AFortPlayerPawn::GetSkeletalMeshForPartType(TEnumAsByte<EFortCustomPartType::Type> PartType) const {
+USkeletalMeshComponent* AFortPlayerPawn::GetSkeletalMeshForPartType(EFortCustomPartType PartType) const {
     return NULL;
 }
 
@@ -575,16 +575,16 @@ int32 AFortPlayerPawn::GetExtraLives() const {
 AFortSkyTube* AFortPlayerPawn::GetCurrentSkyTube() const {
     return NULL;
 }
-
+/*
 TSoftObjectPtr<UFXSystemAsset> AFortPlayerPawn::GetContrailParticleSystemSoftRef() {
     return NULL;
-}
+}*/
 
-TEnumAsByte<EFortCustomGender::Type> AFortPlayerPawn::GetCharacterGender() const {
+EFortCustomGender AFortPlayerPawn::GetCharacterGender() const {
     return EFortCustomGender::Invalid;
 }
 
-TEnumAsByte<EFortCustomBodyType::Type> AFortPlayerPawn::GetCharacterBodyType() const {
+EFortCustomBodyType AFortPlayerPawn::GetCharacterBodyType() const {
     return EFortCustomBodyType::Small;
 }
 
@@ -786,7 +786,7 @@ AFortPlayerPawn::AFortPlayerPawn() {
     this->bInitializedPostRepPlayerState = false;
     this->bCharacterPartsCastIndirectShadows = true;
     this->CharacterGender = EFortCustomGender::Invalid;
-    this->CharacterBodyType = (EFortCustomBodyType)0;
+   // this->CharacterBodyType = EFortCustomBodyType::Medium;
     this->JumpLastActivatedTime = -1.00f;
     this->CrouchMeshOffset = -55.00f;
     this->OutsideSafeZoneBlendSpeed = 2.00f;

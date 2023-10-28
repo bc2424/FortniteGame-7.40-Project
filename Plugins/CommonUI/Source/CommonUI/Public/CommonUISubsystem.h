@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "GameInstanceSubsystem.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=CommonInput -ObjectName=ECommonGamepadType -FallbackName=ECommonGamepadType
 //CROSS-MODULE INCLUDE V2: -ModuleName=CommonInput -ObjectName=ECommonInputType -FallbackName=ECommonInputType
 //CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=DataTableRowHandle -FallbackName=DataTableRowHandle

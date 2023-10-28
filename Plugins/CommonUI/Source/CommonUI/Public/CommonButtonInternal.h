@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Button.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=Button -FallbackName=Button
 //CROSS-MODULE INCLUDE V2: -ModuleName=UMG -ObjectName=OnButtonClickedEvent__DelegateSignature -FallbackName=OnButtonClickedEventDelegate
 #include "CommonButtonInternal.generated.h"

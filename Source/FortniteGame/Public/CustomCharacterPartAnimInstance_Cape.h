@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "CustomCharacterPartAnimInstance.h"
+#include "ClothingSimulationInteractorNv.h"
 #include "CustomCharacterPartAnimInstance_Cape.generated.h"
 
 class UClothingSimulationInteractorNv;

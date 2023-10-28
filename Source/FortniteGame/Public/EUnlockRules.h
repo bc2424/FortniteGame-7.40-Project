@@ -3,12 +3,11 @@
 #include "EUnlockRules.generated.h"
 
 UENUM(BlueprintType)
-namespace EUnlockRules {
-    enum Type {
+enum class EUnlockRules : uint8
+{
         UR_Reset,
         UR_MaintainState,
         UR_ResetDeactivate,
         UR_MAX UMETA(Hidden),
-    };
-}
+};
 

@@ -8,8 +8,8 @@ class UFortMetaNavArea_Obstacles : public UNavAreaMeta {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 HealthThreshold;
+    int32 HealthThreshold = 200;
     
-    UFortMetaNavArea_Obstacles();
+   // UFortMetaNavArea_Obstacles();
 };
 

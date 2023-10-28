@@ -1,5 +1,5 @@
 #include "FortMcpProfileCommonCore.h"
-
+/*
 void UFortMcpProfileCommonCore::TwitchUpdateBroadcasterRegistration_Implementation(const FString& AccessToken, const FString& ChannelId, FClientUrlContext& Context) {
 }
 
@@ -31,7 +31,7 @@ void UFortMcpProfileCommonCore::ClaimMfaEnabled_Implementation(bool bClaimForStw
 }
 
 void UFortMcpProfileCommonCore::ClaimImportFriendsReward_Implementation(ESocialImportPanelPlatform Network, FClientUrlContext& Context) {
-}
+}*/
 
 UFortMcpProfileCommonCore::UFortMcpProfileCommonCore() {
     this->ListCatalogEntriesUrl = TEXT("/api/storefront/v2/catalog");

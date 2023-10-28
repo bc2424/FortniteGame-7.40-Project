@@ -41,7 +41,7 @@ protected:
     uint8 bActivated: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EContentionRules::Type> ContentionRules;
+    EContentionRules ContentionRules;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TEnumAsByte<EFortTeam::Type>> TeamsBarredFromCapture;
@@ -62,7 +62,7 @@ protected:
     float UnlockInterval;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EUnlockRules::Type> UnlockRules;
+    EUnlockRules UnlockRules;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     int32 NumCapturingPoint;
@@ -77,7 +77,7 @@ protected:
     uint8 TeamOwningPoint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CaptureState, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<ECaptureState::Type> CaptureState;
+    ECaptureState CaptureState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float CapturePercentage;
@@ -119,7 +119,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnCapturePointStateChange(TEnumAsByte<ECaptureState::Type> InState, uint8 InTeam);
+    void OnCapturePointStateChange(ECaptureState InState, uint8 InTeam);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnCapturePointLockStateChange(bool bInLocked);
@@ -128,7 +128,7 @@ public:
     void OnCapturePointActiveStateChange(bool bInActive);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<ECaptureState::Type> GetCaptureState() const;
+    ECaptureState GetCaptureState() const;
     
 };
 

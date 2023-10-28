@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameplayEffectTypes.h"
+#include "Abilities/GameplayAbilityTargetTypes.h"
 #include "GameplayTagContainer.h"
 #include "WaitTargetSelectionDelegateDelegate.generated.h"
 

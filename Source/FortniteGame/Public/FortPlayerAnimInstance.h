@@ -54,13 +54,13 @@ public:
     AFortPlayerPawn* FortPlayerPawn;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomBodyType::Type> BodyType;
+    EFortCustomBodyType BodyType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EFortPlayerAnimBodyType AnimBodyType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortCustomGender::Type> Gender;
+    EFortCustomGender Gender;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FallAnimDuration;

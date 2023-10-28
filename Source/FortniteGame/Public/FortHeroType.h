@@ -19,7 +19,7 @@ class UFortMontageLookupTable;
 class UFrontendAnimInstance;
 
 UCLASS(Blueprintable)
-class FORTNITEGAME_API UFortHeroType : public UFortWorkerType, public IPreviewCollectionInterface {
+class FORTNITEGAME_API UFortHeroType : public UFortWorkerType/*, public IPreviewCollectionInterface*/ {
     GENERATED_BODY()
 public:
 protected:

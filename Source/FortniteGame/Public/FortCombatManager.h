@@ -45,16 +45,16 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnThresholdChange(TEnumAsByte<EFortCombatThresholds::Type> OldThreshold, TEnumAsByte<EFortCombatThresholds::Type> NewThreshold);
+    void OnThresholdChange(EFortCombatThresholds OldThreshold, EFortCombatThresholds NewThreshold);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_CombatEventHeat();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetEventHeatPercentTotal(TEnumAsByte<EFortCombatEvents::Type> CombatEvent);
+    float GetEventHeatPercentTotal(EFortCombatEvents CombatEvent);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetEventHeatPercent(TEnumAsByte<EFortCombatEvents::Type> CombatEvent);
+    float GetEventHeatPercent(EFortCombatEvents CombatEvent);
     
 };
 

@@ -38,7 +38,7 @@ protected:
     FTimeline BlueprintPaperPulseTimeline;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> LastResourceType;
+    EFortResourceType LastResourceType;
     
 public:
     AFortWeap_BuildingTool();

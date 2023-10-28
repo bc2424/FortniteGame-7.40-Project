@@ -50,7 +50,7 @@ void AFortWeapon::Reload() {
 void AFortWeapon::PlayWeaponFireFX(bool bSecondaryFire) {
 }
 
-void AFortWeapon::PlayReloadFX(TEnumAsByte<EFortReloadFXState::Type> ReloadStage) {
+void AFortWeapon::PlayReloadFX(EFortReloadFXState ReloadStage) {
 }
 
 void AFortWeapon::PlayNativeImpactFX(const FHitResult& HitResult, const FGameplayCueParameters& GameplayCueParameters) {

@@ -1,18 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
-//CROSS-MODULE INCLUDE V2: -ModuleName=CommonInput -ObjectName=ECommonInputType -FallbackName=ECommonInputType
-//CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=DataTableRowHandle -FallbackName=DataTableRowHandle
-//CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=ButtonStyle -FallbackName=ButtonStyle
-//CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=EButtonClickMethod -FallbackName=EButtonClickMethod
-//CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=EButtonPressMethod -FallbackName=EButtonPressMethod
-//CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=EButtonTouchMethod -FallbackName=EButtonTouchMethod
-//CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=Margin -FallbackName=Margin
-//CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=SlateBrush -FallbackName=SlateBrush
-//CROSS-MODULE INCLUDE V2: -ModuleName=SlateCore -ObjectName=SlateSound -FallbackName=SlateSound
 #include "CommonButtonClickedDelegate.h"
 #include "CommonSelectedStateChangedDelegate.h"
 #include "CommonUserWidget.h"
 #include "Templates/SubclassOf.h"
+#include "Types/SlateEnums.h"
+#include "Engine/DataTable.h"
+#include "Sound/SlateSound.h"
+#include "Styling/SlateTypes.h"
 #include "CommonButton.generated.h"
 
 class UCommonActionWidget;
@@ -21,7 +16,7 @@ class UCommonButtonStyle;
 class UCommonTextStyle;
 class UMaterialInstanceDynamic;
 
-UCLASS(Abstract, Blueprintable, EditInlineNew)
+UCLASS(Blueprintable)
 class COMMONUI_API UCommonButton : public UCommonUserWidget {
     GENERATED_BODY()
 public:

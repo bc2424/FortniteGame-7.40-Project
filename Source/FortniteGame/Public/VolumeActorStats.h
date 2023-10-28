@@ -8,7 +8,7 @@ struct FVolumeActorStats {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TEnumAsByte<EFortBuildingType::Type>, int32> BuildingTypeCounts;
+    TMap<EFortBuildingType, int32> BuildingTypeCounts;
     
     FORTNITEGAME_API FVolumeActorStats();
 };

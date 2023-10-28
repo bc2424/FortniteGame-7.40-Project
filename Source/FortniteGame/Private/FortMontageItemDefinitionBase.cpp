@@ -11,11 +11,11 @@ FName UFortMontageItemDefinitionBase::PickRandomSectionByName() const {
     return NAME_None;
 }
 
-UAnimMontage* UFortMontageItemDefinitionBase::GetAnimationHardReference(TEnumAsByte<EFortCustomBodyType::Type> BodyType, TEnumAsByte<EFortCustomGender::Type> Gender) const {
+UAnimMontage* UFortMontageItemDefinitionBase::GetAnimationHardReference(EFortCustomBodyType BodyType, EFortCustomGender Gender) const {
     return NULL;
 }
 
-TSoftObjectPtr<UAnimMontage> UFortMontageItemDefinitionBase::GetAnimation(TEnumAsByte<EFortCustomBodyType::Type> BodyType, TEnumAsByte<EFortCustomGender::Type> Gender) const {
+TSoftObjectPtr<UAnimMontage> UFortMontageItemDefinitionBase::GetAnimation(EFortCustomBodyType BodyType, EFortCustomGender Gender) const {
     return NULL;
 }
 

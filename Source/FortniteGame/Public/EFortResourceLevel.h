@@ -3,8 +3,8 @@
 #include "EFortResourceLevel.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortResourceLevel {
-    enum Type {
+enum class EFortResourceLevel : uint8
+{
         First,
         Second,
         Third,
@@ -13,6 +13,5 @@ namespace EFortResourceLevel {
         Sixth,
         NumLevels,
         Invalid,
-    };
-}
+};
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ProceduralFoliageComponent.h"
+#include "Foliage/Public/ProceduralFoliageComponent.h"
 #include "FortProceduralFoliageComponent.generated.h"
 
 UCLASS(Blueprintable, ClassGroup=Custom, Config=Editor, meta=(BlueprintSpawnableComponent))

@@ -16,7 +16,7 @@ public:
     FGuid ActorGuid;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortBuildingPersistentState::Type> ActorState;
+    EFortBuildingPersistentState ActorState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<ABuildingActor> ActorClass;

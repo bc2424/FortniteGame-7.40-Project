@@ -3,8 +3,8 @@
 #include "EFortRequestedGameplayAction.generated.h"
 
 UENUM(BlueprintType)
-namespace EFortRequestedGameplayAction {
-    enum Type {
+enum class EFortRequestedGameplayAction : uint8
+{
         ContinuePlaying,
         StartPlaying,
         StopPlaying,
@@ -13,6 +13,5 @@ namespace EFortRequestedGameplayAction {
         ReturnToMainMenu,
         QuitGame,
         Invalid,
-    };
-}
+};
 

@@ -21,7 +21,6 @@
 #include "GameplayEffectTypes.h"
 #include "GameplayCueInterface.h"
 #include "GameplayEffectTypes.h"
-#include "GameplayCueTag.h"
 #include "GameplayEffectTypes.h"
 #include "GameplayEffect.h"
 #include "GameplayPrediction.h"
@@ -116,7 +115,7 @@ class UTexture;
 class UWeaponHitNotifyAudioBank;
 
 UCLASS(Blueprintable, MinimalAPI)
-class AFortPawn : public ACharacter, public IFortTeamActorInterface, public IGameplayTagAssetInterface, public IFortDamageableActorInterface, public IFortSpottableActorInterface, public IAbilitySystemInterface, public IFortAbilitySystemInterface, public IGameplayCueInterface, public IFortTargetSelectionInterface, public IFortAIEncounterInfoOwnerInterface, public IVisualLoggerDebugSnapshotInterface, public IFortHealthRegenInterface, public IAISightTargetInterface, public IFortAutoFireTargetInterface, public IFortLockOnTargetInterface, public IAbilitySystemReplicationProxyInterface {
+class AFortPawn : public ACharacter, public IFortTeamActorInterface, public IGameplayTagAssetInterface, public IFortDamageableActorInterface, public IFortSpottableActorInterface/*, public IAbilitySystemInterface*/, public IFortAbilitySystemInterface, public IGameplayCueInterface, public IFortTargetSelectionInterface, public IFortAIEncounterInfoOwnerInterface, public IVisualLoggerDebugSnapshotInterface, public IFortHealthRegenInterface, public IAISightTargetInterface, public IFortAutoFireTargetInterface, public IFortLockOnTargetInterface/*, public IAbilitySystemReplicationProxyInterface*/ {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -211,7 +210,7 @@ protected:
     uint8 bWasDBNOOnDeath: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortMovementStyle::Type> CurrentMovementStyle;
+    EFortMovementStyle CurrentMovementStyle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EFortControlRecoveryBehavior ControlRecoveryBehavior;
@@ -812,7 +811,7 @@ public:
     void OnDeathPlayEffects(float Damage, const FGameplayTagContainer& DamageTags, FVector Momentum, const FHitResult& HitInfo, AFortPawn* InstigatedBy, AActor* DamageCauser, FGameplayEffectContextHandle EffectContext);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnDamageZoneStatusChanged(TEnumAsByte<EFortDamageZone::Type> Zone, bool bStatus);
+    void OnDamageZoneStatusChanged(EFortDamageZone Zone, bool bStatus);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
     void OnDamageServer(float Damage, const FGameplayTagContainer& DamageTags, FVector Momentum, const FHitResult& HitInfo, AController* InstigatedBy, AActor* DamageCauser, FGameplayEffectContextHandle EffectContext);
@@ -992,7 +991,7 @@ public:
     FVector GetDefaultTargetingOrigin() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TEnumAsByte<EFortDamageZone::Type> GetDamageZone(const FHitResult& InHitResult) const;
+    EFortDamageZone GetDamageZone(const FHitResult& InHitResult) const;
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)

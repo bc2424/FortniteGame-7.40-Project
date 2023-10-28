@@ -65,7 +65,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnDayPhaseChanged(TEnumAsByte<EFortDayPhase::Type> CurrentDayPhase, TEnumAsByte<EFortDayPhase::Type> PreviousDayPhase, bool bAtCreation);
+    void OnDayPhaseChanged(EFortDayPhase CurrentDayPhase, EFortDayPhase PreviousDayPhase, bool bAtCreation);
     
 public:
     UFUNCTION(BlueprintCallable)

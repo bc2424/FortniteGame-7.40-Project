@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ReplicationGraphNode_ActorList.h"
 #include "FortAlwaysRelevantActorInfo.h"
+#include "MeshReplicationGraphNode_AlwaysRelevant_ForConnection.h"
 #include "FortReplicationGraphNode_BroadcastSpectator.generated.h"
 
 UCLASS(Blueprintable, NonTransient)
