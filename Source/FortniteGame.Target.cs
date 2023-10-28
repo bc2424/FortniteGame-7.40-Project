@@ -12,7 +12,10 @@ public class FortniteGameTarget : TargetRules
 		ExtraModuleNames.AddRange( new string[] { 
 			"FortniteGame", 
 			"FortniteUI",
-            "FortniteEngineLoadingScreen"
+            "FortniteEngineLoadingScreen",
+			"LauncherSocialDefaults",
+			"EasyAntiCheatCommon",
+			"AnalyticsBlueprintLibrary"
         } );
     }
 }
