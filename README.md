@@ -1,6 +1,6 @@
-# FortniteGame-Modding-7.40
+# FortniteGame-Modding-9.10
 
-> This is a Unreal Project for modding a old Version of Fortnite (7.40) which has every c++ class recreated
+> This is a Unreal Project for modding a old Version of Fortnite (9.10) which has every c++ class recreated
 
 ## How To use
 
@@ -12,7 +12,7 @@ To install the correct components for this Project , make sure the Game Developm
 -   **C++ profiling tools**
 -   **Windows 10 SDK** (10.0.18362 or newer)
 -   **Unreal Engine Installer**
-Right click the *FortniteGame.uproject* and Switch Unreal Engine version... to the coressponding unreal version for this Project which can be found [here](https://drive.google.com/file/d/1GXKj8LkcruuzpVOI4X4R6IUClhvzmSHm/view?usp=share_link)
+Right click the *FortniteGame.uproject* and Switch Unreal Engine version... to the coressponding unreal version for this Project which can be found [here](https://drive.google.com/u/1/uc?id=18_WeNsO-NSCEP-WNFmmi2ugSUSfEbsgQ&export=download)
 
 Right click the *FortniteGame.uproject* and Generate Visual Studio Project Files then open the *FortniteGame.sln* and build the Project with Visual Studio
 
