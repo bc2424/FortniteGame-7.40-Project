@@ -6,5 +6,6 @@ TSubclassOf<AFortPlayerPet> UAthenaPetItemDefinition::GetPetPrefabClass() const 
 }
 
 UAthenaPetItemDefinition::UAthenaPetItemDefinition() {
+    ItemType = EFortItemType::AthenaPetCosmetic;
 }
 

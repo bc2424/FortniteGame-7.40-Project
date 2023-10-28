@@ -151,5 +151,6 @@ UFortDecoItemDefinition::UFortDecoItemDefinition() {
     this->bRequiresPermissionToEditWorld = false;
     this->bAutoCreateAttachmentBuilding = false;
     this->MaxPlacementDistance = 512;
+    ItemType = EFortItemType::Deco;
 }
 

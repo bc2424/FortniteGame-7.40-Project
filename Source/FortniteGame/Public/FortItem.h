@@ -17,6 +17,7 @@
 #include "FortAlterationSlotStatus.h"
 #include "FortMultiSizeBrush.h"
 #include "FortOnItemChangedDelegateDelegate.h"
+#include "TextProperty.h"
 #include "FortOnItemDestroyedDelegateDelegate.h"
 #include "FortItem.generated.h"
 

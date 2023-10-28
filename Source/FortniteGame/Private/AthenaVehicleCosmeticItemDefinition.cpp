@@ -2,5 +2,6 @@
 
 UAthenaVehicleCosmeticItemDefinition::UAthenaVehicleCosmeticItemDefinition() {
     this->DecoType = EFortVehicleDecoType::Unknown;
+    ItemType = EFortItemType::AthenaVehicleCosmetic;
 }
 

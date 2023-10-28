@@ -11,5 +11,6 @@ UAthenaSeasonItemDefinition::UAthenaSeasonItemDefinition() {
     this->SeasonalGlyphChallengeBundle = NULL;
     this->SeasonalGlyphRewards = NULL;
     this->ChallengeSchedulePaid = NULL;
+    ItemType = EFortItemType::AthenaSeason;
 }
 

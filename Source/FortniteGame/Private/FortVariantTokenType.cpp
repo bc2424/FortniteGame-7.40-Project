@@ -18,5 +18,6 @@ UFortVariantTokenType::UFortVariantTokenType() {
     this->bAutoEquipVariant = true;
     this->bMarkItemUnseen = true;
     this->bCreateGiftbox = false;
+    ItemType = EFortItemType::CosmeticVariantToken;
 }
 

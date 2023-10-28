@@ -11,5 +11,10 @@ UAthenaEmojiItemDefinition::UAthenaEmojiItemDefinition() {
     this->LifetimeMidSeconds = 0.00f;
     this->LifetimeOutroSeconds = 0.00f;
     this->GeneratedMaterial = NULL;
+    ItemType = EFortItemType::AthenaDance;
+    bMovingEmote = true;
+    GameplayTags.AddTag(FGameplayTag::RequestGameplayTag(FName("Cosmetics.EmoteType.Emoji")));
+    GameplayTags.RemoveTag(FGameplayTag::RequestGameplayTag(FName("Cosmetics.EmoteType.Dance")));
+    DisplayName = FText::FromString("Emoticon");
 }
 

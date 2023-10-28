@@ -22,5 +22,6 @@ UFortGiftBoxItemDefinition::UFortGiftBoxItemDefinition() {
     this->bReuseExistingBoxIfPossible = false;
     this->RestrictToSubgame = ESubGame::Count;
     this->SortPriority = 0;
+    ItemType = EFortItemType::GiftBox;
 }
 
