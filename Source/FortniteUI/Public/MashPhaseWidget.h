@@ -23,8 +23,8 @@ protected:
 public:
     UMashPhaseWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnPhaseChanged(const TEnumAsByte<EMashPhase::Type> NewPhase, const int32 CurrentObjectiveIndex, const int32 TotalObjectiveArea);
+    //UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    //void OnPhaseChanged(const EMashPhase NewPhase, const int32 CurrentObjectiveIndex, const int32 TotalObjectiveArea);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCountdownUpdate(int32 TimeRemaining);

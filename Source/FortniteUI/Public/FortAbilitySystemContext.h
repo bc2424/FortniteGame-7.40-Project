@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BlueprintContextBase.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
 #include "GameplayTagContainer.h"
 #include "AttributeChangedDelegateDelegate.h"
 #include "FortAbilitySystemContext.generated.h"

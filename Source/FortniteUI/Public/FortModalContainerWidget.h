@@ -9,7 +9,7 @@
 class UFortModalContainerData;
 
 UCLASS(Blueprintable)
-class UFortModalContainerWidget : public UWidget, public INamedSlotInterface {
+class UFortModalContainerWidget : public UWidget/*, public INamedSlotInterface*/ {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

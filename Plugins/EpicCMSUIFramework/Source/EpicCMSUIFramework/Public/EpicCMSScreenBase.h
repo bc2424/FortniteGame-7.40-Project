@@ -1,11 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
-//#include "CommonActivatablePanel.h"
-//#include "EpicCMSScreenBase.generated.h"
+#include "CommonActivatablePanel.h"
+#include "EpicCMSScreenBase.generated.h"
 
 class UDataTable;
 class UUserWidget;
-/*
+
 UCLASS(Abstract, Blueprintable, EditInlineNew)
 class EPICCMSUIFRAMEWORK_API UEpicCMSScreenBase : public UCommonActivatablePanel {
     GENERATED_BODY()
@@ -24,6 +24,6 @@ protected:
     TSoftObjectPtr<UDataTable> LayoutTypeToLayoutClassDataTable;
     
 public:
-    UEpicCMSScreenBase();
-};*/
+   // UEpicCMSScreenBase();
+};
 

@@ -22,6 +22,6 @@ private:
     TArray<FMcpVariantChannelInfo> CurrentItemVariants;
     
 public:
-    UFortVariantEntryBox();
+  //  UFortVariantEntryBox();
 };
 

@@ -3,7 +3,7 @@
 #include "Components/ListViewBase.h"
 #include "SocialChatMessageList.generated.h"
 
-class USocialChatChannel;
+//class USocialChatChannel;
 
 UCLASS(Blueprintable)
 class SOCIALUMG_API USocialChatMessageList : public UListViewBase {
@@ -11,13 +11,13 @@ class SOCIALUMG_API USocialChatMessageList : public UListViewBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsFocusable;
+    bool bIsFocusable = true;
     
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USocialChatChannel* ActiveChannel;
+    //UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+   // USocialChatChannel* ActiveChannel;
     
 public:
-    USocialChatMessageList();
+   // USocialChatMessageList();
 };
 

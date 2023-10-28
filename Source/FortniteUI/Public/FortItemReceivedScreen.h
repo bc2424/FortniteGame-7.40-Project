@@ -7,8 +7,8 @@ UCLASS(Abstract, Blueprintable, EditInlineNew)
 class UFortItemReceivedScreen : public UFortItemReceivedWidgetBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnFinalGiftingComplete OnFinalGiftingComplete;
+    //UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    //FOnFinalGiftingComplete OnFinalGiftingComplete;
     
     UFortItemReceivedScreen();
 };

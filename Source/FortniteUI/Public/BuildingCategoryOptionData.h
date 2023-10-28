@@ -9,7 +9,7 @@ struct FBuildingCategoryOptionData : public FRadialOptionData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortBuildingType::Type> BuildingType;
+    EFortBuildingType BuildingType;
     
     FORTNITEUI_API FBuildingCategoryOptionData();
 };

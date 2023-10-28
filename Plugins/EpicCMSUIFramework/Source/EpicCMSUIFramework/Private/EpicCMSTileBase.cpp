@@ -1,5 +1,5 @@
 #include "EpicCMSTileBase.h"
-/*
+
 void UEpicCMSTileBase::Launch() {
 }
 
@@ -13,5 +13,5 @@ UEpicCMSTileBase::UEpicCMSTileBase() {
     this->TitleTextBlock = NULL;
     this->SubtitleTextBlock = NULL;
     this->EyebrowTextBlock = NULL;
-}*/
+}
 

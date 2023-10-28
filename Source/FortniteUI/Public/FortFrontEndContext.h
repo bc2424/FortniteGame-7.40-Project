@@ -11,7 +11,7 @@
 #include "FortTheaterMapData.h"
 #include "GameDifficultyInfo.h"
 #include "CatalogOffer.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
 #include "EFortFrontEndFeature.h"
@@ -67,6 +67,7 @@ class UFortSocialImportPanel;
 class UFortWorldItem;
 class UFortWorldItemDefinition;
 class UMeshComponent;
+class UFortLocalPlayerSubsystem;
 class UWidget;
 
 UCLASS(Blueprintable)

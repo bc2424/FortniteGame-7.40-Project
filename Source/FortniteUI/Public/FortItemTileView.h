@@ -36,8 +36,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EFortItemCardSize ChildItemWidgetCardSizeOverride;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnInventoryUpdated OnInventoryUpdatedEvent;
+    //UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+  //  FOnInventoryUpdated OnInventoryUpdatedEvent;
     
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))

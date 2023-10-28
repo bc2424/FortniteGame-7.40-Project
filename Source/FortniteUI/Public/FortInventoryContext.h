@@ -15,7 +15,6 @@
 #include "Recipe.h"
 #include "TransmogSacrifice.h"
 #include "GameplayTagContainer.h"
-#include "GameplayTagContainer.h"
 #include "EConversionControlKeyRequest.h"
 #include "EItemDisassembleRestrictionReason.h"
 #include "EItemRecyclingRestrictionReason.h"
@@ -35,6 +34,7 @@
 #include "OnSchematicsLockedChangedDelegate.h"
 #include "OnVaultItemLimitStateChangedDelegate.h"
 #include "QuickbarFocusChangedDelegateDelegate.h"
+#include "TextProperty.h"
 #include "FortInventoryContext.generated.h"
 
 class ABuildingSMActor;
@@ -245,16 +245,16 @@ public:
     UFortPersistentResourceItemDefinition* GetSchematicResourceItemDefinition() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetResourceItemMaxStackSize(TEnumAsByte<EFortResourceType::Type> ResourceType) const;
+    int32 GetResourceItemMaxStackSize(EFortResourceType ResourceType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UFortResourceItemDefinition* GetResourceItemDefinition(TEnumAsByte<EFortResourceType::Type> ResourceType) const;
+    UFortResourceItemDefinition* GetResourceItemDefinition(EFortResourceType ResourceType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UTexture2D* GetResourceIcon(TEnumAsByte<EFortResourceType::Type> ResourceType) const;
+    UTexture2D* GetResourceIcon(EFortResourceType ResourceType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetResourceCount(TEnumAsByte<EFortResourceType::Type> ResourceType) const;
+    int32 GetResourceCount(EFortResourceType ResourceType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FText GetRecyclingWarningText(EItemRecyclingWarning Warning, const bool WereAnyItemsAnimate);

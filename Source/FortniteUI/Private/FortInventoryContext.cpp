@@ -153,19 +153,19 @@ UFortPersistentResourceItemDefinition* UFortInventoryContext::GetSchematicResour
     return NULL;
 }
 
-int32 UFortInventoryContext::GetResourceItemMaxStackSize(TEnumAsByte<EFortResourceType::Type> ResourceType) const {
+int32 UFortInventoryContext::GetResourceItemMaxStackSize(EFortResourceType ResourceType) const {
     return 0;
 }
 
-UFortResourceItemDefinition* UFortInventoryContext::GetResourceItemDefinition(TEnumAsByte<EFortResourceType::Type> ResourceType) const {
+UFortResourceItemDefinition* UFortInventoryContext::GetResourceItemDefinition(EFortResourceType ResourceType) const {
     return NULL;
 }
 
-UTexture2D* UFortInventoryContext::GetResourceIcon(TEnumAsByte<EFortResourceType::Type> ResourceType) const {
+UTexture2D* UFortInventoryContext::GetResourceIcon(EFortResourceType ResourceType) const {
     return NULL;
 }
 
-int32 UFortInventoryContext::GetResourceCount(TEnumAsByte<EFortResourceType::Type> ResourceType) const {
+int32 UFortInventoryContext::GetResourceCount(EFortResourceType ResourceType) const {
     return 0;
 }
 

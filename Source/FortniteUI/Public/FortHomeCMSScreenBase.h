@@ -4,6 +4,7 @@
 #include "FortHomeCMSScreenBase.generated.h"
 
 class UWidgetSwitcher;
+class UEpicCMSScreenBase;
 
 UCLASS(Blueprintable, EditInlineNew)
 class UFortHomeCMSScreenBase : public UEpicCMSScreenBase {

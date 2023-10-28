@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EGameplayModOp.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
+#include "GameplayEffectTypes.h"
 #include "GameplayTagContainer.h"
 #include "FortAttributeModifierAccumulation.generated.h"
 
@@ -15,8 +15,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayAttribute Attribute;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EGameplayModOp::Type> ModifierOp;
+  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+  //  TEnumAsByte<EGameplayModOp> ModifierOp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Magnitude;

@@ -9,9 +9,9 @@ class UAthenaChallengeListViewBase : public UListViewBase {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float EntrySpacing;
+    float EntrySpacing = 8.00f;
     
 public:
-    UAthenaChallengeListViewBase();
+   // UAthenaChallengeListViewBase();
 };
 

@@ -1,15 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
-//#include "CommonButton.h"
+#include "CommonButton.h"
 #include "Blueprint/IUserListEntry.h"
 #include "Templates/SubclassOf.h"
-//#include "EpicCMSTileBase.generated.h"
+#include "EpicCMSTileBase.generated.h"
 
 class UCommonLazyImage;
 class UCommonTextBlock;
 class UCommonTextStyle;
 class UTexture2D;
-/*
+
 UCLASS(Abstract, Blueprintable, EditInlineNew)
 class EPICCMSUIFRAMEWORK_API UEpicCMSTileBase : public UCommonButton, public IUserListEntry {
     GENERATED_BODY()
@@ -57,5 +57,5 @@ protected:
     
     
     // Fix for true pure virtual functions not being implemented
-};*/
+};
 

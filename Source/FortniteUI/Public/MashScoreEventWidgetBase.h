@@ -37,8 +37,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTotalScoreMultiplierUpdated(float TotalScoreMultiplier);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnScoreEvent(int32 ScoreValue, float TotalScoreMultiplier, const FText& ScoreText, TEnumAsByte<EMashScoreEvent::Type> ScoreEventType);
+   // UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+ //   void OnScoreEvent(int32 ScoreValue, float TotalScoreMultiplier, const FText& ScoreText, TEnumAsByte<EMashScoreEvent::Type> ScoreEventType);
     
 protected:
     UFUNCTION(BlueprintCallable)

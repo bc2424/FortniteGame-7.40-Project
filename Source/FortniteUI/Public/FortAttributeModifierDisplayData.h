@@ -1,8 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EGameplayModOp.h"
-#include "GameplayAttribute.h"
-#include "GameplayTagRequirements.h"
+#include "GameplayEffectTypes.h"
 #include "FortAttributeModifierDisplayData.generated.h"
 
 USTRUCT(BlueprintType)

@@ -41,6 +41,10 @@
 		{
 			"Name": "OnlineSubsystemMcp",
 			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
+			"Enabled": true
 		}
 	]
 }

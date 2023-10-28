@@ -5,7 +5,7 @@
 #include "SocialGroupListEntry.generated.h"
 
 class UMenuAnchor;
-class USocialGroupChannel;
+//class USocialGroupChannel;
 class UTextBlock;
 class UWidget;
 
@@ -14,8 +14,8 @@ class SOCIALUMG_API USocialGroupListEntry : public UCommonButton, public IUserOb
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USocialGroupChannel* SocialGroup;
+    //UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+   // USocialGroupChannel* SocialGroup; Didnt exist on s7
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UTextBlock* Text_GroupName;

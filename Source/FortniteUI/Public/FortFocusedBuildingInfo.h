@@ -50,7 +50,7 @@ public:
     int32 UpgradeBonus;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TEnumAsByte<EFortResourceType::Type> BuildingMaterial;
+    EFortResourceType BuildingMaterial;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsHostile;

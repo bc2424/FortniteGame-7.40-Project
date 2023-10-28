@@ -29,14 +29,14 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EItemListViewDisplayType DisplayType;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnInventoryUpdated OnInventoryUpdatedEvent;
+    //UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    //FOnInventoryUpdated OnInventoryUpdatedEvent;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnInventoryUpdated OnLoadItemsBegin;
+    //UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    //FOnInventoryUpdated OnLoadItemsBegin;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnInventoryUpdated OnLoadItemsEnd;
+    //UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    //FOnInventoryUpdated OnLoadItemsEnd;
     
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))

@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
 #include "EFortBuffState.h"
 #include "EFortClampState.h"
 #include "EFortComparisonType.h"

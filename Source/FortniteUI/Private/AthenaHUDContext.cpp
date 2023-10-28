@@ -65,7 +65,7 @@ void UAthenaHUDContext::SetSelectWidgetToMoveMode(bool bSet) {
 void UAthenaHUDContext::SetSelectedInventoryItem(UFortItem* Item) {
 }
 
-void UAthenaHUDContext::SetResourceMaterial(TEnumAsByte<EFortResourceType::Type> NewMaterial) {
+void UAthenaHUDContext::SetResourceMaterial(EFortResourceType NewMaterial) {
 }
 
 void UAthenaHUDContext::SetPTTState(EPTTState NewPushToTalkState) {

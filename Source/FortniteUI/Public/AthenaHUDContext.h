@@ -12,11 +12,11 @@
 #include "EPTTState.h"
 #include "OnUIGameplayCueEventDelegate.h"
 #include "SpecialActorRepData.h"
-#include "EGameplayCueEvent.h"
-#include "GameplayCueParameters.h"
+#include "GameplayEffectTypes.h"
 #include "GameplayTagContainer.h"
 #include "AthenaWinnerInfo.h"
 #include "Templates/SubclassOf.h"
+#include "TextProperty.h"
 #include "AthenaHUDContext.generated.h"
 
 class AFortPawn;
@@ -233,7 +233,7 @@ public:
     void SetSelectedInventoryItem(UFortItem* Item);
     
     UFUNCTION(BlueprintCallable)
-    void SetResourceMaterial(TEnumAsByte<EFortResourceType::Type> NewMaterial);
+    void SetResourceMaterial(EFortResourceType NewMaterial);
     
     UFUNCTION(BlueprintCallable)
     void SetPTTState(EPTTState NewPushToTalkState);

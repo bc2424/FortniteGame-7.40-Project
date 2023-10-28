@@ -1,5 +1,5 @@
 #include "EpicCMSImage.h"
-/*
+
 void UEpicCMSImage::SetMediaURL(const FString& MediaUrl) {
 }
 
@@ -8,4 +8,3 @@ UEpicCMSImage::UEpicCMSImage() {
     this->bDownloadingExternalMedia = false;
 }
 
-*/

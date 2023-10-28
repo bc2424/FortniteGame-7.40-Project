@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EGameplayCueEvent.h"
-#include "GameplayCueParameters.h"
+#include "GameplayEffectTypes.h"
 #include "FortHUDElementWidget.h"
 #include "RadialBacchusButton.generated.h"
 
@@ -20,11 +19,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void StartUpdateCooldown();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void ReceiveRadialProgressEvent_Blueprint(FName EventName, TEnumAsByte<EGameplayCueEvent::Type> EventType, const FGameplayCueParameters& Parameters);
+   // UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+  //  void ReceiveRadialProgressEvent_Blueprint(FName EventName, EGameplayCueEvent EventType, const FGameplayCueParameters& Parameters);
     
-    UFUNCTION(BlueprintCallable)
-    void ReceiveRadialProgressEvent(FName EventName, TEnumAsByte<EGameplayCueEvent::Type> EventType, const FGameplayCueParameters& Parameters);
+  //  UFUNCTION(BlueprintCallable)
+//    void ReceiveRadialProgressEvent(FName EventName, EGameplayCueEvent EventType, const FGameplayCueParameters& Parameters);
     
 };
 

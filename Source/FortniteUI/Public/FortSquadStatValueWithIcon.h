@@ -2,7 +2,8 @@
 #include "CoreMinimal.h"
 #include "CommonUserWidget.h"
 #include "EFortBrushSize.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
+
 #include "FortSquadStatValueWithIcon.generated.h"
 
 class UCommonNumericTextBlock;

@@ -9,8 +9,8 @@ class UFortCapturePointWidget : public UFortUserWidget {
     GENERATED_BODY()
 public:
     UFortCapturePointWidget();
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnCapturePointDataChanged(bool bActivated, bool bLocked, float CapturePercentage, TEnumAsByte<ECaptureState::Type> CaptureState, uint8 ControllingTeam);
+    //UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+  //  void OnCapturePointDataChanged(bool bActivated, bool bLocked, float CapturePercentage, ECaptureState CaptureState, uint8 ControllingTeam);
     
 };
 

@@ -9,8 +9,8 @@ USTRUCT(BlueprintType)
 struct FEpicCMSTileTypeMapping : public FTableRowBase {
     GENERATED_BODY()
 public:
-  //  UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-//    TSoftClassPtr<UEpicCMSTileBase> TileClass;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<UEpicCMSTileBase> TileClass;
     
     EPICCMSUIFRAMEWORK_API FEpicCMSTileTypeMapping();
 };

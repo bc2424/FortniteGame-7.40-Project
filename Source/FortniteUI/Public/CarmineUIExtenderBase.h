@@ -3,6 +3,8 @@
 #include "FortGameUIExtenderAthena.h"
 #include "CarmineUIExtenderBase.generated.h"
 
+class UFortGameUIExtenderAthena;
+
 UCLASS(Abstract, Blueprintable)
 class FORTNITEUI_API UCarmineUIExtenderBase : public UFortGameUIExtenderAthena {
     GENERATED_BODY()

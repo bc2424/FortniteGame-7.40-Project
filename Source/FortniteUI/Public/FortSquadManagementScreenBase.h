@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "HomebaseSquad.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
 #include "FortActivatablePanel.h"
 #include "Templates/SubclassOf.h"
 #include "FortSquadManagementScreenBase.generated.h"

@@ -1,11 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
-//#include "CommonUserWidget.h"
-//#include "EpicCMSSimpleMessage.generated.h"
+#include "CommonUserWidget.h"
+#include "EpicCMSSimpleMessage.generated.h"
 
 class UCommonTextBlock;
 class UEpicCMSImage;
-/*
+
 UCLASS(Abstract, Blueprintable, EditInlineNew)
 class EPICCMSUIFRAMEWORK_API UEpicCMSSimpleMessage : public UCommonUserWidget {
     GENERATED_BODY()
@@ -21,6 +21,6 @@ protected:
     UEpicCMSImage* PrimaryImage;
     
 public:
-    UEpicCMSSimpleMessage();
-};*/
+    //UEpicCMSSimpleMessage();
+};
 

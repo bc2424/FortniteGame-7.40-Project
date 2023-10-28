@@ -15,6 +15,8 @@ public class EpicCMSUIFramework : ModuleRules {
             "Slate",
             "SlateCore",
             "UMG",
+            "CommonUI",
+            "Party"
         });
     }
 }

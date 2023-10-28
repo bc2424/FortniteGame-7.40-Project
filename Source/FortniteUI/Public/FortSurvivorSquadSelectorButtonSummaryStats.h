@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
 #include "FortSurvivorSquadSelectorButtonSummaryStats.generated.h"
 
 USTRUCT(BlueprintType)

@@ -26,6 +26,6 @@ protected:
     USocialInteractionMenu* ActionMenu;
     
 public:
-    USocialGroupTreeView();
+  //  USocialGroupTreeView();
 };
 

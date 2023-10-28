@@ -15,7 +15,7 @@ protected:
     int32 MaximumEntries;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    EDynamicEntryPatternDirection PatternDirection;
+    EDynamicEntryPatternDirection PatternDirection = EDynamicEntryPatternDirection::FirstToLast;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<float> RenderOpacityPattern;
@@ -27,6 +27,6 @@ protected:
     TArray<FVector2D> RenderTransformPivotPattern;
     
 public:
-    UFortDynamicEntryBox();
+  //  UFortDynamicEntryBox();
 };
 

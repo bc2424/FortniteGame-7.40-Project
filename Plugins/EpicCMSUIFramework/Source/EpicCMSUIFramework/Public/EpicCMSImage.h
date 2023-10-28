@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
-//#include "CommonLazyImage.h"
 #include "Styling/SlateBrush.h"
 #include "onLoadingCompletedDelegate.h"
-//#include "EpicCMSImage.generated.h"
+#include "CommonLazyImage.h"
+#include "EpicCMSImage.generated.h"
 
 class UTexture2D;
-/*
+
 UCLASS(Blueprintable)
 class EPICCMSUIFRAMEWORK_API UEpicCMSImage : public UCommonLazyImage {
     GENERATED_BODY()
@@ -29,5 +29,5 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetMediaURL(const FString& MediaUrl);
     
-};*/
+};
 

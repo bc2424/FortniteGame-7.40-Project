@@ -31,7 +31,7 @@ protected:
     void OnBuildModeChanged();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnBuildingMaterialChanged(TEnumAsByte<EFortResourceType::Type> BuildingMaterial);
+    void OnBuildingMaterialChanged(EFortResourceType BuildingMaterial);
     
 };
 

@@ -17,11 +17,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFortPlayerSurveyConditionsContext ConditionsContext;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FNotificationInternalDelegate OnDescriptionChangedDelegate;
+   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+  //  FNotificationInternalDelegate OnDescriptionChangedDelegate;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UFortPlayerSurveyBase::FFortPlayerSurveyItemChangedInternalDelegate OnQuestionChangedDelegate;
+   // UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    //UFortPlayerSurveyBase::FFortPlayerSurveyItemChangedInternalDelegate OnQuestionChangedDelegate;
     
 public:
     UFortPlayerSurveyCMSSurvey();

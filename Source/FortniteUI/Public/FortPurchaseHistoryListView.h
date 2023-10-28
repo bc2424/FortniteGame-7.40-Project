@@ -7,6 +7,6 @@ UCLASS(Blueprintable)
 class UFortPurchaseHistoryListView : public UListViewBase {
     GENERATED_BODY()
 public:
-    UFortPurchaseHistoryListView();
+  //  UFortPurchaseHistoryListView();
 };
 

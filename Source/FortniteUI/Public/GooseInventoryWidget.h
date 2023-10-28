@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ScalableFloat.h"
+#include "AttributeSet.h"
 #include "LTMWidgetBase.h"
 #include "GooseInventoryWidget.generated.h"
 

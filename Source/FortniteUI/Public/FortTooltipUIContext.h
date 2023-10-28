@@ -3,7 +3,7 @@
 #include "BlueprintContextBase.h"
 #include "FortMultiSizeBrush.h"
 #include "FortTagUIData.h"
-#include "GameplayAttribute.h"
+#include "AttributeSet.h"
 #include "GameplayTagContainer.h"
 #include "FortDisplayAttribute.h"
 #include "FortTooltipUIContext.generated.h"
