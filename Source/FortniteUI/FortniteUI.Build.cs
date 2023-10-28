@@ -66,5 +66,12 @@ public class FortniteUI : ModuleRules {
 			"UMG",
 			"WebBrowser",
 		});
+		
+		PrivateDependencyModuleNames.AddRange(new string[]
+		{
+			"Slate", 
+			"SlateCore", 
+			"UMG"
+		});
 	}
 }

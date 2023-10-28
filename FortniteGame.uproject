@@ -49,6 +49,14 @@
 			"Enabled": false
 		},
 		{
+			"Name": "SubtitlesWidgets",
+			"Enabled": true
+		},
+		{
+			"Name": "SocialUMG",
+			"Enabled": true
+		},
+		{
 			"Name": "ActorSequence",
 			"Enabled": false
 		},

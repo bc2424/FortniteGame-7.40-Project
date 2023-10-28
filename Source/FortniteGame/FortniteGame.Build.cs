@@ -58,5 +58,17 @@ public class FortniteGame : ModuleRules {
 			"UMG",
 			"WebBrowser",
 		});
+		
+		PrivateDependencyModuleNames.AddRange(new string[]
+		{
+			"GameplayAbilities", 
+			"GameplayTags", 
+			"GameplayTasks", 
+			"AnimationBudgetAllocator", 
+			"McpProfileSys", 
+			"Slate", 
+			"SlateCore", 
+			"UMG"
+		});
 	}
 }
