@@ -8,6 +8,8 @@
 #include "ThumbnailRendering/ThumbnailManager.h"
 #include "IAssetTools.h"
 #include "AssetToolsModule.h"
+#include "BuildingTextureData.h"
+#include "BuildingTextureDataThumbnailRenderer.h"
 #include "CustomCharacterPart.h"
 #include "Public/CustomCharacterPartThumbnailRenderer.h"
 #include "Modules/ModuleManager.h"
@@ -71,6 +73,9 @@ void FFortniteEditor::StartupModule()
 
 	UThumbnailManager::Get().UnregisterCustomRenderer(UCustomCharacterPart::StaticClass());
 	UThumbnailManager::Get().RegisterCustomRenderer(UCustomCharacterPart::StaticClass(), UCustomCharacterPartThumbnailRenderer::StaticClass());
+
+	UThumbnailManager::Get().UnregisterCustomRenderer(UBuildingTextureData::StaticClass());
+	UThumbnailManager::Get().RegisterCustomRenderer(UBuildingTextureData::StaticClass(), UBuildingTextureDataThumbnailRenderer::StaticClass());
 
 }
 
